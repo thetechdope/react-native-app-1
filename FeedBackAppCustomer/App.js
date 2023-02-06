@@ -4,7 +4,7 @@ import Splash from './src/screens/splash'
 
 const App = () => {
   return (
-    <View>
+    <View style={{flex:1}}>
      <Splash />
     </View>
   )

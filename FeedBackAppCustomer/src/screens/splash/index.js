@@ -13,7 +13,7 @@ export default function Splash() {
         }, 4000);
     },[])
   return (
-    <View>
+    <View style={styles.logostyle}>
      <Image  source={Logopath.LOGO}/>
     </View>
   )

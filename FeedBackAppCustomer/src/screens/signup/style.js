@@ -28,7 +28,6 @@ export default StyleSheet.create({
         justifyContent:'center',
         alignSelf:'center',
         fontWeight:'600', 
-         marginTop:"15%",
          marginBottom:'6%'
     },
      inputstyle:{
@@ -52,6 +51,31 @@ export default StyleSheet.create({
      },
      btnstyle:{
         marginTop:'5%'
+     },
+     pic:{
+        height:100,
+        width:100,
+        backgroundColor:'grey',
+        justifyContent:'center',
+        borderRadius:50,
+        alignItems:'center',
+     alignSelf:"center"
+        
+     }, 
+     selectedimage:{
+        height:100,
+        width:100,
+        borderRadius:50
+     },
+     picicons:{
+        position:'absolute',
+        height:30,
+        width:30,
+        justifyContent:'center',
+        alignSelf:'center',
+        bottom:0,
+        right:0,
+        borderRadius:15
      }
     
 })

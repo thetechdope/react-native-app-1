@@ -35,24 +35,32 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>cameraera uss fo take the picture</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>this is use to record te voice and the video.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library is use to take the image from gallery</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>Zocial.ttf</string>
+		<string>Fontisto.ttf</string>
 		<string>Poppins-Black.ttf</string>
 		<string>Poppins-BlackItalic.ttf</string>
 		<string>Poppins-Bold.ttf</string>
@@ -84,25 +92,19 @@
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
 	</array>
-	<key>UIAppFonts</key>
-<array>
-  <string>AntDesign.ttf</string>
-  <string>Entypo.ttf</string>
-  <string>EvilIcons.ttf</string>
-  <string>Feather.ttf</string>
-  <string>FontAwesome.ttf</string>
-  <string>FontAwesome5_Brands.ttf</string>
-  <string>FontAwesome5_Regular.ttf</string>
-  <string>FontAwesome5_Solid.ttf</string>
-  <string>Foundation.ttf</string>
-  <string>Ionicons.ttf</string>
-  <string>MaterialIcons.ttf</string>
-  <string>MaterialCommunityIcons.ttf</string>
-  <string>SimpleLineIcons.ttf</string>
-  <string>Octicons.ttf</string>
-  <string>Zocial.ttf</string>
-  <string>Fontisto.ttf</string>
-</array>
-
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

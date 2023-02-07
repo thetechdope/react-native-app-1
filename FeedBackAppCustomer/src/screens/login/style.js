@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native"
-import * as Fonts from '../../assets/fonts'
+import { ROBOTO_MEDIUM } from "../../assets/fonts"
+
 
 
 export default StyleSheet.create({
@@ -23,16 +24,17 @@ export default StyleSheet.create({
         marginTop:"18%",
         justifyContent:'center',
         alignSelf:'center',
+        width:'90%'
 
     },
     heading:{
-
         fontSize:20,
         justifyContent:'center',
         alignSelf:'center',
         fontWeight:'600', 
          marginTop:"15%",
-         marginBottom:'6%'
+         marginBottom:'6%',
+         fontFamily:ROBOTO_MEDIUM
     },
      inputstyle:{
         marginTop:"15%"

@@ -11,29 +11,50 @@ export default StyleSheet.create({
    
     container:{
         flex:1,
-        marginTop:"20%",
+        marginTop:"16%",
         borderTopRightRadius:30,
         borderTopLeftRadius:30, 
-        backgroundColor:'white'
+        backgroundColor:'white',
+        
         
 
     },
     loginlogostyle:{
-        marginTop:"10%",
+        marginTop:"18%",
         justifyContent:'center',
         alignSelf:'center',
 
     },
     heading:{
-        // fontFamily:Fonts.ROBOTO_MEDIUM,
+
         fontSize:20,
         justifyContent:'center',
         alignSelf:'center',
-        fontWeight:'bold', 
-         marginTop:"10%"
+        fontWeight:'600', 
+         marginTop:"15%",
+         marginBottom:'6%'
     },
      inputstyle:{
-        marginTop:"6%"
+        marginTop:"15%"
+        
+     },
+     txt:{
+        marginLeft:"6%",
+        opacity:.5
+     },
+     choice:{
+        flexDirection:"row", 
+        justifyContent:'space-between',
+        width:'90%', 
+        alignSelf:'center',
+
+     },
+     choicetxt:{
+        
+        color:'rgb(123,89,233)',
+     },
+     btnstyle:{
+        marginTop:'5%'
      }
     
 })

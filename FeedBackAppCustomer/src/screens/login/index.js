@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Logopath } from '../../assets/images'
 import style from './style'
 import Inputcomponents from '../../components/textinputcomponents'
+import Buttoncomponent from '../../components/butoncomponents'
 const Login = () => {
   const navigation = useNavigation()
   return (
@@ -19,17 +20,36 @@ const Login = () => {
         />
         <Text style={styles.heading}>Login</Text>
         <View style={styles.inputstyle}>
+
           <Inputcomponents
-            label="email"
             placeholder="Email"
+            label="Email"
           />
-          <Inputcomponents />
+          <Inputcomponents
+            placeholder="password"
+            label="Password"
+          />
+         
+          <Buttoncomponent 
+          value="SIGN IN"
+          />
+
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(Routes.Home)}
-        >
-          <Text>Click me</Text>
-        </TouchableOpacity>
+        <View style={styles.choice}>
+          <TouchableOpacity
+
+            onPress={() => navigation.navigate(Routes.Signup)}
+          >
+            
+            <Text style={styles.choicetxt}>Create Account</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(Routes.Forgetpassword)}
+          >
+            <Text style={styles.choicetxt}>Forget Password</Text>
+          </TouchableOpacity>
+        </View>
+
       </View>
     </View>
 

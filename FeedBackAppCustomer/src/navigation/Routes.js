@@ -4,6 +4,8 @@ export const Routes={
     Splash:'Splash',
     Signup:'Signup',
     Login:'Login',
+    Forgetpassword:'Forgetpassword'
+
 
 
 }

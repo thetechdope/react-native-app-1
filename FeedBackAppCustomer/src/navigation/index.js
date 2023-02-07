@@ -30,6 +30,8 @@ export default function StackNavigator() {
     }} >
       <Stack.Screen name={Routes.Splash} component={Screens.Splash} />
       <Stack.Screen name={Routes.Login} component={Screens.Login} />
+      <Stack.Screen name={Routes.Signup} component={Screens.Signup} />
+      <Stack.Screen name={Routes.Forgetpassword} component={Screens.Forgetpassword} />
       <Stack.Screen name={Routes.Home} component={Tabavigators} />
       
      

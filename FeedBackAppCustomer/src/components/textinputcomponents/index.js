@@ -6,9 +6,9 @@ const Inputcomponents = ({ label, value ,placeholder,secureTextEntry,onChangeTex
     return (
 
             <SafeAreaView>
-
+               <View style={styles.container}>
+                <Text style={styles.txt}>{label}</Text>
                 <TextInput
-                    label={label}
                     value={value}
                     placeholder={placeholder}
                     keyboardType={keyboardType}
@@ -17,6 +17,7 @@ const Inputcomponents = ({ label, value ,placeholder,secureTextEntry,onChangeTex
                     style={styles.Inputvalue}
 
                 />
+                </View>
             </SafeAreaView>
 
     )

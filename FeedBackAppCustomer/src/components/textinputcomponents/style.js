@@ -3,18 +3,27 @@ import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     Inputvalue: {
-        justifyContent: 'center',
-        borderWidth: .3,
-        width: "90%",
-        alignItems: 'center',
-        padding:"4%",
-        alignSelf:'center',
-        borderRadius:8, 
-        margin:"2%"
+        paddingLeft: '2%',
+        borderRadius: 8,
 
     },
     txt: {
-        fontSize: 17,
-        paddingLeft:'6%'
-    }
+        fontSize: 14,
+        paddingLeft: '2%',
+        fontWeight:'600' ,
+        margin:4  
+        
+    },
+    container: {
+        width: '90%',
+        alignSelf: 'center',
+        borderRadius: 8,
+        padding: 6, 
+        margin:5,
+        opacity:.7,
+        borderWidth:.3,
+
+
+    },
+   
 })

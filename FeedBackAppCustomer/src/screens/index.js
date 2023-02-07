@@ -2,7 +2,7 @@ export {default as Splash} from './splash'
 export {default as Login} from './login'
 export { default as Signup } from "./signup";
 export {default as Otpverification} from "./otpverification"
-export {default as forgetpassword} from "./forgetpassword"
+export {default as Forgetpassword} from "./forgetpassword"
 export {default as Settings} from "./settings"
 export {default as Editprofile} from "./editprofile"
 export {default as Createnewpassword} from "./createnewpassword"

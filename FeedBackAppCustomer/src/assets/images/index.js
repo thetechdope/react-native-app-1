@@ -1,3 +1,5 @@
 export const Logopath={
-    LOGO:require('./logo/logo.png')
+    LOGO:require('./logo/logo.png'),
+    LOGINLOGO:require('./loginlogo/loginlogo.png')
+
 }

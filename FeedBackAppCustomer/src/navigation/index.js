@@ -10,6 +10,19 @@ import CustomTab from './CustomTab';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+function Settingsstack(){
+  return(
+  <Stack.Navigator
+  screenOptions={{
+     headerShown:false
+    }}
+  >
+    <Stack.Screen name ={Routes.Settings} component={Screens.Settings}/>
+    <Stack.Screen name ={Routes.Editprofile} component={Screens.Editprofile}/>
+  </Stack.Navigator>
+  )
+}
 function Tabavigators() {
     return (
       <Tab.Navigator
@@ -17,6 +30,7 @@ function Tabavigators() {
             screenOptions={{headerShown:false}}
       >
         <Tab.Screen name={Routes.Home} component={Screens.Home} />
+        <Tab.Screen name={Routes.Settings} component={Settingsstack} />
         
       </Tab.Navigator>
     );
@@ -32,6 +46,9 @@ export default function StackNavigator() {
       <Stack.Screen name={Routes.Login} component={Screens.Login} />
       <Stack.Screen name={Routes.Signup} component={Screens.Signup} />
       <Stack.Screen name={Routes.Forgetpassword} component={Screens.Forgetpassword} />
+      <Stack.Screen name={Routes.Otpverification} component={Screens.Otpverification} />
+
+
       <Stack.Screen name={Routes.Home} component={Tabavigators} />
       
      

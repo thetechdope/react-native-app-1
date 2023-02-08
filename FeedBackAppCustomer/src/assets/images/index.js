@@ -5,5 +5,7 @@ export const Logopath={
     ProfileImage:require('./Bitmap/Bitmap.png'),
     ForgetPasswordicon:require('./forgot--pass/forgotpass.png'),
     OTPICON: require('./Illustration_icon/Illustration_icon.png'),
+    Profiledefault:require('./Ellipse/Ellipse@.png')
+
 
 }

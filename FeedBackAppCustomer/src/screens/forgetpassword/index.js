@@ -5,7 +5,10 @@ import CustomHeader from '../../components/customHeader'
 import Inputcomponents from '../../components/textinputcomponents'
 import Buttoncomponent from '../../components/butoncomponents'
 import { Logopath } from '../../assets/images'
+import { useNavigation } from '@react-navigation/native'
+import { Routes } from '../../navigation/Routes'
 const Forgetpassword = () => {
+  const navigation= useNavigation();
   return (
     <CustomHeader>
       <Image style={style.img} source={Logopath.ForgetPasswordicon} />
@@ -16,7 +19,11 @@ const Forgetpassword = () => {
         <Text style={style.txt}>Remember password ?</Text>
         <Text style={style.login}> Login</Text>
       </View>
-      <Buttoncomponent value={'SEND'} />
+      <Buttoncomponent  
+      value={'SEND'}
+       onPress={()=>navigation.navigate(Routes.Otpverification)}
+       
+      />
     </CustomHeader>
   )
 }

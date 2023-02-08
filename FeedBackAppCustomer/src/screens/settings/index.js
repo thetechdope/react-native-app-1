@@ -1,11 +1,18 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { Routes } from '../../navigation/Routes'
 
-const Settings = () => {
+const Settings = ({navigation}) => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Settings</Text>
-    </View>
+      <TouchableOpacity 
+      onPress={()=>navigation.navigate(Routes.Editprofile)}
+      >
+        <Text>Editprofile</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   )
 }
 

@@ -67,6 +67,7 @@ export default StyleSheet.create({
         width:100,
         borderRadius:50
      },
+     
      picicons:{
         position:'absolute',
         height:30,

@@ -34,21 +34,25 @@ const Signup = () => {
         <View style={styles.pic}>
           
           
-        <View > 
-          
-            <Image
-              source={{ uri: selectphoto }}
-              style={styles.selectedimage} />
+          {selectphoto?
+             <Image
+             source={{uri: selectphoto }}
+             style={styles.selectedimage} />:
+             <Image 
+             source={ Logopath.Profiledefault }
+             style={styles.selectedimage}
+           />
+          }
+           
           
           <View style={styles.picicons}>
           <TouchableOpacity
             onPress={() => openGallery()}
             >
-            <Image source={Logopath.CameraImage}/>
+            <Image  source={Logopath.CameraImage}/>
             {/* <FontAwesome name="home" size={30} color="#900" /> */}
             </TouchableOpacity>
           </View>
-        </View>
         </View>
         <Text style={styles.heading}>Signup</Text>
         <View >

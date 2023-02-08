@@ -1,11 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const CustomTab = (props) => {
     // console.log("hello  ==>", props)
 
 
-    
+
     return (
         <View style={{
             flexDirection: 'row',
@@ -20,10 +21,20 @@ const CustomTab = (props) => {
                             height: "100%",
                             width: '33%',
                             alignItems: 'center',
-                            justifyContent:'center'
+                            justifyContent: 'center'
                         }}
-                        onPress={()=>{props.navigation.navigate(item.name)}}
+                        onPress={() => { props.navigation.navigate(item.name) }}
                     >
+                        <FontAwesome name={i === 0 ? "home" : i === 1 ? "rocket" : "home"} size={30} />
+
+                        {/* {i === 0 ?
+                            <FontAwesome name="home" size={30} />
+                            : i === 1 ?
+                            <FontAwesome name="rocket" size={30} />
+                            :
+                            <FontAwesome name="rocket" size={30} />
+                        } */}
+
                         <Text>{item.name}</Text>
                     </TouchableOpacity>
                 })

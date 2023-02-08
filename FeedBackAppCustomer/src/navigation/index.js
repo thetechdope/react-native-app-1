@@ -8,6 +8,7 @@ import CustomTab from './CustomTab';
 
 
 
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ function Tabavigators() {
       tabBar={(props) => <CustomTab {...props} />}
             screenOptions={{headerShown:false}}
       >
-        <Tab.Screen name={Routes.Home} component={Screens.Home} />
+        <Tab.Screen name={Routes.Home} component={Screens.Home}/>
         <Tab.Screen name={Routes.Settings} component={Settingsstack} />
         
       </Tab.Navigator>

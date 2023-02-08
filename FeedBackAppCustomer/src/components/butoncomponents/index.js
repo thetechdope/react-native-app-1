@@ -9,7 +9,7 @@ const Buttoncomponent = ({value}) => {
         <View>
             <TouchableOpacity >
                 <LinearGradient
-                    colors={['rgb(123,89,233)', 'rgb(89,79,233)', 'rgb(123,89,233)']}
+                    colors={['#7E50EE', '#5928E5']}
                     style={styles.btn} >
                     <Text style={styles.txt}>{value}</Text>
                 </LinearGradient>

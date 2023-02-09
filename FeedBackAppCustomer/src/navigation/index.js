@@ -29,8 +29,11 @@ function Tabavigators() {
       <Tab.Navigator
       tabBar={(props) => <CustomTab {...props} />}
             screenOptions={{headerShown:false}}
+
+      
       >
-        <Tab.Screen name={Routes.Home} component={Screens.Home}/>
+        <Tab.Screen name={Routes.Home} component={Screens.Home}
+        />
         <Tab.Screen name={Routes.Feedback} component={Screens.Feedback}/>  
         <Tab.Screen name={Routes.Settings} component={Settingsstack} />
         

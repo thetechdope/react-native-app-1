@@ -12,7 +12,10 @@ export const Logopath={
     Profiledefault:require('./Ellipse/Ellipse@.png'),
     Feedbackicon:require('./feedback/feedback.png'),
     Settingsicon:require('./settingsicon/setting.png'),
-    Homeicon:require('./home/home.png')
+    Homeicon:require('./home/home.png'),
+    Feedbackicons:require('./feedbacki/feedbacki.png'),
+    Homeactive:require('./homeactive/homeactive.png'),
+
 
 
 }

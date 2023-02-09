@@ -32,6 +32,7 @@ const Login = () => {
          
           <Buttoncomponent 
           value="SIGN IN"
+          onPress={()=>navigation.navigate(Routes.Tab)}
           />
 
         </View>

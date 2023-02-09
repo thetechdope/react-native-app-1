@@ -10,13 +10,14 @@ import CustomTab from './CustomTab';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-function Tabavigators() {
+function Tabnavigators() {
     return (
       <Tab.Navigator
       tabBar={(props) => <CustomTab {...props} />}
             screenOptions={{headerShown:false}}
       >
         <Tab.Screen name={Routes.Home} component={Screens.Home} />
+        <Tab.Screen name={Routes.Settings} component={Screens.Settings} />
         
       </Tab.Navigator>
     );
@@ -32,7 +33,7 @@ export default function StackNavigator() {
       <Stack.Screen name={Routes.Login} component={Screens.Login} />
       <Stack.Screen name={Routes.Signup} component={Screens.Signup} />
       <Stack.Screen name={Routes.Forgetpassword} component={Screens.Forgetpassword} />
-      <Stack.Screen name={Routes.Home} component={Tabavigators} />
+      <Stack.Screen name={Routes.Tab} component={Tabnavigators} />
       
      
 

@@ -4,10 +4,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './style'
 import LinearGradient from 'react-native-linear-gradient'
 
-const Buttoncomponent = ({value}) => {
+const Buttoncomponent = ({value,onPress}) => {
     return (
         <View>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={onPress}>
                 <LinearGradient
                     colors={['#7E50EE', '#5928E5']}
                     style={styles.btn} >

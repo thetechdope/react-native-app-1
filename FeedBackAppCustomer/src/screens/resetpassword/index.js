@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import CustomHeader from '../../components/customHeader'
 
 const Resetpassword = () => {
   return (
-    <View>
-      <Text>Resetpassword</Text>
-    </View>
+    <CustomHeader>
+      
+    </CustomHeader>
   )
 }
 

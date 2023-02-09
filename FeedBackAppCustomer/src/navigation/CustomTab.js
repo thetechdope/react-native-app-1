@@ -25,7 +25,7 @@ const CustomTab = (props) => {
                         }}
                         onPress={() => { props.navigation.navigate(item.name) }}
                     >
-                        <FontAwesome name={i === 0 ? "home" : i === 1 ? "rocket" : "home"} size={30} />
+                        <FontAwesome name={i === 0 ? "home" : i === 1 ? "gear" : "home"} size={30} />
 
                         {/* {i === 0 ?
                             <FontAwesome name="home" size={30} />

@@ -77,6 +77,10 @@ export default StyleSheet.create({
         bottom:0,
         right:0,
         borderRadius:15
-     }
+     },
+     inner: {
+      flex: 1,
+      justifyContent: 'space-around',
+    },
     
 })

@@ -9,7 +9,10 @@ export const Logopath={
     Lock:require('./Settings/lock.png'),
     delAcc:require('./Settings/deleteacc.png'),
     logout:require('./Settings/logout.png'),
-    Profiledefault:require('./Ellipse/Ellipse@.png')
+    Profiledefault:require('./Ellipse/Ellipse@.png'),
+    Feedbackicon:require('./feedback/feedback.png'),
+    Settingsicon:require('./settingsicon/setting.png'),
+    Homeicon:require('./home/home.png')
 
 
 }

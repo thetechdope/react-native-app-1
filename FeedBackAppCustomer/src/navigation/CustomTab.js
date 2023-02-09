@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Logopath } from '../assets/images';
 
 const CustomTab = (props) => {
     // console.log("hello  ==>", props)
@@ -25,7 +26,18 @@ const CustomTab = (props) => {
                         }}
                         onPress={() => { props.navigation.navigate(item.name) }}
                     >
-                        <FontAwesome name={i === 0 ? "home" : i === 1 ? "gear" : "home"} size={30} />
+                      {i==0?
+                      <Image 
+                      source={Logopath.Homeicon}
+                      />:i==1?
+                      <Image 
+                      source={Logopath.Feedbackicon}
+                      />:i==2?
+                      <Image 
+                      source={Logopath.Settingsicon}
+                      />:null
+                    }
+                        {/* <FontAwesome name={i === 0 ? "home" : i === 1 ? "" : "home"} size={30} /> */}
 
                         {/* {i === 0 ?
                             <FontAwesome name="home" size={30} />

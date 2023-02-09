@@ -7,7 +7,8 @@ export const Routes={
     Forgetpassword:'Forgetpassword',
     Tab:'Tab',
     Otpverification:'Otpverification',
-    Editprofile:' Editprofile'
+    Editprofile:' Editprofile',
+    Feedback:'Feedback',
 
 
 

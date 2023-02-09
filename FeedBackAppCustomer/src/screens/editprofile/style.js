@@ -19,12 +19,14 @@ export default StyleSheet.create({
         borderRadius: 60,
         alignItems: 'center',
         alignSelf: "center",
-        backgroundColor:'grey'
+        backgroundColor:'grey',
+        marginTop:'10%'
+
 
     },
     selectedimage: {
-        height: 120,
-        width: 120,
+        height: 140,
+        width: 140,
         borderRadius: 60
     },
 
@@ -46,6 +48,6 @@ export default StyleSheet.create({
       alignItems:'center'   
     },
     input:{
-        marginTop:'15%'
+        marginTop:'10%'
     }
 });

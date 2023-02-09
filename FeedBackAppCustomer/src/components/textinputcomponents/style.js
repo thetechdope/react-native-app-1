@@ -20,7 +20,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 8,
         padding: 8, 
-        margin:5,
+        margin:10,
         borderWidth:.2,
         opacity:.6
 

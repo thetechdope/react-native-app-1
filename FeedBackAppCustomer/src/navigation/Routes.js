@@ -5,7 +5,9 @@ export const Routes={
     Signup:'Signup',
     Login:'Login',
     Forgetpassword:'Forgetpassword',
-    Tab:'Tab'
+    Tab:'Tab',
+    Otpverification:'Otpverification',
+    Editprofile:' Editprofile'
 
 
 

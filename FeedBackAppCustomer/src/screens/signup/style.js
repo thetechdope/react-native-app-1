@@ -67,6 +67,7 @@ export default StyleSheet.create({
         width:100,
         borderRadius:50
      },
+     
      picicons:{
         position:'absolute',
         height:30,
@@ -76,6 +77,10 @@ export default StyleSheet.create({
         bottom:0,
         right:0,
         borderRadius:15
-     }
+     },
+     inner: {
+      flex: 1,
+      justifyContent: 'space-around',
+    },
     
 })

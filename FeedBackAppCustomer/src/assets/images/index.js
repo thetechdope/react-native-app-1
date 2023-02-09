@@ -8,5 +8,8 @@ export const Logopath={
     Pen:require('./Settings/pen.png'),
     Lock:require('./Settings/lock.png'),
     delAcc:require('./Settings/deleteacc.png'),
-    logout:require('./Settings/logout.png')
+    logout:require('./Settings/logout.png'),
+    Profiledefault:require('./Ellipse/Ellipse@.png')
+
+
 }

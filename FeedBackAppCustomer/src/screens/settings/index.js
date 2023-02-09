@@ -1,12 +1,13 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image,SafeAreaView ,TouchableOpacity} from 'react-native'
 import React from 'react'
 import CustomHeader from '../../components/customHeader'
 import  Ionicons  from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Logopath } from '../../assets/images'
 import styles from './styles'
+import { Routes } from '../../navigation/Routes'
 
-const Settings = () => {
+const Settings = ({navigation}) => {
   return (
     <CustomHeader>
       <View style={styles.topContainer}>

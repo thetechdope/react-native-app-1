@@ -57,11 +57,12 @@ const Editprofile = () => {
           </View>
         </View>
 
-        <View >
+        <View style={styles.input}>
 
           <Inputcomponents
             placeholder="First Name"
             label="First Name"
+
           />
           <Inputcomponents
             placeholder="Last Name"

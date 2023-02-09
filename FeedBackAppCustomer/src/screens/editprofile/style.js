@@ -43,9 +43,9 @@ export default StyleSheet.create({
       fontSize:25,
       position:'relative',
       justifyContent:'space-evenly',
-      alignItems:'center'
-
-     
-      
+      alignItems:'center'   
     },
+    input:{
+        marginTop:'15%'
+    }
 });

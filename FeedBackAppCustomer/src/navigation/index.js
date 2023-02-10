@@ -75,6 +75,7 @@ export default function StackNavigator() {
       <Stack.Screen name={Routes.Forgetpassword} component={Screens.Forgetpassword} />
       <Stack.Screen name={Routes.Otpverification} component={Screens.Otpverification} />
       <Stack.Screen name={Routes.Resetpassword} component={Screens.Resetpassword} />
+      <Stack.Screen name={Routes.Addfeedback} component={Screens.Addfeedback} />
 
 
       <Stack.Screen name={Routes.Home} component={Tabavigators} />

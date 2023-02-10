@@ -11,7 +11,8 @@ export const Routes={
     Createnewpassword:'Createnewpassword',
     Resetpassword:'Resetpassword',
     Feedback:'Feedback',
-    GiveFeedback:'GiveFeedback'
+    GiveFeedback:'GiveFeedback',
+    Addfeedback:'Addfeedback',
 
 
 }

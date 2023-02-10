@@ -20,6 +20,7 @@ const Login = () => {
         />
         <Text style={styles.heading}>Login</Text>
         <View style={styles.inputstyle}>
+          <Text onPress={()=>navigation.navigate(Routes.Addfeedback)}>addfeedback</Text>
 
           <Inputcomponents
             placeholder="Email"

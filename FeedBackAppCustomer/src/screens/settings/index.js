@@ -19,7 +19,11 @@ const Settings = ({navigation}) => {
             <Text>Jakarta, Indonesia</Text>
           </View>
         </View>
-        <Image style={{height:32,width:32}} source={Logopath.Pen}/>
+        <TouchableOpacity
+        onPress={()=>navigation.navigate(Routes.Editprofile)}
+        >
+          <Image style={{height:32,width:32}} source={Logopath.Pen}/>
+        </TouchableOpacity>
       </View>
 
       <TouchableOpacity style={styles.optionsContainer} onPress={()=>navigation.navigate(Routes.Createnewpassword)}>

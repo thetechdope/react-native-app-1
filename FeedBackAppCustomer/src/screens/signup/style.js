@@ -28,7 +28,8 @@ export default StyleSheet.create({
         justifyContent:'center',
         alignSelf:'center',
         fontWeight:'600', 
-         marginBottom:'6%'
+         marginBottom:'6%',
+         marginTop:'3%'
     },
      inputstyle:{
         marginTop:"15%"
@@ -57,15 +58,16 @@ export default StyleSheet.create({
         width:100,
         backgroundColor:'grey',
         justifyContent:'center',
-        borderRadius:50,
+        borderRadius:60,
         alignItems:'center',
-     alignSelf:"center"
+     alignSelf:"center",
+     backgroundColor:'grey'
         
      }, 
      selectedimage:{
-        height:100,
-        width:100,
-        borderRadius:50
+        height:120,
+        width:120,
+        borderRadius:60
      },
      
      picicons:{

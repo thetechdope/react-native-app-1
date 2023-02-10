@@ -52,7 +52,7 @@ const keyboardTypevalue = [
 const Feedback = ({navigation}) => {
   return (
     <CustomHeader>
-      <Button title='Press' onPress={()=>navigation.navigate(Routes.GiveFeedback)} />
+      
       <View style={styles.head}>
           <TouchableOpacity>
             <Ionicons name="arrow-back" size={30}  />
@@ -64,7 +64,7 @@ const Feedback = ({navigation}) => {
       <FlatList
                 data={keyboardTypevalue}
                 renderItem={({ item, index }) => {
-                    return <Flatlistcomponents item={item} />
+                    return <Flatlistcomponents item={item} onPress={()=>navigation.navigate(Routes.GiveFeedback)} />
                 }}
 
             />

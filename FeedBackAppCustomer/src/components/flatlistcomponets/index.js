@@ -4,12 +4,12 @@ import { Logopath } from '../../assets/images'
 import { ROBOTO_LIGHT, ROBOTO_MEDIUM } from "../../assets/fonts"
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-export default function Flatlistcomponents({ item }) {
+export default function Flatlistcomponents({ item,onPress }) {
     console.log("item===>", item)
 
 
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
         <View style={{
             borderWidth:1,
             borderColor:"white",

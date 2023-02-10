@@ -5,8 +5,9 @@ import LinearGradient from 'react-native-linear-gradient'
 import Buttoncomponent from '../../components/butoncomponents'
 import { ROBOTO_MEDIUM, ROBOTO_REGULAR } from '../../assets/fonts'
 import style from './style'
+import { Routes } from '../../navigation/Routes'
 
-const GiveFeedback = () => {
+const GiveFeedback = ({navigation}) => {
   return (
     <CustomHeader>
       <ScrollView>
@@ -47,7 +48,7 @@ const GiveFeedback = () => {
         <Text style={{fontSize:14,color:'#797979'}}>www.mcdonalds.com/</Text>
       </View>
 
-      <Buttoncomponent value={'ADD FEEDBACK'}/>
+      <Buttoncomponent value={'ADD FEEDBACK'} onPress={()=>navigation.navigate(Routes.Addfeedback)}/>
     
       </ScrollView>
     </CustomHeader>

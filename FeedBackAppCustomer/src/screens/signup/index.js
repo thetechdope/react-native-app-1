@@ -17,6 +17,7 @@ import Buttoncomponent from '../../components/butoncomponents'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useHeaderHeight } from '@react-navigation/elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -37,10 +38,12 @@ const Signup = () => {
   }
 
   return (
+
     <KeyboardAvoidingView
     keyboardVerticalOffset={headerHeight}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex:1}}>
+       <ScrollView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
     
@@ -112,6 +115,7 @@ const Signup = () => {
     </View>
     </View>
       </TouchableWithoutFeedback>
+    </ScrollView>
     </KeyboardAvoidingView>
   
   )

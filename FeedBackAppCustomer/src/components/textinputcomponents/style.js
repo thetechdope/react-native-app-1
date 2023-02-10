@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import { ROBOTO_MEDIUM } from "../../assets/fonts";
-// const {width, height} = Dimensions.
+
 
 export default StyleSheet.create({
     Inputvalue: {

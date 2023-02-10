@@ -7,8 +7,11 @@ export const Routes={
     Forgetpassword:'Forgetpassword',
     Tab:'Tab',
     Otpverification:'Otpverification',
-    Editprofile:' Editprofile'
-
+    Editprofile:' Editprofile',
+    Createnewpassword:'Createnewpassword',
+    Resetpassword:'Resetpassword',
+    Feedback:'Feedback',
+    GiveFeedback:'GiveFeedback'
 
 
 }

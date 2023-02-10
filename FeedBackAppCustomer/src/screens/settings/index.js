@@ -22,13 +22,13 @@ const Settings = ({navigation}) => {
         <Image style={{height:32,width:32}} source={Logopath.Pen}/>
       </View>
 
-      <View style={styles.optionsContainer}>
+      <TouchableOpacity style={styles.optionsContainer} onPress={()=>navigation.navigate(Routes.Createnewpassword)}>
         <View style={{flexDirection:'row'}}>
           <Image source={Logopath.Lock} style={styles.icon}/>
           <Text>Change Password</Text>
         </View>
         <FontAwesome name='angle-right' size={20} style={{marginRight:15}}/>
-      </View>
+      </TouchableOpacity>
 
       <View style={[styles.optionsContainer,{borderTopWidth:0,borderBottomWidth:0}]}>
         <View style={{flexDirection:'row'}}>

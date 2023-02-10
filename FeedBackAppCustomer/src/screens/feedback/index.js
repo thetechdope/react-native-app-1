@@ -1,11 +1,13 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
+import CustomHeader from '../../components/customHeader'
+import { Routes } from '../../navigation/Routes'
 
-const Feedback = () => {
+const Feedback = ({navigation}) => {
   return (
-    <View>
-      <Text>Feedback</Text>
-    </View>
+    <CustomHeader>
+      <Button title='Press' onPress={()=>navigation.navigate(Routes.GiveFeedback)} />
+    </CustomHeader>
   )
 }
 

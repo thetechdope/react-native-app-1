@@ -35,7 +35,7 @@ const Otpverification = () => {
       </View>
       <Buttoncomponent  
       value={'SUBMIT'}
-
+      onPress={()=>navigation.navigate(Routes.Resetpassword)}
        
       />
     </CustomHeader>

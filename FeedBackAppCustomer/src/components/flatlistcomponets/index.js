@@ -2,12 +2,14 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { Logopath } from '../../assets/images'
 import { ROBOTO_LIGHT, ROBOTO_MEDIUM } from "../../assets/fonts"
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function Flatlistcomponents({ item }) {
     console.log("item===>", item)
 
 
     return (
+        <TouchableOpacity>
         <View style={{
             borderWidth:1,
             borderColor:"white",
@@ -43,6 +45,7 @@ export default function Flatlistcomponents({ item }) {
             given by me you delivered a pizza that is not good .</Text>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 

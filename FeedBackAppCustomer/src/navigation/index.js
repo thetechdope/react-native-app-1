@@ -23,17 +23,7 @@ function HomeStack(){
     </Stack.Navigator>
   )
 }
-function FeedbackStack(){
-  return(
-    <Stack.Navigator
-     screenOptions={{
-     headerShown:false
-    }}>
-      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback}/>
-      <Stack.Screen name={Routes.GiveFeedback} component={Screens.GiveFeedback}/>
-    </Stack.Navigator>
-  )
-}
+
 function Settingsstack(){
   return(
   <Stack.Navigator
@@ -56,7 +46,7 @@ function Tabavigators() {
       
       >
         <Tab.Screen name={Routes.Home} component={HomeStack}/>
-        <Tab.Screen name={Routes.Feedback} component={FeedbackStack}/>
+      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback}/>
         <Tab.Screen name={Routes.Settings} component={Settingsstack} />
         
       </Tab.Navigator>
@@ -75,7 +65,7 @@ export default function StackNavigator() {
       <Stack.Screen name={Routes.Forgetpassword} component={Screens.Forgetpassword} />
       <Stack.Screen name={Routes.Otpverification} component={Screens.Otpverification} />
       <Stack.Screen name={Routes.Resetpassword} component={Screens.Resetpassword} />
-
+      <Stack.Screen name={Routes.GiveFeedback} component={Screens.GiveFeedback}/>
 
       <Stack.Screen name={Routes.Home} component={Tabavigators} />
       

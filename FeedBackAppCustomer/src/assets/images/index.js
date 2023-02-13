@@ -18,7 +18,8 @@ export const Logopath={
     Pizza:require('./pizza/container.png'),
     Redemoji:require('./redemoji/redemojii.png'),
     Greenemoji:require('./greenemoji/greenemojii.png'),
-    Yellowemoji:require('./yellowemoji/yellowemojii.png')
+    Yellowemoji:require('./yellowemoji/yellowemojii.png'),
+    Homeimage:require('./Homeimage/Homeimage.png')
 
 
 

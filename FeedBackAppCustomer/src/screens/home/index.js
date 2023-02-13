@@ -43,14 +43,14 @@ const keyboardTypevalue = [
       key: 7,
       Type: 'Pizza Hut',
      
-  }
+  },
 
 
 ]
 
 export default function Home() {
   return (
-    <View>
+    <View style={{flex:1}}>
     <View style={{ height: 166, width: "100%", backgroundColor: '#7E50EE', }}>
         <View style={styles.head}>
           <TouchableOpacity>
@@ -93,7 +93,7 @@ export default function Home() {
       <View style={{marginTop:"15%", justifyContent:'center', alignSelf:'center'}}>
             <Text style={{fontFamily:ROBOTO_LIGHT, fontSize:20}}>Recently Added  Feedback</Text>
           </View>
-      <View style={{marginTop:"10%", marginBottom:300}}>
+      <View style={{marginTop:"10%",flex:1}}>
       <FlatList
                 data={keyboardTypevalue}
                 renderItem={({ item, index }) => {

@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
+import { View, Text, TouchableOpacity, Image, Modal, Pressable, Alert } from 'react-native'
+import React, { useState } from 'react'
 import styles from './style'
 import CustomHeader from '../../components/customHeader'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -13,6 +13,7 @@ import { Routes } from '../../navigation/Routes';
 
 const Addfeedback = () => {
   const navigation = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
   return (
   <CustomHeader>
     <View style={styles.head}>
@@ -46,10 +47,30 @@ const Addfeedback = () => {
             />
             
           </View>
+          <Modal
+        animationType='slide'
+        transparent={true}
+        visible={modalVisible}
+       >
+        < View style={styles.modalView}>
+          <View style={{justifyContent:'center', flex:1,alignContent:'center' }}>
+            <Text style={styles.modalText}>Thank you!</Text>
+            <Text style={styles.modalTex}>Thank you for sharing your thughts 
+            </Text>
+            <Text style={styles.modalTex}>  we appreciet your feedback</Text> 
+            <Buttoncomponent
+             value={'Home'}
+             onPress={() => setModalVisible(!modalVisible)}
+             />
+          </View>
+        </View>
+       
+        
+      </Modal>
           <View style={styles.btn}>
           <Buttoncomponent
            value={'SUBMIT'} 
-           onPress={()=>navigation.replace(Routes.Home)}         
+           onPress={() => setModalVisible(true)}        
            />
            </View>
   </CustomHeader>

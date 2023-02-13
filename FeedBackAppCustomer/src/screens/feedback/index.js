@@ -5,6 +5,7 @@ import { Routes } from '../../navigation/Routes'
 import styles from './style'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Flatlistcomponents from '../../components/flatlistcomponets'
+import style from './style'
 
 
 const keyboardTypevalue = [
@@ -51,7 +52,7 @@ const keyboardTypevalue = [
 
 const Feedback = ({navigation}) => {
   return (
-    <CustomHeader>
+    <CustomHeader style={{flex:1}}>
       
       <View style={styles.head}>
           <TouchableOpacity>
@@ -59,7 +60,7 @@ const Feedback = ({navigation}) => {
           </TouchableOpacity>
           <Text style={styles.heading}>Feedback</Text>
           </View> 
-          <View style={{marginTop:"10%", }}>
+          <View style={{marginTop:"10%",flex:1 }}>
             
       <FlatList
                 data={keyboardTypevalue}

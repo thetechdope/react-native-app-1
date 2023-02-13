@@ -17,12 +17,13 @@ export default function Flatlistcomponents({ item,onPress }) {
             width: '90%',
             alignSelf: 'center',
             borderRadius: 10,
-            shadowOffset: { width: -2, height: 4 },
+            shadowOffset: { width: -2, height: 8 },
             shadowColor: '#171717',
             shadowOpacity: 0.4,
             shadowRadius: 2,
             margin:4,
-            flex:1
+            flex:1,
+            elevation:1
         }}>
             <View 
             style={{flex:1,flexDirection:'row', justifyContent:'space-between', margin:4}}>

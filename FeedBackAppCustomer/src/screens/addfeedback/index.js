@@ -6,9 +6,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Logopath } from '../../assets/images';
 import { TextInput } from 'react-native-gesture-handler';
 import style from './style';
+import Buttoncomponent from '../../components/butoncomponents';
+import { useNavigation } from '@react-navigation/native';
+import { Routes } from '../../navigation/Routes';
 
 
 const Addfeedback = () => {
+  const navigation = useNavigation();
   return (
   <CustomHeader>
     <View style={styles.head}>
@@ -38,9 +42,16 @@ const Addfeedback = () => {
             <View style={styles.input}>
             <TextInput 
            style={style.txtinput}
+           multiline={true}
             />
             </View>
           </View>
+          <View style={styles.btn}>
+          <Buttoncomponent
+           value={'SUBMIT'} 
+           onPress={()=>navigation.replace(Routes.Home)}         
+           />
+           </View>
   </CustomHeader>
   )
 }

@@ -48,7 +48,12 @@ export default StyleSheet.create({
         alignSelf:'center'
       },
       txtinput:{
-        padding:12
+        padding:20,
+
+        
+      },
+      btn:{
+        marginTop:'15%'
       }
 
 })

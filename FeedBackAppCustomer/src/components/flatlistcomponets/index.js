@@ -5,7 +5,7 @@ import { ROBOTO_LIGHT, ROBOTO_MEDIUM } from "../../assets/fonts"
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default function Flatlistcomponents({ item,onPress }) {
-    console.log("item===>", item)
+    // console.log("item===>", item)
 
 
     return (

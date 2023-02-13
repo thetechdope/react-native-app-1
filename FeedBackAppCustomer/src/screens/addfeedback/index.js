@@ -39,12 +39,12 @@ const Addfeedback = () => {
              style={styles.img}
             />
             </View>
-            <View style={styles.input}>
+            
             <TextInput 
-           style={style.txtinput}
+           style={style.input}
            multiline={true}
             />
-            </View>
+            
           </View>
           <View style={styles.btn}>
           <Buttoncomponent

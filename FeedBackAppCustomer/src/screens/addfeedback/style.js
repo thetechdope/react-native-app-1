@@ -31,8 +31,8 @@ export default StyleSheet.create({
 
       },
       img:{
-        height:100,
-        width:100
+        height:80,
+        width:80
       }, 
       imgdirection:{
         flexDirection:'row', 
@@ -45,12 +45,8 @@ export default StyleSheet.create({
         borderWidth:1,
         marginTop:"6%",
         borderRadius:8,
-        alignSelf:'center'
-      },
-      txtinput:{
-        padding:20,
-
-        
+        alignSelf:'center',
+        padding:10,
       },
       btn:{
         marginTop:'15%'

@@ -41,7 +41,7 @@ export default function Flatlistcomponents({ item,onPress }) {
                 source={Logopath.Pizza}
                 style={{ height: 50, width: 50, }}
             />
-            <Text style={{padding:"2%", flex:1,  fontFamily:ROBOTO_LIGHT}}>hello pizza hut this review is 
+            <Text style={{padding:"2%", flex:1, fontFamily:ROBOTO_LIGHT}}>hello pizza hut this review is 
             given by me you delivered a pizza that is not good .</Text>
             </View>
         </View>

@@ -27,7 +27,28 @@ export default StyleSheet.create({
         marginLeft:'10%',
         fontFamily:ROBOTO_MEDIUM, 
         opacity:.7,
-        
+        fontSize:15
+
+      },
+      img:{
+        height:100,
+        width:100
+      }, 
+      imgdirection:{
+        flexDirection:'row', 
+        justifyContent:'space-evenly',
+        marginTop:'6%'
+      },
+      input:{
+        height:200,
+        width:"90%",
+        borderWidth:1,
+        marginTop:"6%",
+        borderRadius:8,
+        alignSelf:'center'
+      },
+      txtinput:{
+        padding:12
       }
 
 })

@@ -16,7 +16,9 @@ export const Logopath={
     Feedbackicons:require('./feedbacki/feedbacki.png'),
     Homeactive:require('./homeactive/homeactive.png'),
     Pizza:require('./pizza/container.png'),
-    Redemoji:require('./redemoji/redemoji.png')
+    Redemoji:require('./redemoji/redemojii.png'),
+    Greenemoji:require('./greenemoji/greenemojii.png'),
+    Yellowemoji:require('./yellowemoji/yellowemojii.png')
 
 
 

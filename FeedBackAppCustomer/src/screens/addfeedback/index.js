@@ -8,15 +8,20 @@ import { TextInput } from 'react-native-gesture-handler';
 import Buttoncomponent from '../../components/butoncomponents';
 import { useNavigation } from '@react-navigation/native';
 import { Routes } from '../../navigation/Routes';
+import CheckBox from 'react-native-check-box'
 
 
 const Addfeedback = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+  const [isChecked, setIsChecked]=useState(true)
+  const [state, setState]=useState();
   return (
   <CustomHeader>
     <View style={styles.head}>
-          <TouchableOpacity>
+          <TouchableOpacity 
+          onPress={()=>navigation.replace(Routes.GiveFeedback)}
+          >
             <Ionicons name="arrow-back" size={30}  />
           </TouchableOpacity>
           <Text style={styles.heading}>Give Feedback</Text>
@@ -46,6 +51,20 @@ const Addfeedback = () => {
             />
             
           </View>
+          <CheckBox
+    style={{flex: 1, padding: 10}}
+
+            onPress={()=>{
+              setState({
+                 
+              })
+            }}
+          
+
+
+    
+    leftText={"CheckBox"}
+/>
           <Modal
         animationType='slide'
         transparent={true}
@@ -63,7 +82,11 @@ const Addfeedback = () => {
             <Text style={styles.modalTex}>  we appreciet your feedback</Text> 
             <Buttoncomponent
              value={'Home'}
-             onPress={() => setModalVisible(!modalVisible)}
+             onPress={() => {setModalVisible(!modalVisible)
+            navigation.replace(Routes.Home)
+            }
+             
+            }
              />
           </View>
         </View>

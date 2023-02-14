@@ -87,6 +87,12 @@ export default StyleSheet.create({
        btnhome:{
         position:'absolute',
         top:0,
+       }, 
+       img:{
+        height:200,
+        width:'90%', 
+        justifyContent:'center',
+         alignSelf:'center'
        }
 
 })

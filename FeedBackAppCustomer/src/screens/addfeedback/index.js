@@ -54,6 +54,10 @@ const Addfeedback = () => {
        >
         < View style={styles.modalView}>
           <View style={{justifyContent:'center', flex:1,alignContent:'center' }}>
+            <Image 
+            source={{uri:'https://t3.ftcdn.net/jpg/01/43/05/40/360_F_143054058_n39HtIYBeWuxnjmIUCbMrGxShtm2rNyV.jpg'}}
+            style={styles.img}
+            />
             <Text style={styles.modalText}>Thank you!</Text>
             <Text style={styles.modalTex}>Thank you for sharing your thughts 
             </Text>

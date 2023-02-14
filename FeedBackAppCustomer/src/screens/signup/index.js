@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   View,
   KeyboardAvoidingView,
@@ -18,6 +18,7 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { ScrollView } from 'react-native-gesture-handler';
+import Commonapi from '../../components/commonapi';
 
 
 
@@ -27,6 +28,10 @@ const options = {
 
 
 const Signup = () => {
+
+  useEffect(()=>{
+    Commonapi();
+  },[])
   const headerHeight = useHeaderHeight();
   const [selectphoto, setSelectphoto] = useState("")
 

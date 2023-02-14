@@ -30,10 +30,7 @@ export default StyleSheet.create({
         fontSize:15
 
       },
-      img:{
-        height:80,
-        width:80
-      }, 
+      
       imgdirection:{
         flexDirection:'row', 
         justifyContent:'space-evenly',
@@ -93,6 +90,10 @@ export default StyleSheet.create({
         width:'90%', 
         justifyContent:'center',
          alignSelf:'center'
+       }, 
+       imgemoji:{
+        height:80,
+        width:80
        }
 
 })

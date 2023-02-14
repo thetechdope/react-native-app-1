@@ -5,7 +5,6 @@ import CustomHeader from '../../components/customHeader'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Logopath } from '../../assets/images';
 import { TextInput } from 'react-native-gesture-handler';
-import style from './style';
 import Buttoncomponent from '../../components/butoncomponents';
 import { useNavigation } from '@react-navigation/native';
 import { Routes } from '../../navigation/Routes';
@@ -28,21 +27,21 @@ const Addfeedback = () => {
             <View style={styles.imgdirection}>
             <Image
             source={Logopath.Redemoji}
-            style={styles.img}
+            style={styles.imgemoji}
             />
            
             <Image  
              source={Logopath.Yellowemoji}
-             style={styles.img}
+             style={styles.imgemoji}
             />
             <Image
              source={Logopath.Greenemoji}
-             style={styles.img}
+             style={styles.imgemoji}
             />
             </View>
             
             <TextInput 
-           style={style.input}
+           style={styles.input}
            multiline={true}
             />
             

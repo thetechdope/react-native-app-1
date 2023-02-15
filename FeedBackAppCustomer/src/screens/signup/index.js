@@ -22,6 +22,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHeader from '../../components/customHeader';
 import { Routes } from '../../navigation/Routes';
 import Commonapi from '../../components/commonapi';
+import { useSharedValue } from 'react-native-reanimated';
 
 
 
@@ -32,9 +33,15 @@ const options = {
 
 const Signup = ({navigation}) => {
 
-  useEffect(()=>{
-    Commonapi();
-  },[])
+  const[firstName, setFirstName]=useState("");
+  const[lastName, setLastName]=useState("");
+  const[email, setEmail]=useState("");
+  const[phoneNumber, setPhoneNumber]=useState("");
+  const[password, setPassword]=useState("");
+  const[customerinfo, setCustomerinfo] =useState({});
+
+
+
   const headerHeight = useHeaderHeight();
   const [selectphoto, setSelectphoto] = useState("")
 
@@ -44,7 +51,10 @@ const Signup = ({navigation}) => {
     setSelectphoto(result.assets[0].uri)
     // selectphoto.push(result.assets.uri)
   }
-
+   const customervalue=()=>{
+    Commonapi(customerinfo)
+   }
+  
   return (
 
     <KeyboardAvoidingView
@@ -89,31 +99,48 @@ const Signup = ({navigation}) => {
         <View >
 
           <Inputcomponents
-            placeholder="Business Name"
-            label="Business Name"
+            placeholder="First Name"
+            label="First Name"
+            value={firstName}
+            onChangeText={(txt)=>setFirstName(txt)}
           />
           <Inputcomponents
-            placeholder="Address"
-            label="Address"
+            placeholder="Last Name"
+            label="Last Name"
+            value={lastName}
+            onChangeText={(txt)=>setLastName(txt)}
           />
           <Inputcomponents
             placeholder="Email"
             label="Email"
+            value={email}
+            onChangeText={(txt)=>setEmail(txt)}
           />
           <Inputcomponents
             placeholder="Phone No."
             label="Phone No."
+            value={phoneNumber}
+            onChangeText={(txt)=>setPhoneNumber(txt)}
           />
-          <Inputcomponents
-            placeholder="Website URL"
-            label="Website URL"
-          />
+          
           <Inputcomponents
             placeholder="Password"
             label="Password"
+            value={password}
+            onChangeText={(txt)=>setPassword(txt)}
           />
           <Buttoncomponent
             value="CREAT A ACCOUNT"
+            onPress={()=>{setCustomerinfo({
+              firstName:firstName,
+              lastName:lastName,
+              email:email,
+              phoneNumber:phoneNumber, 
+              password:password
+          
+            })
+          customervalue();
+          }}
           />
 
         </View>

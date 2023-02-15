@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
-  img: {alignSelf: 'center', marginTop: '30%', marginBottom: '5%'},
+  img: {
+    alignSelf: 'center',
+    marginTop: '20%',
+    marginBottom: '5%'
+  },
   txtHeader: {
     color: '#000000',
     fontSize: 22,

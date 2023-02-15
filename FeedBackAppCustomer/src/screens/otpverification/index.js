@@ -18,8 +18,8 @@ const Otpverification = () => {
   const navigation= useNavigation();
   return (
     <CustomHeader>
-      <TouchableOpacity>
-      <Ionicons name="arrow-back" size={30}  style={style.icons} />
+      <TouchableOpacity onPress={()=>navigation.navigate(Routes.Forgetpassword)}>
+      <Ionicons name="arrow-back" size={30}  style={style.icons}  />
       </TouchableOpacity>
       <Image style={style.img} source={Logopath.OTPICON} />
       <Text style={style.txtHeader}>OTP Verification</Text>

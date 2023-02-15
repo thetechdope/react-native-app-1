@@ -8,12 +8,12 @@ import { Logopath } from '../../assets/images'
 import style from './style'
 import Inputcomponents from '../../components/textinputcomponents'
 import Buttoncomponent from '../../components/butoncomponents'
+import CustomHeader from '../../components/customHeader'
+
 const Login = () => {
   const navigation = useNavigation()
   return (
-    <View style={styles.maincontainer}>
-
-      <View style={styles.container} >
+    <CustomHeader>
         <Image
           source={Logopath.LOGINLOGO}
           style={styles.loginlogostyle}
@@ -51,9 +51,8 @@ const Login = () => {
             <Text style={styles.choicetxt}>Forget Password</Text>
           </TouchableOpacity>
         </View>
-
-      </View>
-    </View>
+      </CustomHeader>
+      
 
 
 

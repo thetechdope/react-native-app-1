@@ -12,6 +12,7 @@ import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import Flatlistcomponents from '../../components/flatlistcomponets';
 import {ROBOTO_BLACK, ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 import {Logopath} from '../../assets/images';
+import { Routes } from '../../navigation/Routes';
 const {width, height} = Dimensions.get('window');
 
 const keyboardTypevalue = [
@@ -45,14 +46,14 @@ const keyboardTypevalue = [
   },
 ];
 
-export default function Home() {
+export default function Home({navigation}) {
   const [recentlyFeedback, setRecentlyFeedback] = useState(false);
   return (
     <View style={{flex: 1}}>
       <View style={{height: 166, width: '100%', backgroundColor: '#7E50EE'}}>
         <View style={styles.head}>
-          <TouchableOpacity onPress={() => setRecentlyFeedback(true)}>
-            <Icon name="ios-menu-outline" size={30} color="white" />
+          <TouchableOpacity onPress={()=>navigation.navigate(Routes.Settings)}>
+            <Icon  name="ios-menu-outline" size={30} color="white" />
           </TouchableOpacity>
           <Text style={styles.heading}>Home</Text>
         </View>
@@ -105,7 +106,7 @@ export default function Home() {
             <FlatList
               data={keyboardTypevalue}
               renderItem={({item, index}) => {
-                return <Flatlistcomponents item={item} />;
+                return <Flatlistcomponents item={item} onPress={()=>navigation.navigate(Routes.GiveFeedback)} />;
               }}
             />
           </View>

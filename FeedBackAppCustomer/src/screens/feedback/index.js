@@ -55,7 +55,7 @@ const Feedback = ({navigation}) => {
     <CustomHeader style={{flex:1}}>
       
       <View style={styles.head}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate(Routes.Home)}>
             <Ionicons name="arrow-back" size={30}  />
           </TouchableOpacity>
           <Text style={styles.heading}>Feedback</Text>

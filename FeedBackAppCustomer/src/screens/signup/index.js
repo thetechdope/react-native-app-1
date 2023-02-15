@@ -18,7 +18,9 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import CustomHeader from '../../components/customHeader';
+import { Routes } from '../../navigation/Routes';
 
 
 const options = {
@@ -26,7 +28,7 @@ const options = {
 }
 
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   const headerHeight = useHeaderHeight();
   const [selectphoto, setSelectphoto] = useState("")
 
@@ -47,8 +49,8 @@ const Signup = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
     
-    <View style={styles.maincontainer}>
-      <View style={styles.container} >
+    <CustomHeader>
+    <Ionicons onPress={()=>navigation.navigate(Routes.Login)} name="arrow-back" size={30} style={{marginVertical:'5%',marginLeft:'5%'}} />
         <Image
           source={Logopath.LOGINLOGO}
           style={styles.loginlogostyle}
@@ -110,9 +112,8 @@ const Signup = () => {
 
         </View>
 
-
-      </View>
-    </View>
+      </CustomHeader>
+      
     </View>
       </TouchableWithoutFeedback>
     </ScrollView>

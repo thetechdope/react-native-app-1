@@ -17,7 +17,7 @@ export default StyleSheet.create({
 
     },
     loginlogostyle:{
-        marginTop:"18%",
+        
         justifyContent:'center',
         alignSelf:'center',
 

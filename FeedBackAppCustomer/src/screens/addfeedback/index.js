@@ -10,7 +10,6 @@ import { useNavigation } from '@react-navigation/native';
 import { Routes } from '../../navigation/Routes';
 import CheckBox from 'react-native-check-box'
 
-
 const Addfeedback = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
@@ -70,7 +69,7 @@ const Addfeedback = () => {
         transparent={true}
         visible={modalVisible}
        >
-        < View style={styles.modalView}>
+        <View style={styles.modalView}>
           <View style={{justifyContent:'center', flex:1,alignContent:'center' }}>
             <Image 
             source={{uri:'https://t3.ftcdn.net/jpg/01/43/05/40/360_F_143054058_n39HtIYBeWuxnjmIUCbMrGxShtm2rNyV.jpg'}}
@@ -81,7 +80,7 @@ const Addfeedback = () => {
             </Text>
             <Text style={styles.modalTex}>  we appreciet your feedback</Text> 
             <Buttoncomponent
-             value={'Home'}
+             value={'OK'}
              onPress={() => {setModalVisible(!modalVisible)
             navigation.replace(Routes.Home)
             }

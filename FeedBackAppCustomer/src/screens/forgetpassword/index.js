@@ -7,10 +7,13 @@ import Buttoncomponent from '../../components/butoncomponents'
 import { Logopath } from '../../assets/images'
 import { useNavigation } from '@react-navigation/native'
 import { Routes } from '../../navigation/Routes'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const Forgetpassword = () => {
   const navigation= useNavigation();
   return (
     <CustomHeader>
+    <Ionicons onPress={()=>navigation.navigate(Routes.Login)} name="arrow-back" size={30} style={{marginVertical:'5%',marginLeft:'5%'}} />
       <Image style={style.img} source={Logopath.ForgetPasswordicon} />
       <Text style={style.txtHeader}>Forgot your password</Text>
       <Text style={style.txt}>Enter your registered email OR Phone below to receive password reset instruction</Text>

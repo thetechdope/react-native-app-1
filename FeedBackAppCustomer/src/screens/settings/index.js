@@ -42,10 +42,10 @@ const Settings = ({navigation}) => {
       </View>
 
       <View style={styles.optionsContainer}>
-        <View style={{flexDirection:'row'}}>
+        <TouchableOpacity onPress={()=>navigation.replace(Routes.Login)} style={{flexDirection:'row'}}>
           <Image source={Logopath.logout} style={styles.icon}/>
           <Text>Logout</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </CustomHeader>
   )

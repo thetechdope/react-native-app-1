@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   View,
   KeyboardAvoidingView,
@@ -21,6 +21,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHeader from '../../components/customHeader';
 import { Routes } from '../../navigation/Routes';
+import Commonapi from '../../components/commonapi';
+
 
 
 const options = {
@@ -29,6 +31,10 @@ const options = {
 
 
 const Signup = ({navigation}) => {
+
+  useEffect(()=>{
+    Commonapi();
+  },[])
   const headerHeight = useHeaderHeight();
   const [selectphoto, setSelectphoto] = useState("")
 

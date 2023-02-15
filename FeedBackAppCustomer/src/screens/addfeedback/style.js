@@ -94,6 +94,14 @@ export default StyleSheet.create({
        imgemoji:{
         height:80,
         width:80
-       }
+       }, 
+       checkbox:{
+        flexDirection: 'row',
+        alignContent: 'center',
+        width: '90%',
+        alignSelf: 'center',
+       alignItems:'center', 
+       marginTop:'5%'
+      }
 
 })

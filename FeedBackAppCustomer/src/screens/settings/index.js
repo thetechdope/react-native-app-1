@@ -1,19 +1,34 @@
 import { View, Text, Image,SafeAreaView ,TouchableOpacity} from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CustomHeader from '../../components/customHeader'
 import  Ionicons  from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Logopath } from '../../assets/images'
 import styles from './styles'
 import { Routes } from '../../navigation/Routes'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Settings = ({navigation}) => {
+const [user , setUser]=useState({});
+useEffect(()=>{
+    getUser()
+  },[])
+
+  const getUser = async () => {
+    try {
+      const userData = JSON.parse(await AsyncStorage.getItem("user"))
+      setUser(userData )     
+    } catch (error) {
+     console.log(error); 
+    }
+
+  };
   return (
     <CustomHeader>
-      <View style={styles.topContainer}>
+      <View style={styles.topContainer}> 
         <Image style={styles.profileLogo}/>
         <View style={{width:'60%',marginLeft:20}}>
-          <Text style={styles.name}>Sam Perez</Text>
+          <Text style={styles.name}>{user.firstName}</Text>
           <View style={{flexDirection:'row'}}>
           <Ionicons name="location-outline" size={20} />
             <Text>Jakarta, Indonesia</Text>

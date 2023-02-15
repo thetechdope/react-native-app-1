@@ -1,4 +1,9 @@
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
+
 
   const Commonapi =(customerinfo) => {
     // console.log("ehtesham==>",customerinfo)
@@ -11,11 +16,13 @@ import axios from "axios";
     //         phoneNumber: "+9188888888888",
 
     //     } 
-        axios.post("https://api-8p1l.onrender.com/api/customers/", customerinfo) 
+   axios.post("https://api-8p1l.onrender.com/api/customers/", customerinfo) 
             .then((response) => {
                console.log("hello",response.data)
+            //    response.data
             }). catch((err)=>{
                 console.log(err)
             });
+
     };
 export default Commonapi;

@@ -2,7 +2,7 @@ import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import styles from './style'
 
-const Inputcomponents = ({ label, value ,placeholder,secureTextEntry,onChangeText, keyboardType,customStyle}) => {
+const Inputcomponents = ({ label, value ,placeholder,secureTextEntry,onChangeText, keyboardType,customStyle, require}) => {
     return (
 
             <SafeAreaView style={customStyle}>
@@ -16,7 +16,7 @@ const Inputcomponents = ({ label, value ,placeholder,secureTextEntry,onChangeTex
                     onChangeText={onChangeText}
                     secureTextEntry={secureTextEntry}
                     style={styles.Inputvalue}
-
+                    require={require}
                 />
                 </View>
             </SafeAreaView>

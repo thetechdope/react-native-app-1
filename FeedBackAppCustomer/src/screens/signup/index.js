@@ -38,7 +38,7 @@ const Signup = ({navigation}) => {
   const[email, setEmail]=useState("");
   const[phoneNumber, setPhoneNumber]=useState("");
   const[password, setPassword]=useState("");
-  const[customerinfo, setCustomerinfo] =useState({});
+  // const[customerinfo, setCustomerinfo] =useState({});
 
 
 
@@ -52,7 +52,15 @@ const Signup = ({navigation}) => {
     // selectphoto.push(result.assets.uri)
   }
    const customervalue=()=>{
-    Commonapi(customerinfo)
+    let parm ={
+      firstName:firstName,
+      lastName:lastName,
+      email:email,
+      phoneNumber:phoneNumber, 
+      password:password
+    }
+    // Commonapi(customerinfo)
+    Commonapi(parm)
    }
   
   return (
@@ -131,15 +139,18 @@ const Signup = ({navigation}) => {
           />
           <Buttoncomponent
             value="CREAT A ACCOUNT"
-            onPress={()=>{setCustomerinfo({
-              firstName:firstName,
-              lastName:lastName,
-              email:email,
-              phoneNumber:phoneNumber, 
-              password:password
+            onPress={()=>{
+            //   setCustomerinfo({
+            //   firstName:firstName,
+            //   lastName:lastName,
+            //   email:email,
+            //   phoneNumber:phoneNumber, 
+            //   password:password
           
-            })
+            // })
           customervalue();
+          
+          navigation.navigate(Routes.Otpverification)
           }}
           />
 

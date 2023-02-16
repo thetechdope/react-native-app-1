@@ -18,6 +18,7 @@ const options = {
 
 
 const Editprofile = () => {
+
   const [selectphoto, setSelectphoto] = useState("")
 
   const openGallery = async () => {
@@ -32,7 +33,9 @@ const Editprofile = () => {
     <CustomHeader>
       <ScrollView>
         <View style={styles.head}>
-          <TouchableOpacity>
+          <TouchableOpacity
+          onPress={()=>{navigation.navigate(Routes.Settings)}}
+          >
             <Ionicons name="arrow-back" size={30}  />
           </TouchableOpacity>
           <Text style={styles.heading}>Edit Profile</Text>

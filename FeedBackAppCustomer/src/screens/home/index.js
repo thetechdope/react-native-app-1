@@ -13,17 +13,15 @@ export default function Home({navigation}) {
   const [refreshing, setRefreshing] = useState(false);
   const [feedback, setFeedback] = useState([]);
 
-
-  const getAllFeedbackData= async()=>{
-     const response= await axios.get("http://34.212.54.70:3000/api/feedbacks");
+  const getAllFeedbackData = async () => {
+    const response = await axios.get('http://34.212.54.70:3000/api/feedbacks');
     setFeedback(response.data);
-
-  }
+  };
 
   useEffect(() => {
-   getAllFeedbackData()
+    getAllFeedbackData();
   }, []);
-  
+
   return (
     <View style={{flex: 1}}>
       <View style={style.header}>
@@ -50,7 +48,7 @@ export default function Home({navigation}) {
         <>
           <Text style={styles.recently}>Recently Added Feedback</Text>
 
-          <View style={{flex:1, marginTop:'10%'}}>
+          <View style={{flex: 1, marginTop: '10%'}}>
             <FlatList
               data={feedback}
               keyExtractor={(item, index) => index.key}

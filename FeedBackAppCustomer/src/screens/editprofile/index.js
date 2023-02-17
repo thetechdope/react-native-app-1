@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, ScrollView, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import React, { useState } from 'react'
 import styles from './style'
 import CustomHeader from '../../components/customHeader'
@@ -10,6 +10,8 @@ import { Routes } from '../../navigation/Routes'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { useHeaderHeight } from '@react-navigation/elements'
+
 
 
 const options = {
@@ -18,6 +20,7 @@ const options = {
 
 
 const Editprofile = () => {
+  const headerHeight = useHeaderHeight();
 
   const [selectphoto, setSelectphoto] = useState("")
 
@@ -30,8 +33,15 @@ const Editprofile = () => {
 
   const navigation = useNavigation();
   return (
+    <KeyboardAvoidingView
+    keyboardVerticalOffset={headerHeight}
+      behavior={Platform.OS === 'ios' ? 'padding' : null}
+      style={{flex:1}}>
+       <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
     <CustomHeader>
-      <ScrollView>
+
         <View style={styles.head}>
           <TouchableOpacity
           onPress={()=>{navigation.navigate(Routes.Settings)}}
@@ -91,8 +101,12 @@ const Editprofile = () => {
 
 
         />
-      </ScrollView>
+
     </CustomHeader>
+    </View>
+      </TouchableWithoutFeedback>
+    </ScrollView>
+    </KeyboardAvoidingView>
   )
 }
 export default Editprofile

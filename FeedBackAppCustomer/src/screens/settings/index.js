@@ -7,9 +7,43 @@ import { Logopath } from '../../assets/images'
 import styles from './styles'
 import { Routes } from '../../navigation/Routes'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import GetLocation from 'react-native-get-location'
+import axios from 'axios';
 
 const Settings = ({navigation}) => {
 const [user , setUser]=useState({});
+const [userlocation, setUserlocation]=useState({});
+const [currentlocation , setCurrentlocation]=useState({});
+  useEffect(() => {
+    getlocation()
+}, [])
+
+const getlocation=async()=>{
+  const result=await axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${currentlocation.latitude
+}&longitude=${currentlocation.longitude}&localityLanguage=en`)
+
+setUserlocation(result.data)
+console.log(result.data)
+}
+
+    useEffect(() => {
+        getCurrentLocation()
+    }, [])
+
+    const getCurrentLocation = () => {
+        GetLocation.getCurrentPosition({
+            enableHighAccuracy: true,
+            timeout: 15000
+        })
+            .then(location => {
+                setCurrentlocation({...location})
+                console.log(location)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 useEffect(()=>{
     getUser()
   },[])
@@ -29,9 +63,10 @@ useEffect(()=>{
         <Image style={styles.profileLogo}/>
         <View style={{width:'60%',marginLeft:20}}>
           <Text style={styles.name}>{user.firstName}</Text>
-          <View style={{flexDirection:'row'}}>
+          <View style={{flexDirection:'row', flexWrap:'wrap'}}>
           <Ionicons name="location-outline" size={20} />
-            <Text>Jakarta, Indonesia</Text>
+            <Text>{userlocation.city },</Text>
+            <Text>{userlocation.countryName}</Text>
           </View>
         </View>
         <TouchableOpacity

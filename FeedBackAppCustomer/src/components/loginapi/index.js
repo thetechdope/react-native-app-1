@@ -17,7 +17,7 @@ const Loginapi = async (customerinfo) => {
         // });
         if (response.status == 200) {
             storeUser(response.data)
-            // console.log("respone====>", response)
+            console.log("respone====>", response)
             return { status: true, data: response.data };
         }else{
             return { status: false };

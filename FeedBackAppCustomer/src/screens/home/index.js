@@ -1,87 +1,44 @@
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import React, {useState} from 'react';
+import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 import Flatlistcomponents from '../../components/flatlistcomponets';
-import {ROBOTO_BLACK, ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 import {Logopath} from '../../assets/images';
-import { Routes } from '../../navigation/Routes';
-const {width, height} = Dimensions.get('window');
-
-const keyboardTypevalue = [
-  {
-    key: 1,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 2,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 3,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 4,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 5,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 6,
-    Type: 'Pizza Hut',
-  },
-  {
-    key: 7,
-    Type: 'Pizza Hut',
-  },
-];
+import {Routes} from '../../navigation/Routes';
+import styles from './style';
+import style from './style';
+import axios from 'axios';
 
 export default function Home({navigation}) {
-  const [recentlyFeedback, setRecentlyFeedback] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [feedback, setFeedback] = useState([]);
+
+
+  const getAllFeedbackData= async()=>{
+     const response= await axios.get("http://34.212.54.70:3000/api/feedbacks");
+    setFeedback(response.data);
+
+  }
+
+  useEffect(() => {
+   getAllFeedbackData()
+  }, []);
+  
   return (
     <View style={{flex: 1}}>
-      <View style={{height: 166, width: '100%', backgroundColor: '#7E50EE'}}>
+      <View style={style.header}>
         <View style={styles.head}>
-          <TouchableOpacity onPress={()=>navigation.navigate(Routes.Settings)}>
-            <Icon  name="ios-menu-outline" size={30} color="white" />
+          <TouchableOpacity
+            onPress={() => navigation.navigate(Routes.Settings)}>
+            <Icon name="ios-menu-outline" size={30} color="white" />
           </TouchableOpacity>
           <Text style={styles.heading}>Home</Text>
         </View>
 
-        <View
-          style={{
-            backgroundColor: 'white',
-            position: 'absolute',
-            padding: 16,
-            width: '90%',
-            alignSelf: 'center',
-            top: 146,
-            borderRadius: 20,
-            shadowOffset: {width: -2, height: 4},
-            shadowColor: '#171717',
-            shadowOpacity: 0.2,
-            shadowRadius: 3,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
+        <View style={styles.subhead}>
           <TextInput
             placeholder="Search here to provie feedbak"
-            style={{
-              justifyContent: 'center',
-              width: '90%',
-              fontWeight: '600',
-              fontSize: 16,
-            }}
+            style={style.input}
           />
           <TouchableOpacity>
             <Icon name="search-outline" size={20} />
@@ -89,24 +46,21 @@ export default function Home({navigation}) {
         </View>
       </View>
 
-      {keyboardTypevalue.length !== 0 ? (
+      {feedback.length !== 0 ? (
         <>
-          <Text
-            style={{
-              fontFamily: ROBOTO_LIGHT,
-              fontSize: 20,
-              marginTop: '15%',
-              justifyContent: 'center',
-              alignSelf: 'center',
-            }}>
-            Recently Added Feedback
-          </Text>
+          <Text style={styles.recently}>Recently Added Feedback</Text>
 
-          <View style={{marginTop: '10%', flex: 1}}>
+          <View style={{flex:1, marginTop:'10%'}}>
             <FlatList
-              data={keyboardTypevalue}
+              data={feedback}
+              keyExtractor={(item, index) => index.key}
               renderItem={({item, index}) => {
-                return <Flatlistcomponents item={item} onPress={()=>navigation.navigate(Routes.GiveFeedback)} />;
+                return (
+                  <Flatlistcomponents
+                    item={item}
+                    onPress={() => navigation.navigate(Routes.GiveFeedback)}
+                  />
+                );
               }}
             />
           </View>
@@ -120,20 +74,3 @@ export default function Home({navigation}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  head: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: '15%',
-    width: width * 0.72,
-  },
-  heading: {
-    fontSize: 25,
-    position: 'relative',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    color: 'white',
-  },
-});

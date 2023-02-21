@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Logopath} from '../../assets/images';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import moment from "moment";
 
 export default function Flatlistcomponents({item, onPress}) {
-//   console.log('item===>', item);
+ 
 
   return (
     <TouchableOpacity
@@ -15,7 +16,7 @@ export default function Flatlistcomponents({item, onPress}) {
         padding: 10,
         width: '90%',
         alignSelf: 'center',
-        margin:2,
+        margin:6,
         borderRadius: 10,
         shadowOffset: {width: -1, height: 4},
         shadowColor: '#171717',
@@ -25,7 +26,7 @@ export default function Flatlistcomponents({item, onPress}) {
         
       }}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={styles.type}>Mcdonald's</Text>
+        <Text style={styles.type}>{item.businessEmail}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -39,7 +40,9 @@ export default function Flatlistcomponents({item, onPress}) {
         ) : (
           <Image source={Logopath.Greenemoji} style={{height: 30, width: 30}} />
         )}
-          <Text>1 day ago</Text>
+          {/* <Text>{moment().utcOffset(`${item.createdAt}`).fromNow()}</Text> */}
+          <Text>{moment().diff(moment(new Date(item.createdAt)), "days")}</Text>
+
         </View>
       </View>
 

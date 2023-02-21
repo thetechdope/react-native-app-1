@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
     //         phoneNumber: "+9188888888888",
 
     //     } 
-   axios.post("https://api-8p1l.onrender.com/api/customers/", customerinfo) 
+   axios.post("http://34.212.54.70:3000/api/customers/", customerinfo) 
             .then((response) => {
                console.log("hello",response.data)
             //    response.data

@@ -30,7 +30,7 @@ const Feedback = ({navigation}) => {
     const response = await axios.get(
       `http://34.212.54.70:3000/api/feedbacks/customer/${email}`,
     );
-    console.log('helllo Ehtesham', response);
+    setFeedback( response.data);
   };
 
   return (
@@ -48,7 +48,7 @@ const Feedback = ({navigation}) => {
             return (
               <Flatlistcomponents
                 item={item}
-                onPress={() => navigation.navigate(Routes.GiveFeedback)}
+                onPress={() => navigation.navigate(Routes.GiveFeedback, {"item":item})}
               />
             );
           }}

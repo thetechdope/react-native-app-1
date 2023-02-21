@@ -50,5 +50,38 @@ export default StyleSheet.create({
     marginTop: '15%',
     justifyContent: 'center',
     alignSelf: 'center',
-  }
+  },
+  modalView: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    height:'40%',
+    width:'90%',
+    borderRadius: 20,
+    shadowOffset: {width: -2, height: 4},
+    shadowColor: '#171717',
+    shadowOpacity: 0.8,
+    shadowRadius: 8,
+    alignSelf:'center',
+    justifyContent:'center', 
+    marginTop:'70%'
+  },
+  modalText: {
+   fontFamily:ROBOTO_MEDIUM,
+   fontSize:25, 
+   margin:10, alignSelf:'center'
+  },
+  modalTex:{    
+    fontSize:ROBOTO_LIGHT, 
+    fontSize:15,
+     justifyContent:'center',  
+     alignItems:'center',   
+     alignSelf:'center'        
+    
+  }, 
+  img:{
+    height:150,
+    width:150, 
+    justifyContent:'center',
+     alignSelf:'center'
+   }, 
 });

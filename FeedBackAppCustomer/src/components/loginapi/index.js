@@ -5,7 +5,9 @@ import axios from "axios";
 const Loginapi = async (customerinfo) => {
 
     try {
-        let response = await axios.post("https://api-8p1l.onrender.com/api/customers/login", customerinfo)
+        let response = await axios.post("http://34.212.54.70:3000/api/customers/login", customerinfo)
+
+        https://api-8p1l.onrender.com/api/feedbacks/add-new
         // .then((response) => {
         //     console.log("hello", response.status)
         //     const statusCode = response.status;

@@ -62,11 +62,11 @@ useEffect(()=>{
       <View style={styles.topContainer}> 
         <Image style={styles.profileLogo}/>
         <View style={{width:'60%',marginLeft:20}}>
-          <Text style={styles.name}>{user.firstName}</Text>
+          <Text style={styles.name}>{user?.firstName}</Text>
           <View style={{flexDirection:'row', flexWrap:'wrap'}}>
           <Ionicons name="location-outline" size={20} />
-            <Text>{userlocation.city },</Text>
-            <Text>{userlocation.countryName}</Text>
+            <Text>{userlocation?.city },</Text>
+            <Text>{userlocation?.countryName}</Text>
           </View>
         </View>
         <TouchableOpacity

@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
                console.log("hello",response.data)
             //    response.data
             }). catch((err)=>{
-                console.log(err)
+                console.log('err=>',err)
             });
 
     };

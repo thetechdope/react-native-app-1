@@ -23,7 +23,7 @@ const getlocation=async()=>{
 }&longitude=${currentlocation.longitude}&localityLanguage=en`)
 
 setUserlocation(result.data)
-console.log(result.data)
+// console.log(result.data)
 }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ console.log(result.data)
         })
             .then(location => {
                 setCurrentlocation({...location})
-                console.log(location)
+                // console.log(location)
             })
             .catch(err => {
                 console.log(err)
@@ -52,11 +52,21 @@ useEffect(()=>{
     try {
       const userData = JSON.parse(await AsyncStorage.getItem("user"))
       setUser(userData )     
+      console.log("userinfo====>",userData )     
     } catch (error) {
      console.log(error); 
     }
 
   };
+const deletedAccount=()=>{
+  let config = {headers: {Authorization: `Bearer ${user.token}`}};
+  const deleted= axios.delete(`http://34.212.54.70:3000/api/customers/delete/${user.email}`,config )
+
+}
+
+ const clearAsyncStorage = async() => {
+    AsyncStorage.clear();
+}
   return (
     <CustomHeader>
       <View style={styles.topContainer}> 
@@ -87,12 +97,25 @@ useEffect(()=>{
       <View style={[styles.optionsContainer,{borderTopWidth:0,borderBottomWidth:0}]}>
         <View style={{flexDirection:'row'}}>
           <Image source={Logopath.delAcc} style={styles.icon}/>
+          <TouchableOpacity
+          onPress={()=>{
+            deletedAccount()
+            navigation.replace(Routes.Login)
+            clearAsyncStorage()
+          }}
+          >
           <Text>Delete Account</Text>
+          </TouchableOpacity>
+          
         </View>
       </View>
 
       <View style={styles.optionsContainer}>
-        <TouchableOpacity onPress={()=>navigation.replace(Routes.Login)} style={{flexDirection:'row'}}>
+        <TouchableOpacity onPress={()=>{
+         clearAsyncStorage()      
+          navigation.replace(Routes.Login)
+        }}
+        style={{flexDirection:'row'}}>
           <Image source={Logopath.logout} style={styles.icon}/>
           <Text>Logout</Text>
         </TouchableOpacity>

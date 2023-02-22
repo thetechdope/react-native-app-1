@@ -44,6 +44,7 @@ const Feedback = ({navigation}) => {
       <View style={{marginTop: '10%', flex: 1}}>
         <FlatList
           data={feedback}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {
             return (
               <Flatlistcomponents

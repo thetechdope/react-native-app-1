@@ -14,12 +14,34 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [ search,setSearch] =useState("")
   const [modalVisible, setModalVisible] = useState(false);
 
   const getAllFeedbackData = async () => {
     const response = await axios.get('http://34.212.54.70:3000/api/feedbacks');
     setFeedback(response.data);
+    setFilterData(response.data);
   };
+ 
+  const handleSearch =(searchText)=>{
+    if(searchText){
+
+   
+    const filterValue = feedback.filter((item)=>{
+      const itemData =item.businessEmail?item.businessEmail.toUpperCase():" ".toUpperCase();
+      const textData =searchText.toUpperCase();
+      return itemData.indexOf(textData)> -1;
+
+    })
+    setFilterData(filterValue);
+    setSearch(searchText);
+  }else{
+    setFilterData(feedback)
+    setSearch(searchText)
+  }
+}
+
 
   useEffect(() => {
     getAllFeedbackData();
@@ -54,8 +76,8 @@ export default function Home({navigation}) {
            autoCapitalize="none"
            autoCorrect={false}
            clearButtonMode="always"
-          //  value={query}
-          //  onChangeText={queryText => handleSearch(queryText)}
+           value={search}
+           onChangeText={searchText => handleSearch(searchText)}
             placeholder="Search here to provie feedbak"
             style={style.input}
           />
@@ -98,8 +120,8 @@ export default function Home({navigation}) {
 
           <View style={{flex: 1, marginTop: '10%'}}>
             <FlatList
-              data={feedback}
-              keyExtractor={(item, index) => index.key}
+              data={filterData}
+              keyExtractor={(item, index) => index.toString()}
               renderItem={({item, index}) => {
                 return (
                   <Flatlistcomponents

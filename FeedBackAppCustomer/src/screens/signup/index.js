@@ -160,7 +160,7 @@ const Signup = ({ navigation }) => {
                     // })
                     customervalue();
 
-                    navigation.navigate(Routes.Otpverification);
+                    navigation.navigate(Routes.Otpverification,{email:email});
                   }}
                 />
               </View>

@@ -6,7 +6,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import moment from "moment";
 
 export default function Flatlistcomponents({item, onPress}) {
- 
+
 
   return (
     <TouchableOpacity
@@ -40,8 +40,8 @@ export default function Flatlistcomponents({item, onPress}) {
         ) : (
           <Image source={Logopath.Greenemoji} style={{height: 30, width: 30}} />
         )}
-          {/* <Text>{moment().utcOffset(`${item.createdAt}`).fromNow()}</Text> */}
-          <Text>{moment().diff(moment(new Date(item.createdAt)), "days")}</Text>
+          <Text>{moment(new Date(parseInt(item.createdAt))).fromNow()}</Text>
+          {/* <Text>{moment().diff(moment(new Date(item.createdAt)), "days")}</Text> */}
 
         </View>
       </View>

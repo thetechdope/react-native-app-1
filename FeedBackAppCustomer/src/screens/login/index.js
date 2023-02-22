@@ -75,8 +75,8 @@ const Login = () => {
         <Buttoncomponent
           value="SIGN IN"
           onPress={() => {
-            navigation.navigate(Routes.Home);
-            // customerlogininfo()
+            // navigation.navigate(Routes.Home);
+            customerlogininfo()
           }}
         />
       </View>

@@ -7,31 +7,29 @@ import Buttoncomponent from '../../components/butoncomponents';
 import style from './style';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import newPasswordvalue from '../../components/ newPasswordvalue';
-import { Routes } from '../../navigation/Routes';
+import {Routes} from '../../navigation/Routes';
 
 const Createnewpassword = ({navigation}) => {
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const changePassword = async() => {
+  const changePassword = async () => {
     let parm = {
-      currentPassword:currentPassword,
-      newPassword:newPassword,
-      confirmPassword:confirmPassword,
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+      confirmPassword: confirmPassword,
     };
-   
-   
+
     let response = await newPasswordvalue(parm);
     console.log('response====', response);
-  
+
     if (response?.status) {
       alert('Password Change Sucessfully');
       navigation.navigate(Routes.Settings);
     } else {
       alert('Failed to change Password');
     }
-   
   };
 
   return (
@@ -47,23 +45,23 @@ const Createnewpassword = ({navigation}) => {
         We've sent the code to the email on your device.
       </Text>
       <Inputcomponents
-          placeholder="Email"
-          label="OldPassord"
-          value={currentPassword}
-          onChangeText={txt => setCurrentPassword(txt)}
-        />
-       <Inputcomponents
-          placeholder="Email"
-          label="OldPassord"
-          value={newPassword}
-          onChangeText={txt => setNewPassword(txt)}
-        />
-       <Inputcomponents
-          placeholder="Email"
-          label="OldPassord"
-          value={confirmPassword}
-          onChangeText={txt => setConfirmPassword(txt)}
-        />
+        placeholder="Crrent Password"
+        label="Current Password"
+        value={currentPassword}
+        onChangeText={txt => setCurrentPassword(txt)}
+      />
+      <Inputcomponents
+        placeholder="NewPassword"
+        label="New Password"
+        value={newPassword}
+        onChangeText={txt => setNewPassword(txt)}
+      />
+      <Inputcomponents
+        placeholder="Confirm Password"
+        label="Confirm Password"
+        value={confirmPassword}
+        onChangeText={txt => setConfirmPassword(txt)}
+      />
       <Buttoncomponent
         onPress={() => {
           changePassword();

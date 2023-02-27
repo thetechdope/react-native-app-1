@@ -8,6 +8,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  TouchableOpacity
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './style';
@@ -18,12 +19,13 @@ import {Logopath} from '../../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../navigation/Routes';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {useHeaderHeight} from '@react-navigation/elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GetLocation from 'react-native-get-location';
 import axios from 'axios';
+import UpdateCustomerapi from '../../components/updatecustomerapi';
 
 const options = {
   mediaType: 'photo',
@@ -83,31 +85,27 @@ const Editprofile = () => {
     console.log(result.data);
   };
 
-  const customervalue = async() => {
+  const customervalue = async () => {
     const formData = new FormData();
-    formData.append("avatar", {
+    formData.append('avatar', {
       uri: selectphoto,
-      type: "image/jpg",
-      name: "abc.jpg",
+      type: 'image/jpg',
+      name: 'abc.jpg',
     });
-    formData.append("firstName", firstName)
-    formData.append("lastName", lastName)
-    formData.append("phoneNumber", phoneNumber)
-   
-    let config = {headers: {Authorization: `Bearer ${user.token}`}};
-    let response = await axios.patch(
-      'http://34.212.54.70:3000/api/customers/update-customer/',
-      formData,
-      config,
-    );
-    if (response.status == 200) {
-      console.log('respone====>', response);
-      return {status: true, data: response.data};
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('phoneNumber', phoneNumber);
+
+    const respone = await UpdateCustomerapi(formData);
+    console.log(respone?.data?.data, '========>');
+    if (respone?.data?.data) {
+      await AsyncStorage.setItem('user', JSON.stringify(respone?.data?.data));
+      alert('Successfully updated !');
+      navigation.replace(Routes.Settings);
     } else {
-      return {status: false};
+      alert('Update failed !');
     }
-  } 
-  
+  };
 
   return (
     <KeyboardAvoidingView
@@ -139,11 +137,11 @@ const Editprofile = () => {
                     style={styles.selectedimage}
                   />
                 )}
-                <View style={styles.picicons}>
+               
                   <TouchableOpacity onPress={() => openGallery()}>
-                    <Image source={Logopath.CameraImage} />
+                    <Image source={Logopath.CameraImage} style={styles.picicons}/>
                   </TouchableOpacity>
-                </View>
+                
               </View>
 
               <View style={styles.input}>
@@ -179,12 +177,12 @@ const Editprofile = () => {
                 />
               </View>
 
-              <Buttoncomponent 
-              value={'UPDATE'} 
-              onPress={() => {
-                customervalue();
-                // navigation.navigate(Routes.Otpverification);
-              }}
+              <Buttoncomponent
+                value={'UPDATE'}
+                onPress={() => {
+                  customervalue();
+                  // navigation.navigate(Routes.Otpverification);
+                }}
               />
             </CustomHeader>
           </View>

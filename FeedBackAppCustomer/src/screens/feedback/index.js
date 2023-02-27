@@ -16,7 +16,7 @@ const Feedback = ({navigation}) => {
   useEffect(() => {
     getUser();
     getUserFeedback();
-  });
+  },[email]);
 
   const getUser = async () => {
     try {
@@ -30,7 +30,8 @@ const Feedback = ({navigation}) => {
     const response = await axios.get(
       `http://34.212.54.70:3000/api/feedbacks/customer/${email}`,
     );
-    setFeedback( response.data);
+    console.log("response.data=====>",)
+    setFeedback(response.data);
   };
 
   return (
@@ -49,7 +50,9 @@ const Feedback = ({navigation}) => {
             return (
               <Flatlistcomponents
                 item={item}
-                onPress={() => navigation.navigate(Routes.GiveFeedback, {"item":item})}
+                onPress={() =>
+                  navigation.navigate(Routes.GiveFeedback, {item: item})
+                }
               />
             );
           }}

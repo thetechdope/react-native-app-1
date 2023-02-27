@@ -11,11 +11,10 @@ import axios from 'axios';
 import Buttoncomponent from '../../components/butoncomponents';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);
   const [filterData, setFilterData] = useState([]);
-  const [ search,setSearch] =useState("")
+  const [search, setSearch] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
   const getAllFeedbackData = async () => {
@@ -23,43 +22,41 @@ export default function Home({navigation}) {
     setFeedback(response.data);
     setFilterData(response.data);
   };
- 
-  const handleSearch =(searchText)=>{
-    if(searchText){
 
-   
-    const filterValue = feedback.filter((item)=>{
-      const itemData =item.businessEmail?item.businessEmail.toUpperCase():" ".toUpperCase();
-      const textData =searchText.toUpperCase();
-      return itemData.indexOf(textData)> -1;
-
-    })
-    setFilterData(filterValue);
-    setSearch(searchText);
-  }else{
-    setFilterData(feedback)
-    setSearch(searchText)
-  }
-}
-
+  const handleSearch = searchText => {
+    if (searchText) {
+      const filterValue = feedback.filter(item => {
+        const itemData = item.businessEmail
+          ? item.businessEmail.toUpperCase()
+          : ' '.toUpperCase();
+        const textData = searchText.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilterData(filterValue);
+      setSearch(searchText);
+    } else {
+      setFilterData(feedback);
+      setSearch(searchText);
+    }
+  };
 
   useEffect(() => {
     getAllFeedbackData();
     // setModalVisible(true);
   }, []);
 
-
-  const emailVerification = async()=>{
+  const emailVerification = async () => {
     try {
       const user = JSON.parse(await AsyncStorage.getItem('user'));
-      console.log('user============>', user)
-      const verified = await axios.patch('http://34.212.54.70:3000/api/customers/verify-email',user.email );  
+      console.log('user============>', user);
+      const verified = await axios.patch(
+        'http://34.212.54.70:3000/api/customers/verify-email',
+        user.email,
+      );
     } catch (error) {
       alert(error);
     }
-    
-
-  }
+  };
   return (
     <View style={{flex: 1}}>
       <View style={style.header}>
@@ -73,13 +70,14 @@ export default function Home({navigation}) {
 
         <View style={styles.subhead}>
           <TextInput
-           autoCapitalize="none"
-           autoCorrect={false}
-           clearButtonMode="always"
-           value={search}
-           onChangeText={searchText => handleSearch(searchText)}
+            autoCapitalize="none"
+            autoCorrect={false}
+            clearButtonMode="always"
+            value={search}
+            onChangeText={searchText => handleSearch(searchText)}
             placeholder="Search here to provie feedbak"
-            style={style.input}
+           
+            
           />
           <TouchableOpacity>
             <Icon name="search-outline" size={20} />
@@ -90,26 +88,28 @@ export default function Home({navigation}) {
         <View style={styles.modalView}>
           <View
             style={{justifyContent: 'center', flex: 1, alignContent: 'center'}}>
-              <Image
-              source={Logopath.ForgetPasswordicon}
-              style={styles.img}
-            />
+            <Image source={Logopath.ForgetPasswordicon} style={styles.img} />
             <Text style={styles.modalText}>Please verify your Email !</Text>
-            <View style={{flexDirection:'row', justifyContent:'space-evenly', alignItems:'center',}}>
-            <Buttoncomponent
-              value={'Yes !'}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                emailVerification()
-              }}
-            />
-            <Buttoncomponent
-              value={'No !'}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                alert("Email is not verfied yet !")
-              }}
-            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+              }}>
+              <Buttoncomponent
+                value={'Yes !'}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  emailVerification();
+                }}
+              />
+              <Buttoncomponent
+                value={'No !'}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  alert('Email is not verfied yet !');
+                }}
+              />
             </View>
           </View>
         </View>
@@ -118,7 +118,7 @@ export default function Home({navigation}) {
         <>
           <Text style={styles.recently}>Recently Added Feedback</Text>
 
-          <View style={{flex: 1, marginTop: '10%'}}>
+          <View style={styles.listitem}>
             <FlatList
               data={filterData}
               keyExtractor={(item, index) => index.toString()}

@@ -144,11 +144,12 @@ const Signup = ({ navigation }) => {
                 <Inputcomponents
                   placeholder="Password"
                   label="Password"
+                  secureTextEntry={true}
                   value={password}
                   onChangeText={txt => setPassword(txt)}
                 />
                 <Buttoncomponent
-                  value="CREAT A ACCOUNT"
+                  value="CREAT ACCOUNT"
                   onPress={() => {
                     //   setCustomerinfo({
                     //   firstName:firstName,

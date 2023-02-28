@@ -10,56 +10,61 @@ import style from './style';
 import axios from 'axios';
 import Buttoncomponent from '../../components/butoncomponents';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import SearchableDropdown from 'react-native-searchable-dropdown';
+import Feedback from '../feedback';
 
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);
   const [filterData, setFilterData] = useState([]);
-  const [ search,setSearch] =useState("")
+
+  const [search, setSearch] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
   const getAllFeedbackData = async () => {
     const response = await axios.get('http://34.212.54.70:3000/api/feedbacks');
     setFeedback(response.data);
-    setFilterData(response.data);
-  };
- 
-  const handleSearch =(searchText)=>{
-    if(searchText){
-
    
-    const filterValue = feedback.filter((item)=>{
-      const itemData =item.businessEmail?item.businessEmail.toUpperCase():" ".toUpperCase();
-      const textData =searchText.toUpperCase();
-      return itemData.indexOf(textData)> -1;
-
-    })
-    setFilterData(filterValue);
-    setSearch(searchText);
-  }else{
-    setFilterData(feedback)
-    setSearch(searchText)
+  };
+  const businesCheck = async () => {
+    const respo = await axios.get('http://34.212.54.70:3000/api/isAvailable/:businessEmail');
+    console.log("gfgg===>",respo)  
+    
   }
-}
 
+  const handleSearch = searchText => {
+    if (searchText) {
+      const filterValue = feedback.filter(item => {
+        const itemData = item.businessEmail
+          ? item.businessEmail.toUpperCase()
+          : ' '.toUpperCase();
+        const textData = searchText.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilterData(filterValue);
+      setSearch(searchText);
+    } else {
+      setFilterData(feedback);
+      setSearch(searchText);
+    }
+  };
 
   useEffect(() => {
     getAllFeedbackData();
-    // setModalVisible(true);
+    businesCheck();
   }, []);
 
-
-  const emailVerification = async()=>{
+  const emailVerification = async () => {
     try {
       const user = JSON.parse(await AsyncStorage.getItem('user'));
-      console.log('user============>', user)
-      const verified = await axios.patch('http://34.212.54.70:3000/api/customers/verify-email',user.email );  
+      console.log('user============>', user);
+      const verified = await axios.patch(
+        'http://34.212.54.70:3000/api/customers/verify-email',
+        user.email,
+      );
     } catch (error) {
       alert(error);
     }
-    
-
-  }
+  };
   return (
     <View style={{flex: 1}}>
       <View style={style.header}>
@@ -71,56 +76,60 @@ export default function Home({navigation}) {
           <Text style={styles.heading}>Home</Text>
         </View>
 
-        <View style={styles.subhead}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            alignItems: 'center',
+            alignSelf: 'center',
+            marginTop: '10%',
+            width: '95%',
+            backgroundColor: 'white',
+            borderRadius: 20,
+          }}>
           <TextInput
-           autoCapitalize="none"
-           autoCorrect={false}
-           clearButtonMode="always"
-           value={search}
-           onChangeText={searchText => handleSearch(searchText)}
+            autoCapitalize="none"
+            autoCorrect={false}
+            clearButtonMode="always"
+            value={search}
+            onChangeText={searchText => handleSearch(searchText)}
             placeholder="Search here to provie feedbak"
-            style={style.input}
+            style={styles.subhead}
           />
+
           <TouchableOpacity>
             <Icon name="search-outline" size={20} />
           </TouchableOpacity>
         </View>
       </View>
-      <Modal animationType="fade" transparent={true} visible={modalVisible}>
-        <View style={styles.modalView}>
-          <View
-            style={{justifyContent: 'center', flex: 1, alignContent: 'center'}}>
-              <Image
-              source={Logopath.ForgetPasswordicon}
-              style={styles.img}
-            />
-            <Text style={styles.modalText}>Please verify your Email !</Text>
-            <View style={{flexDirection:'row', justifyContent:'space-evenly', alignItems:'center',}}>
-            <Buttoncomponent
-              value={'Yes !'}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                emailVerification()
-              }}
-            />
-            <Buttoncomponent
-              value={'No !'}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                alert("Email is not verfied yet !")
-              }}
-            />
-            </View>
-          </View>
+      {search.length !== 0 ? (
+        <View style={{
+           height: 150,
+            marginTop: '8%',
+            width:'90%', 
+            justifyContent:'center', 
+            alignSelf:'center'
+            }}>
+          <FlatList
+            data={filterData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item, index}) => {
+              return(
+                 <Text style={{borderWidth:.6,fontSize:16 }}
+                 onPress={()=>navigation.navigate(Routes.GiveFeedback, {"item":item})}
+                 >{item.businessEmail}</Text> )
+            }}
+          />
         </View>
-      </Modal>
+      ) : null}
+
       {feedback.length !== 0 ? (
         <>
           <Text style={styles.recently}>Recently Added Feedback</Text>
 
-          <View style={{flex: 1, marginTop: '10%'}}>
+          <View style={styles.listitem}>
             <FlatList
-              data={filterData}
+              data={feedback}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item, index}) => {
                 return (

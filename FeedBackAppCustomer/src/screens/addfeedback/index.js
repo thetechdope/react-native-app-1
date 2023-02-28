@@ -27,29 +27,26 @@ const Addfeedback = ({
     params: {item},
   },
 }) => {
-
   const [modalVisible, setModalVisible] = useState(false);
   const [rating, setRating] = useState('');
   const [feedback, setFeedback] = useState('');
-  const[customerEmail, setCustomeremail]=useState('');
-  const[businessEmail, setBusineesEmail]=useState("");
+  const [customerEmail, setCustomeremail] = useState('');
+  const [businessEmail, setBusineesEmail] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  
-  
+
   useEffect(() => {
     getUser();
-    
   }, []);
-  useEffect(()=>{
-    if(item.businessEmail){
-      setBusineesEmail(item.businessEmail)
+  useEffect(() => {
+    if (item.businessEmail) {
+      setBusineesEmail(item.businessEmail);
     }
-  },[item])
+  }, [item]);
 
   const getUser = async () => {
     try {
       const userData = JSON.parse(await AsyncStorage.getItem('user'));
-      setCustomeremail(userData.email)
+      setCustomeremail(userData.email);
     } catch (error) {
       console.log(error);
     }
@@ -58,11 +55,11 @@ const Addfeedback = ({
   const addFeedbacknow = async () => {
     let parm = {
       rating: rating,
-      feedback:feedback,
-      customerEmail:customerEmail,
-      businessEmail:businessEmail,
+      feedback: feedback,
+      customerEmail: customerEmail,
+      businessEmail: businessEmail,
     };
-   
+
     if (!rating || !feedback) {
       alert('please enter details');
     } else {
@@ -75,8 +72,7 @@ const Addfeedback = ({
   return (
     <CustomHeader>
       <View style={styles.head}>
-        <TouchableOpacity
-          onPress={() => navigation.replace(Routes.Home)}>
+        <TouchableOpacity onPress={() => navigation.replace(Routes.Home)}>
           <Ionicons name="arrow-back" size={30} />
         </TouchableOpacity>
         <Text style={styles.heading}>Give Feedback</Text>

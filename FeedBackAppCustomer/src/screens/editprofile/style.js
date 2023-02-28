@@ -1,53 +1,46 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import { ROBOTO_MEDIUM } from '../../assets/fonts';
-const {width, height}=  Dimensions.get('window');
+import {Dimensions, StyleSheet} from 'react-native';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+import {ROBOTO_MEDIUM} from '../../assets/fonts';
+const {width, height} = Dimensions.get('window');
 export default StyleSheet.create({
-    head:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-around',
-        marginTop:'10%',
-        width:width*.74,
+  head: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: responsiveHeight(10),
+    width: responsiveWidth(75),
+  },
 
+  pic: {
+    height: responsiveWidth(12),
+    width: responsiveWidth(12),
+    justifyContent: 'center',
+    borderRadius: responsiveWidth(6),
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: 'grey',
+    marginTop: responsiveHeight(8),
+  },
+  selectedimage: {
+    height: responsiveWidth(30),
+    width: responsiveWidth(30),
+    borderRadius: responsiveWidth(17.5),
+  },
 
-    },
+  picicons: {
+    position: 'absolute',
+    bottom: 0,
+    left:responsiveWidth(3),
    
-    pic: {
-        height: 120,
-        width: 120,
-        justifyContent: 'center',
-        borderRadius: 60,
-        alignItems: 'center',
-        alignSelf: "center",
-        backgroundColor:'grey',
-        marginTop:'10%'
-
-
-    },
-    selectedimage: {
-        height: 140,
-        width: 140,
-        borderRadius: 60
-    },
-
-    picicons: {
-        position: 'absolute',
-        height: 40,
-        width: 40,
-        justifyContent: 'center',
-        alignSelf: 'center',
-        bottom: 0,
-        right: 0,
-        borderRadius: 15
-    },
-    heading:{
-      fontFamily:ROBOTO_MEDIUM,
-      fontSize:25,
-      position:'relative',
-      justifyContent:'space-evenly',
-      alignItems:'center'   
-    },
-    input:{
-        marginTop:'10%'
-    }
+  },
+  heading: {
+    fontFamily: ROBOTO_MEDIUM,
+    fontSize: 25,
+    position: 'relative',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  input: {
+    marginTop: responsiveHeight(8),
+  },
 });

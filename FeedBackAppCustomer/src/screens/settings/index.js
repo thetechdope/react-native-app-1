@@ -73,8 +73,10 @@ const Settings = ({navigation}) => {
   return (
     <CustomHeader>
       <View style={styles.topContainer}>
+      
         <Image
           //  source={{uri: `${user.profileImage}`}}
+          source={{ uri: `${user?.profileImage}` }}
           style={styles.profileLogo}
         />
         <View style={styles.namecontainer}>

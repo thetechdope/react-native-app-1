@@ -71,7 +71,7 @@ const Login = () => {
                   placeholder="Email"
                   label="Email"
                   value={email}
-                  onChangeText={txt => setEmail(txt.toLowerCase())}
+                  onChangeText={txt => setEmail(txt)}
                 />
                 <Inputcomponents
                   placeholder="password"

@@ -5,6 +5,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { horizontalScale, moderateScale, verticalScale } from '../../components/responsive';
 
 const {width, height} = Dimensions.get('window');
 
@@ -28,23 +29,24 @@ export default StyleSheet.create({
     alignItems: 'center',
     color: 'white',
   },
-  subhead: {
-    backgroundColor: 'white',
-    position: 'absolute',
-    padding: responsiveWidth(4),
-    width: responsiveWidth(90),
-    alignSelf: 'center',
-    top: responsiveHeight(19),
-    borderRadius:responsiveWidth(10),
-    shadowOffset: {width: responsiveWidth(-2), height: responsiveHeight(1)},
-    shadowColor: '#171717',
-    shadowOpacity: 0.2,
-    shadowRadius: responsiveWidth(1),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    fontSize: 16,
+
+    subhead: {
+      backgroundColor: 'white',
+      padding: 16,
+      width: '90%',
+      alignSelf: 'center',
+      borderRadius: 20,
+      shadowOffset: {width: -2, height: 4},
+      shadowColor: '#171717',
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      fontWeight: '600',
+      fontSize: 16,
+    
   },
-  
+ 
   recently: {
     fontFamily: ROBOTO_LIGHT,
     fontSize:responsiveFontSize(2.5),

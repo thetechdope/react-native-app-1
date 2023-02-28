@@ -146,13 +146,13 @@ const Editprofile = () => {
 
               <View style={styles.input}>
                 <Inputcomponents
-                  placeholder="First Name"
+                  placeholder={user.firstName}
                   label="First Name"
                   value={firstName}
                   onChangeText={txt => setFirstName(txt)}
                 />
                 <Inputcomponents
-                  placeholder="Last Name"
+                  placeholder={user.lastName}
                   label="Last Name"
                   value={lastName}
                   onChangeText={txt => setLastName(txt)}
@@ -164,7 +164,7 @@ const Editprofile = () => {
                   selectTextOnFocus={false}
                 />
                 <Inputcomponents
-                  placeholder="Phone No."
+                  placeholder={user.phoneNumber}
                   label="Phone No."
                   value={phoneNumber}
                   onChangeText={txt => setPhoneNumber(txt)}

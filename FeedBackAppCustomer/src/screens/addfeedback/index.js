@@ -67,7 +67,8 @@ const Addfeedback = ({
       setModalVisible(true);
     }
     const feedbackvalue = await Customeraddfeedbackapi(parm, toggleCheckBox);
-    console.log('customerfeedback=======>', feedbackvalue);
+ 
+    
   };
 
   return (
@@ -145,8 +146,8 @@ const Addfeedback = ({
             <Buttoncomponent
               value={'OK'}
               onPress={() => {
-                setModalVisible(!modalVisible);
-                navigation.replace(Routes.Home);
+                setModalVisible(!modalVisible)
+                navigation.replace(Routes.Home)
               }}
             />
           </View>

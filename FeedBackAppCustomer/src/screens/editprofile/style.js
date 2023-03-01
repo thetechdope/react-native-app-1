@@ -7,19 +7,19 @@ export default StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: responsiveHeight(10),
+    marginTop: responsiveHeight(4),
     width: responsiveWidth(75),
   },
 
   pic: {
-    height: responsiveWidth(12),
-    width: responsiveWidth(12),
+    height: responsiveWidth(30),
+    width: responsiveWidth(30),
     justifyContent: 'center',
-    borderRadius: responsiveWidth(6),
+    borderRadius: responsiveWidth(15),
     alignItems: 'center',
     alignSelf: 'center',
     backgroundColor: 'grey',
-    marginTop: responsiveHeight(8),
+    marginTop: responsiveHeight(4),
   },
   selectedimage: {
     height: responsiveWidth(30),
@@ -41,6 +41,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    marginTop: responsiveHeight(8),
+    marginTop: responsiveHeight(5),
   },
 });

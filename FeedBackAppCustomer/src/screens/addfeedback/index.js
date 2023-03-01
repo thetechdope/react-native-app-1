@@ -147,7 +147,7 @@ const Addfeedback = ({
               value={'OK'}
               onPress={() => {
                 setModalVisible(!modalVisible)
-                navigation.replace(Routes.Home)
+                // navigation.replace(Routes.Home)
               }}
             />
           </View>

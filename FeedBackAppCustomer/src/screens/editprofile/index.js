@@ -72,6 +72,11 @@ const Editprofile = () => {
     try {
       const userData = JSON.parse(await AsyncStorage.getItem('user'));
       setUser(userData);
+      console.log('userData=>', user)
+      setFirstName(userData?.firstName)
+      setLastName(userData?.lastName)
+      setPhoneNumber(userData?.phoneNumber)
+      setSelectphoto(userData?.profileImage)
     } catch (error) {
       console.log(error);
     }
@@ -86,27 +91,31 @@ const Editprofile = () => {
   };
 
   const customervalue = async () => {
-    if (
-      !firstName 
+    // if (
+    //   !firstName 
     
-    ) {
-      alert('Please Enter  FirstName');
-    } else if(!lastName){
-      alert('Please Enter  LastName');
-    }
-    else if(!phoneNumber){
-      alert('Please Enter  Phonenumber');
+    // ) {
+    //   alert('Please Enter  FirstName');
+    // } else if(!lastName){
+    //   alert('Please Enter  LastName');
+    // }
+    // else if(!phoneNumber){
+    //   alert('Please Enter  Phonenumber');
    
-    }else if(!selectphoto){
-      alert('Please Add  Profile Photo');
-    }
-    else {
+    // }else if(!selectphoto){
+    //   alert('Please Add  Profile Photo');
+    // }
+    // else {
       const formData = new FormData();
-    formData.append('avatar', {
-      uri: selectphoto,
-      type: 'image/jpg',
-      name: 'abc.jpg',
-    });
+    {selectphoto ? 
+      formData.append('avatar',selectphoto)
+      :
+      formData.append('avatar', {
+        uri: selectphoto,
+        type: 'image/jpg',
+        name: 'abc.jpg',
+      });
+    }
     formData.append('firstName', firstName);
     formData.append('lastName', lastName);
     formData.append('phoneNumber', phoneNumber);
@@ -121,7 +130,7 @@ const Editprofile = () => {
     } else {
       alert('Update failed !');
     }
-    }
+    // }
    
   };
 
@@ -195,6 +204,17 @@ const Editprofile = () => {
                 />
               </View>
 
+              {firstName===user?.firstName&&lastName===user?.lastName&&phoneNumber===user?.phoneNumber?
+                <Buttoncomponent
+              disabled={true}
+              refreshing={refreshing}
+              txtStyle={{color:'grey'}}
+                value={'UPDATE'}
+                onPress={() => {
+                  customervalue();
+                  // navigation.navigate(Routes.Otpverification);
+                }}
+              />:
               <Buttoncomponent
               refreshing={refreshing}
                 value={'UPDATE'}
@@ -203,6 +223,7 @@ const Editprofile = () => {
                   // navigation.navigate(Routes.Otpverification);
                 }}
               />
+              }
             </CustomHeader>
           </View>
         </TouchableWithoutFeedback>

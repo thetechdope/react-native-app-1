@@ -33,8 +33,11 @@ const Login = () => {
   const headerHeight = useHeaderHeight();
 
   const customerlogininfo = async () => {
-    if (!email || !password) {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.+com)+$/;
+     if (!email || !password) {
       alert('please enter details');
+    }else if (reg.test(email) === false) {
+      alert('Email is Not Correct')
     } else {
       let parm = {
         email: email,
@@ -53,7 +56,7 @@ const Login = () => {
         }
        
       } else {
-        alert('Login Failed');
+        alert('Email / Password is Incorrect');
       }
     }
   };

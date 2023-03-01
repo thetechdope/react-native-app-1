@@ -51,7 +51,7 @@ const Otpverification = ({route: {params}}) => {
   return (
     <CustomHeader>
       <TouchableOpacity
-        onPress={() => navigation.navigate(Routes.Forgetpassword)}>
+        onPress={() => navigation.goBack()}>
         <Ionicons name="arrow-back" size={30} style={style.icons} />
       </TouchableOpacity>
       <Image style={style.img} source={Logopath.OTPICON} />

@@ -42,6 +42,7 @@ export default StyleSheet.create({
     borderRadius: responsiveHeight(6),
     alignItems: 'center',
     alignSelf: 'center',
+    marginTop:responsiveHeight(2)
   },
   selectedimage: {
     height: responsiveHeight(14),

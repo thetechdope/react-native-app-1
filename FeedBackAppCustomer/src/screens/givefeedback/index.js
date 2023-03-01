@@ -17,7 +17,10 @@ const GiveFeedback = ({navigation, route: {params}}) => {
   return (
     <CustomHeader>
       <ScrollView>
-        <Image style={style.BannerImage} source={Logopath.macde} />
+        {data && data?.businessImage ? 
+        <Image style={style.BannerImage} source={{uri:data?.businessImage}} />:
+        <Image style={style.BannerImage} source={Logopath.Person} />
+        }
         <View style={styles.formate}>
           <Text
             style={{

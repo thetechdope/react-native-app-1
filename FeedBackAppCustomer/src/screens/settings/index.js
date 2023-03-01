@@ -70,19 +70,20 @@ const Settings = ({navigation}) => {
   const clearAsyncStorage = async () => {
     AsyncStorage.clear();
   };
+  console.log('userImage==>', user?.profileImage)
   return (
     <CustomHeader>
       <View style={styles.topContainer}>
       
         <Image
           //  source={{uri: `${user.profileImage}`}}
-          source={{ uri: `${user?.profileImage}` }}
+          source={{ uri: user?.profileImage }}
           style={styles.profileLogo}
         />
         <View style={styles.namecontainer}>
           <Text style={styles.name}>{user?.firstName}</Text>
           <View style={styles.info}>
-            <Ionicons name="location-outline" size={20} />
+            <Ionicons name="location-outline" size={16} style={{}}/>
             <Text>{userlocation?.city},</Text>
             <Text>{userlocation?.countryName}</Text>
           </View>

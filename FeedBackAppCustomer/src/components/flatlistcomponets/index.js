@@ -50,7 +50,10 @@ export default function Flatlistcomponents({item, onPress}) {
       </View>
 
       <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems:'center',}}>
-        <Image source={Logopath.Pizza} style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius:responsiveWidth(6), resizeMode:'cover'}} />
+        {item?.businessImage!=='' ? 
+        <Image source={{uri:item.businessImage}} style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius:responsiveWidth(6), resizeMode:'cover'}} />:
+        <Image source={Logopath.Person} style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius:responsiveWidth(6), resizeMode:'cover'}} />
+        }
 
         <Text style={{marginLeft:responsiveWidth(4), flex: 1, fontFamily: ROBOTO_LIGHT}}>
           {item.feedback}

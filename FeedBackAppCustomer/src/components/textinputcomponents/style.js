@@ -12,8 +12,8 @@ export default StyleSheet.create({
   },
   txt: {
     fontSize:responsiveFontSize(2),
-    paddingLeft: responsiveWidth(2),
-    margin: responsiveWidth(1),
+    paddingLeft: responsiveWidth(2.5),
+    marginVertical: responsiveWidth(1),
     fontFamily: ROBOTO_MEDIUM,
   },
   container: {

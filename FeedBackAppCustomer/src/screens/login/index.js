@@ -56,7 +56,7 @@ const Login = () => {
     <KeyboardAvoidingView
       keyboardVerticalOffset={headerHeight}
       behavior={Platform.OS === 'ios' ? 'padding' : null}
-      style={{flex: 1}}>
+      style={{flex: 1, backgroundColor:'#ffffff'}}>
       <ScrollView>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
@@ -71,7 +71,7 @@ const Login = () => {
                   placeholder="Email"
                   label="Email"
                   value={email}
-                  onChangeText={txt => setEmail(txt)}
+                  onChangeText={txt => setEmail(txt.toLowerCase())}
                 />
                 <Inputcomponents
                   placeholder="password"

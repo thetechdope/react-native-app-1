@@ -19,13 +19,14 @@ export default StyleSheet.create({
     width: responsiveWidth(22),
     borderWidth: 1,
     borderRadius: responsiveWidth(11),
-   
+   marginLeft:responsiveWidth(4)
   },
   name: {
     fontSize: responsiveFontSize(2.4),
     fontFamily: ROBOTO_REGULAR,
     color: '#000000',
     fontWeight: '600',
+    marginBottom:responsiveHeight(0.5)
   },
   optionsContainer: {
     flexDirection: 'row',
@@ -42,7 +43,7 @@ export default StyleSheet.create({
  pen:{
   height: responsiveWidth(8),
     width:responsiveWidth(8),
-   
+   marginRight:responsiveWidth(4)
  }, 
  info:{
   flexDirection: 'row', 

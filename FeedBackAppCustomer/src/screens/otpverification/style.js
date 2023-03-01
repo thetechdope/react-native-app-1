@@ -38,6 +38,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   icons: {
-    margin: '10%',
+    marginLeft: '4%',
+    marginTop:'6%'
   },
 });

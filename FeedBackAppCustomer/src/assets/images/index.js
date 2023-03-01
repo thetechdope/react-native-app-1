@@ -24,8 +24,8 @@ export const Logopath={
     location:require('./location.png'),
     globe:require('./globe.png'),
     macde:require('./macde.png'),
-    Homeimage:require('./Homeimage/Homeimage.png')
-
+    Homeimage:require('./Homeimage/Homeimage.png'),
+    Person:require('./person.png')
 
 
 }

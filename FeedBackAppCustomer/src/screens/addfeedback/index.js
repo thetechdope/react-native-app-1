@@ -33,6 +33,7 @@ const Addfeedback = ({
   const [customerEmail, setCustomeremail] = useState('');
   const [businessEmail, setBusineesEmail] = useState('');
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
+  const [selected,setSelected]=useState('')
 
   useEffect(() => {
     getUser();
@@ -81,14 +82,30 @@ const Addfeedback = ({
         <Text style={styles.txthead}>{item.businessEmail}</Text>
         <Text style={styles.txt}>How did we do ?</Text>
         <View style={styles.imgdirection}>
-          <TouchableOpacity onPress={() => setRating('0')}>
+          <TouchableOpacity onPress={() =>{ 
+            setRating('0')
+            setSelected('red')
+            }}>
+            {selected=='red'?
+            <Image source={Logopath.Redemoji} style={{height:85,width:85}} />:
             <Image source={Logopath.Redemoji} style={styles.imgemoji} />
+            }
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setRating('1')}>
+          <TouchableOpacity onPress={() =>{
+            setSelected('yellow')
+             setRating('1')}}>
+            {selected=='yellow'?
+            <Image source={Logopath.Yellowemoji} style={{height:85,width:85}} />:
             <Image source={Logopath.Yellowemoji} style={styles.imgemoji} />
+            }
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setRating('2')}>
+          <TouchableOpacity onPress={() =>{
+            setSelected('green')
+             setRating('2')}}>
+            {selected=='green'?
+            <Image source={Logopath.Greenemoji} style={{height:85,width:85}} />:
             <Image source={Logopath.Greenemoji} style={styles.imgemoji} />
+            }
           </TouchableOpacity>
         </View>
         <TextInput
@@ -110,7 +127,7 @@ const Addfeedback = ({
         <Text style={{justifyContent: 'center'}}>Anonymous</Text>
       </View>
 
-      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+      <Modal animationType="slide"  visible={modalVisible} >
         <View style={styles.modalView}>
           <View
             style={{justifyContent: 'center', flex: 1, alignContent: 'center'}}>

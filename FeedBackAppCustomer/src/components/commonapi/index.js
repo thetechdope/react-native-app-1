@@ -7,6 +7,7 @@ const Commonapi = async customerinfo => {
       'http://34.212.54.70:3000/api/customers/signup',
       customerinfo,
     );
+    console.log('response==>', response)
     if (response.status == 200) {
       storeUser(response.data);
       console.log('respone====>', response);

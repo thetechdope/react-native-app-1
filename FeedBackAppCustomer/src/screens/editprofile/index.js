@@ -45,7 +45,7 @@ const Editprofile = () => {
 
   const openGallery = async () => {
     const result = await launchImageLibrary(options);
-    console.log('result====>', result.assets[0].uri);
+    console.log('profileImgresult====>', result.assets[0].uri);
     setSelectphoto(result.assets[0].uri);
     // selectphoto.push(result.assets.uri)
   };

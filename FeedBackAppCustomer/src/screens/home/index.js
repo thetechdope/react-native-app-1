@@ -19,11 +19,11 @@ export default function Home({navigation}) {
 
   const [search, setSearch] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-
+console.log('feedback.length', feedback.length)
   const getAllFeedbackData = async () => {
     const response = await axios.get('http://34.212.54.70:3000/api/feedbacks');
     setFeedback(response.data);
-   
+   console.log('responsefeedback==>', response)
   };
   const businesCheck = async () => {
     const respo = await axios.get('http://34.212.54.70:3000/api/isAvailable/:businessEmail');

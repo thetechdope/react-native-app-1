@@ -15,7 +15,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Otpverification = ({route: {params}}) => {
-  console.log('props', params);
+  // console.log('props', params);
   const [email, setEmail] = useState();
   const [otp, setOtp] = useState();
   const [refreshing, setRefreshing]=useState(false)
@@ -66,7 +66,8 @@ const reSendOtp =async()=>{
     
   };
   try{
-    const responsdata = await axios.get('http://34.212.54.70:3000/api/customers/resend-otp/',body )
+    const responsdata = await axios.get(`http://34.212.54.70:3000/api/customers/resend-otp/${email}` )
+    alert("OTP Sent Again ")
     console.log("========12222223333", responsdata)
   }catch(err){
     console.log("wwwwwwwwwwwwwww==>",err)

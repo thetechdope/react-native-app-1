@@ -28,7 +28,7 @@ const Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
 
   } catch (err) {
     console.log(err);
-     alert("Business Is Deactivated")
+    
     return {status: false};
   }
 };

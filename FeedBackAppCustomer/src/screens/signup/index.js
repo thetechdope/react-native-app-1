@@ -87,8 +87,14 @@ const [refreshing, setRefreshing]=useState(false)
       formData.append('password', password);
       setRefreshing(true)
      const respo=await Commonapi(formData);
+     console.log("useremaili======", respo.status)
       setRefreshing(false)
-      navigation.navigate(Routes.Otpverification, {email: email});
+      if(respo.status==false){
+        alert("User Alredy Registered")
+      }else{
+ navigation.navigate(Routes.Otpverification, {email: email});
+      }
+     
     }
   };
 

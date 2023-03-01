@@ -9,14 +9,13 @@ const Commonapi = async customerinfo => {
     );
     console.log('response==>', response)
     if (response.status == 200) {
-      storeUser(response.data);
-      console.log('respone====>', response);
       return {status: true, data: response.data};
     } else {
-      return {status: false};
+      return {status: false };
     }
   } catch (err) {
-    console.log(err);
+    return {status: false}
+    
   }
 };
 export default Commonapi;

@@ -15,10 +15,12 @@ const UpdateCustomerapi = async cutomerinfo => {
       console.log('respone====>', response);
       return {status: true, data: response.data};
     } else {
+     
+  
       return {status: false};
     }
   } catch (err) {
-    console.log(err);
+    console.log("===================1111111>",err);
   }
 };
 

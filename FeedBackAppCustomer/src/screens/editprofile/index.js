@@ -102,6 +102,7 @@ const Editprofile = () => {
     // else if(!phoneNumber){
     //   alert('Please Enter  Phonenumber');
    
+<<<<<<< HEAD
     // }else if(!selectphoto){
     //   alert('Please Add  Profile Photo');
     // }
@@ -131,14 +132,46 @@ const Editprofile = () => {
       alert('Update failed !');
     }
     // }
+=======
+    }else if(!selectphoto){
+      alert('Please Add  Profile Photo');
+    }
+    else {
+      try {
+        const formData = new FormData();
+        formData.append('avatar', {
+          uri: selectphoto,
+          type: 'image/jpg',
+          name: 'abc.jpg',
+        });
+        formData.append('firstName', firstName);
+        formData.append('lastName', lastName);
+        formData.append('phoneNumber', phoneNumber);
+        setRefreshing(true);
+        const respone = await UpdateCustomerapi(formData);
+        console.log(respone?.data?.data, '========>');
+        setRefreshing(false)
+        
+        if (respone?.data?.data) {
+          await AsyncStorage.setItem('user', JSON.stringify(respone?.data?.data));
+          alert('Successfully updated !');
+          navigation.replace(Routes.Settings);
+        } else {
+          console.log("===================1111111>",respone);
+          alert('Update failed !');
+        }
+      } catch (error) {
+        console.log("rrrrr", error)
+      }
+   
+    }
+>>>>>>> 56739d7 (android debigging)
    
   };
 
   return (
-    <KeyboardAvoidingView
-      keyboardVerticalOffset={headerHeight}
-      behavior={Platform.OS === 'ios' ? 'padding' : null}
-      style={{flex: 1}}>
+    
+      
       <ScrollView>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
@@ -228,7 +261,7 @@ const Editprofile = () => {
           </View>
         </TouchableWithoutFeedback>
       </ScrollView>
-    </KeyboardAvoidingView>
+    
   );
 };
 export default Editprofile;

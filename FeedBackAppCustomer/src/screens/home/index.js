@@ -12,6 +12,8 @@ import Buttoncomponent from '../../components/butoncomponents';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SearchableDropdown from 'react-native-searchable-dropdown';
 import Feedback from '../feedback';
+import LinearGradient from 'react-native-linear-gradient';
+import { responsiveWidth } from 'react-native-responsive-dimensions';
 
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);

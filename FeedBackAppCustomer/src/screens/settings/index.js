@@ -1,4 +1,4 @@
-import {View, Text, Image, SafeAreaView, TouchableOpacity} from 'react-native';
+import {View, Text, Image, SafeAreaView, TouchableOpacity, Platform} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CustomHeader from '../../components/customHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -68,22 +68,38 @@ const Settings = ({navigation}) => {
   };
 
   const clearAsyncStorage = async () => {
-    AsyncStorage.clear();
+    // AsyncStorage.clear();
+    try {
+      const asyncStorageKeys = await AsyncStorage.getAllKeys();
+      if (asyncStorageKeys.length > 0) {
+        if (Platform.OS === 'android') {
+          await AsyncStorage.clear();
+          console.log('async items cleared android');
+          props.navigation.replace('Login');
+        }
+        if (Platform.OS === 'ios') {
+          await AsyncStorage.multiRemove(asyncStorageKeys);
+          console.log('async items cleared from ios');
+          props.navigation.replace('Login');
+        }
+      }
+    } catch (error) {
+      console.log('Error while sign out', error);
+    }
   };
-  console.log('userImage==>', user?.profileImage)
+  console.log('userImage==>', user?.profileImage);
   return (
     <CustomHeader>
       <View style={styles.topContainer}>
-      
         <Image
           //  source={{uri: `${user.profileImage}`}}
-          source={{ uri: user?.profileImage }}
+          source={{uri: user?.profileImage}}
           style={styles.profileLogo}
         />
         <View style={styles.namecontainer}>
           <Text style={styles.name}>{user?.firstName}</Text>
           <View style={styles.info}>
-            <Ionicons name="location-outline" size={16} style={{}}/>
+            <Ionicons name="location-outline" size={16} style={{}} />
             <Text>{userlocation?.city},</Text>
             <Text>{userlocation?.countryName}</Text>
           </View>
@@ -107,8 +123,7 @@ const Settings = ({navigation}) => {
         <TouchableOpacity
           onPress={() => {
             deletedAccount();
-              navigation.replace(Routes.Login);
-              clearAsyncStorage();
+            clearAsyncStorage();
           }}
           style={{flexDirection: 'row'}}>
           <Image source={Logopath.delAcc} style={styles.icon} />

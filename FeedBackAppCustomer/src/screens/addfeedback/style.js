@@ -53,12 +53,12 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+  
   },
   modalView: {
     backgroundColor: 'white',
     borderRadius: 20,
-    height: '55%',
+    height: '50%',
     width: '90%',
     borderRadius: 20,
     shadowOffset: {width: -2, height: 4},
@@ -67,7 +67,7 @@ export default StyleSheet.create({
     shadowRadius: 8,
     alignSelf: 'center',
     justifyContent: 'center',
-    marginTop: '40%',
+    
   },
   modalText: {
     fontFamily: ROBOTO_MEDIUM,
@@ -85,6 +85,7 @@ export default StyleSheet.create({
   btnhome: {
     position: 'absolute',
     top: 0,
+  
   },
   img: {
     height: 200,

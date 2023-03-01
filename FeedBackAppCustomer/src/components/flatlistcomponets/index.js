@@ -7,6 +7,7 @@ import moment from 'moment';
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 export default function Flatlistcomponents({item, onPress}) {
+  console.log('itemHom==>',item)
   return (
     <TouchableOpacity
       onPress={onPress}

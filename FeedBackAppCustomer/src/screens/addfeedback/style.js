@@ -1,4 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import { responsiveHeight } from 'react-native-responsive-dimensions';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 const {width, height} = Dimensions.get('window');
 
@@ -32,13 +33,15 @@ export default StyleSheet.create({
   imgdirection: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: '6%',
+    // marginTop: '6%',
+    alignItems:'center',
+    height:responsiveHeight(12)
   },
   input: {
     height: 200,
     width: '90%',
     borderWidth: 1,
-    marginTop: '6%',
+    // marginTop: '6%',
     borderRadius: 8,
     alignSelf: 'center',
     padding: 10,

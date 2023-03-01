@@ -43,7 +43,7 @@ const Feedback = ({navigation}) => {
         <Text style={styles.heading}>Feedback</Text>
       </View>
       <View style={{marginTop: '10%', flex: 1}}>
-        <FlatList
+        {feedback.length!==0?<FlatList
           data={feedback}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {
@@ -56,7 +56,11 @@ const Feedback = ({navigation}) => {
               />
             );
           }}
-        />
+        />:
+        <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+        <Text style={{fontWeight:'500', fontSize:18}}>NO Data Found</Text>
+        </View>
+        }
       </View>
     </CustomHeader>
   );

@@ -87,7 +87,7 @@ const Addfeedback = ({
             setSelected('red')
             }}>
             {selected=='red'?
-            <Image source={Logopath.Redemoji} style={{height:85,width:85}} />:
+            <Image source={Logopath.Redemoji} style={{height:90,width:90}} />:
             <Image source={Logopath.Redemoji} style={styles.imgemoji} />
             }
           </TouchableOpacity>
@@ -95,7 +95,7 @@ const Addfeedback = ({
             setSelected('yellow')
              setRating('1')}}>
             {selected=='yellow'?
-            <Image source={Logopath.Yellowemoji} style={{height:85,width:85}} />:
+            <Image source={Logopath.Yellowemoji} style={{height:90,width:90}} />:
             <Image source={Logopath.Yellowemoji} style={styles.imgemoji} />
             }
           </TouchableOpacity>
@@ -103,7 +103,7 @@ const Addfeedback = ({
             setSelected('green')
              setRating('2')}}>
             {selected=='green'?
-            <Image source={Logopath.Greenemoji} style={{height:85,width:85}} />:
+            <Image source={Logopath.Greenemoji} style={{height:90,width:90}} />:
             <Image source={Logopath.Greenemoji} style={styles.imgemoji} />
             }
           </TouchableOpacity>
@@ -139,13 +139,13 @@ const Addfeedback = ({
             />
             <Text style={styles.modalText}>Thank you!</Text>
             <Text style={styles.modalTex}>
-              Thank you for sharing your thughts
+              Thank you for sharing your thoughts
             </Text>
-            <Text style={styles.modalTex}> we appreciet your feedback</Text>
+            <Text style={styles.modalTex}> we appreciate your feedback</Text>
             <Buttoncomponent
               value={'OK'}
               onPress={() => {
-                setModalVisible(!modalVisible);
+                setModalVisible(false);
                 navigation.replace(Routes.Home);
               }}
             />

@@ -97,7 +97,7 @@ const Settings = ({navigation}) => {
       <TouchableOpacity
         style={styles.optionsContainer}
         onPress={() => navigation.navigate(Routes.Createnewpassword)}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', alignItems:'center'}}>
           <Image source={Logopath.Lock} style={styles.icon} />
           <Text>Change Password</Text>
         </View>

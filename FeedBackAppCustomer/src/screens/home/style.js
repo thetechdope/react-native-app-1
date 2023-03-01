@@ -18,9 +18,10 @@ export default StyleSheet.create({
   head: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     marginTop: responsiveHeight(10),
-    width: responsiveWidth(70),
+    width: responsiveWidth(55),
+    marginLeft:responsiveWidth(4)
   },
   heading: {
     fontSize: responsiveFontSize(3),

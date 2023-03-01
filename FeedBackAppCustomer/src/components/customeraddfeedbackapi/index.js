@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
   // console.log("hellooo=>", toggleCheckBox)
-  // try {
+  try {
   const user = JSON.parse(await AsyncStorage.getItem('token'));
   let config = {headers: {Authorization: `Bearer ${user}`}};
   // console.log(config)
@@ -26,10 +26,11 @@ const Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
     return {status: true, data: response.data};
   }
 
-  // } catch (err) {
-  //   console.log(err);
-  //   return {status: false};
-  // }
+  } catch (err) {
+    console.log(err);
+     alert("Business Is Deactivated")
+    return {status: false};
+  }
 };
 
 export default Customeraddfeedbackapi;

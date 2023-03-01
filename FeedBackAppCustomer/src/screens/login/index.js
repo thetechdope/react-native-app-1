@@ -44,8 +44,14 @@ const Login = () => {
       let response = await Loginapi(parm);
       console.log('response====', response);
       setRefreshing(false);
-      if (response?.status) {
-        navigation.navigate(Routes.Home);
+      console.log(response.status)
+      if (response.status) {
+        if (response.data.isActive) {
+          navigation.navigate(Routes.Home);
+        } else {
+          alert('Account Has Been Blocked by Admin Panel');
+        }
+       
       } else {
         alert('Login Failed');
       }
@@ -80,11 +86,12 @@ const Login = () => {
                   secureTextEntry={true}
                   onChangeText={txt => setPasssword(txt)}
                 />
-                {refreshing && (
+                {/* {refreshing && (
                   <ActivityIndicator size="small" color="#0000ff" />
-                )}
+                )} */}
 
                 <Buttoncomponent
+                refreshing={refreshing}
                   value="SIGN IN"
                   onPress={() => {
                     customerlogininfo();

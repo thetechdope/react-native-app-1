@@ -29,23 +29,53 @@ export default StyleSheet.create({
     alignItems: 'center',
     color: 'white',
   },
+  container: {
+    position:"absolute",
+    marginTop:"42%",
+    backgroundColor: 'white',
+    width: '95%',
+    alignSelf: 'center', 
+    flexDirection: 'row',
+    justifyContent: 'center',
+     alignItems:'center', 
+     shadowOffset: {width: -2, height: 4},
+     shadowColor: '#171717',
+     shadowOpacity: 0.2,
+     shadowRadius: 3,
+     flexDirection: 'row',
+     justifyContent: 'center',
+     borderRadius: 20,
+     padding:10
+ 
+  
+},
 
     subhead: {
-      backgroundColor: 'white',
-      padding: 16,
       width: '90%',
       alignSelf: 'center',
-      borderRadius: 20,
-      shadowOffset: {width: -2, height: 4},
-      shadowColor: '#171717',
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
-      flexDirection: 'row',
-      justifyContent: 'center',
       fontWeight: '600',
       fontSize: 16,
     
   },
+  flat: {
+    backgroundColor: 'white',
+    padding: 16,
+    width: '90%',
+    alignSelf: 'center',
+    borderRadius: 20,
+    shadowOffset: {width: -2, height: 4},
+    shadowColor: '#171717',
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    fontWeight: '600',
+    fontSize: 16,
+    height:150, 
+    marginTop:'8%'
+  
+  
+},
  
   recently: {
     fontFamily: ROBOTO_LIGHT,

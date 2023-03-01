@@ -36,7 +36,7 @@ const Signup = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState();
   // const[customerinfo, setCustomerinfo] =useState({});
-
+const [refreshing, setRefreshing]=useState(false)
   const headerHeight = useHeaderHeight();
   const [selectphoto, setSelectphoto] = useState('');
 
@@ -47,7 +47,7 @@ const Signup = ({navigation}) => {
 
     // selectphoto.push(result.assets.uri)
   };
-  const customervalue = () => {
+  const customervalue = async () => {
     // let parm = {
     //   firstName: firstName,
     //   lastName: lastName,
@@ -57,20 +57,39 @@ const Signup = ({navigation}) => {
     //   password: password,
     // };
     // Commonapi(customerinfo)
-
-    const formData = new FormData();
-    formData.append('avatar', {
-      uri: selectphoto,
-      type: 'image/jpg',
-      name: 'abc.jpg',
-    });
-    formData.append('firstName', firstName);
-    formData.append('lastName', lastName);
-    formData.append('email', email);
-    formData.append('phoneNumber', phoneNumber);
-    formData.append('password', password);
-
-    Commonapi(formData);
+    if (
+      !firstName 
+    
+    ) {
+      alert('Please Enter  FirstName');
+    } else if(!lastName){
+      alert('Please Enter  LastName');
+    }else if(!email){
+      alert('Please Enter  Email');
+    }else if(!phoneNumber){
+      alert('Please Enter  Phonenumber');
+    }else if(!password){
+      alert('Please Enter  password');
+    }else if(!selectphoto){
+      alert('Please Add  Profile Photo');
+    }
+    else {
+      const formData = new FormData();
+      formData.append('avatar', {
+        uri: selectphoto,
+        type: 'image/jpg',
+        name: 'abc.jpg',
+      });
+      formData.append('firstName', firstName);
+      formData.append('lastName', lastName);
+      formData.append('email', email);
+      formData.append('phoneNumber', phoneNumber);
+      formData.append('password', password);
+      setRefreshing(true)
+     const respo=await Commonapi(formData);
+      setRefreshing(false)
+      navigation.navigate(Routes.Otpverification, {email: email});
+    }
   };
 
   return (
@@ -147,7 +166,8 @@ const Signup = ({navigation}) => {
                   onChangeText={txt => setPassword(txt)}
                 />
                 <Buttoncomponent
-                  value="CREAT ACCOUNT"
+                refreshing={refreshing}
+                  value="CREAT A ACCOUNT"
                   onPress={() => {
                     //   setCustomerinfo({
                     //   firstName:firstName,
@@ -158,8 +178,6 @@ const Signup = ({navigation}) => {
 
                     // })
                     customervalue();
-
-                    navigation.navigate(Routes.Otpverification, {email: email});
                   }}
                 />
               </View>

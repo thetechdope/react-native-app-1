@@ -12,11 +12,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Commonapi from '../../components/commonapi';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Otpverification = ({route: {params}}) => {
   console.log('props', params);
   const [email, setEmail] = useState();
   const [otp, setOtp] = useState();
+  const [refreshing, setRefreshing]=useState(false)
 
   useEffect(() => {
     setEmail(params?.email);
@@ -24,30 +26,54 @@ const Otpverification = ({route: {params}}) => {
 
   const navigation = useNavigation();
 
-  const SubmitOtp = () => {
-    let body = {
-      email: email,
-      otp: otp,
-    };
-    axios
-      .patch('http://34.212.54.70:3000/api/customers/verify-email', body)
-      .then(res => {
-        console.log('otpres===>', res);
-        if (res.data.status == true) {
-          alert('OTP Verified Successfully');
-          if (params?.from == 'OTP') {
-            navigation.navigate(Routes.Resetpassword, {email: email});
-          } else {
-            navigation.navigate(Routes.Login);
+  const SubmitOtp = async() => {
+    if(!otp){
+      alert("Enter Otp")
+    }else{
+      let body = {
+        email: email,
+        otp: otp,
+      };
+     
+   const otpVerify= await  axios
+        .patch('http://34.212.54.70:3000/api/customers/verify-email', body)
+        .then(res => {
+          console.log('otpres===>', res);
+          if (res.data.status == true) {
+            alert('OTP Verified Successfully');
+            if (params?.from == 'OTP') {
+              navigation.navigate(Routes.Resetpassword, {email: email});
+            } else {
+              navigation.navigate(Routes.Login);
+            }
           }
-        } else {
-          alert('Incorrect Password');
-        }
-      })
-      .catch(err => {
-        console.log('err===>', err);
-      });
+          else {
+            alert('Incorrect OTP');
+          }
+        })
+        .catch(err => {
+          console.log('err===>', err);
+          alert("Incorrect OTP")
+        });
+       
+    }
+
+   
   };
+const reSendOtp =async()=>{
+  let body = {
+    email: email,
+    
+  };
+  try{
+    const responsdata = await axios.get('http://34.212.54.70:3000/api/customers/resend-otp/',body )
+    console.log("========12222223333", responsdata)
+  }catch(err){
+    console.log("wwwwwwwwwwwwwww==>",err)
+  }
+
+}
+
   return (
     <CustomHeader>
       <TouchableOpacity
@@ -62,11 +88,16 @@ const Otpverification = ({route: {params}}) => {
       </View>
       <View style={style.resendstyle}>
         <Text>Don't recieve the OTP ? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity 
+        onPress={()=>{
+          reSendOtp()
+        }}
+        >
           <Text style={style.resend}> RESEND OTP</Text>
         </TouchableOpacity>
       </View>
       <Buttoncomponent
+       refreshing={refreshing}
         value={'SUBMIT'}
         onPress={() => {
           SubmitOtp();

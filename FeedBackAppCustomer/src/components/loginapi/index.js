@@ -25,7 +25,7 @@ const Loginapi = async customerinfo => {
       return {status: false};
     }
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     return {status: false};
   }
 };

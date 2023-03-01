@@ -33,7 +33,7 @@ const options = {
 
 const Editprofile = () => {
   const headerHeight = useHeaderHeight();
-
+  const [refreshing, setRefreshing] = useState(false);
   const [selectphoto, setSelectphoto] = useState('');
   const [firstName, setFirstName] = useState('');
   const [user, setUser] = useState('');
@@ -86,7 +86,22 @@ const Editprofile = () => {
   };
 
   const customervalue = async () => {
-    const formData = new FormData();
+    if (
+      !firstName 
+    
+    ) {
+      alert('Please Enter  FirstName');
+    } else if(!lastName){
+      alert('Please Enter  LastName');
+    }
+    else if(!phoneNumber){
+      alert('Please Enter  Phonenumber');
+   
+    }else if(!selectphoto){
+      alert('Please Add  Profile Photo');
+    }
+    else {
+      const formData = new FormData();
     formData.append('avatar', {
       uri: selectphoto,
       type: 'image/jpg',
@@ -95,9 +110,10 @@ const Editprofile = () => {
     formData.append('firstName', firstName);
     formData.append('lastName', lastName);
     formData.append('phoneNumber', phoneNumber);
-
+    setRefreshing(true);
     const respone = await UpdateCustomerapi(formData);
     console.log(respone?.data?.data, '========>');
+    setRefreshing(false)
     if (respone?.data?.data) {
       await AsyncStorage.setItem('user', JSON.stringify(respone?.data?.data));
       alert('Successfully updated !');
@@ -105,6 +121,8 @@ const Editprofile = () => {
     } else {
       alert('Update failed !');
     }
+    }
+   
   };
 
   return (
@@ -178,6 +196,7 @@ const Editprofile = () => {
               </View>
 
               <Buttoncomponent
+              refreshing={refreshing}
                 value={'UPDATE'}
                 onPress={() => {
                   customervalue();

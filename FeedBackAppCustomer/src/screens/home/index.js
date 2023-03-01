@@ -16,6 +16,7 @@ import Feedback from '../feedback';
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const [business, setBusiness] = useState([]);
 
   const [search, setSearch] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
@@ -26,14 +27,15 @@ console.log('feedback.length', feedback.length)
    console.log('responsefeedback==>', response)
   };
   const businesCheck = async () => {
-    const respo = await axios.get('http://34.212.54.70:3000/api/isAvailable/:businessEmail');
-    console.log("gfgg===>",respo)  
+    const respo = await axios.get('http://34.212.54.70:3000/api/businesses');
+    // console.log("gfgg===>",respo.data)  
+    setBusiness(respo.data)
     
   }
 
   const handleSearch = searchText => {
     if (searchText) {
-      const filterValue = feedback.filter(item => {
+      const filterValue = business.filter(item => {
         const itemData = item.businessEmail
           ? item.businessEmail.toUpperCase()
           : ' '.toUpperCase();
@@ -76,17 +78,10 @@ console.log('feedback.length', feedback.length)
           <Text style={styles.heading}>Home</Text>
         </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            alignItems: 'center',
-            alignSelf: 'center',
-            marginTop: '10%',
-            width: '95%',
-            backgroundColor: 'white',
-            borderRadius: 20,
-          }}>
+       
+      </View>
+      <View style={styles.container}
+         >
           <TextInput
             autoCapitalize="none"
             autoCorrect={false}
@@ -95,27 +90,22 @@ console.log('feedback.length', feedback.length)
             onChangeText={searchText => handleSearch(searchText)}
             placeholder="Search here to provie feedbak"
             style={styles.subhead}
+         
           />
 
           <TouchableOpacity>
             <Icon name="search-outline" size={20} />
           </TouchableOpacity>
         </View>
-      </View>
       {search.length !== 0 ? (
-        <View style={{
-           height: 150,
-            marginTop: '8%',
-            width:'90%', 
-            justifyContent:'center', 
-            alignSelf:'center'
-            }}>
+        <View  style={styles.flat}>
           <FlatList
+          showsHorizontalScrollIndicator={false}
             data={filterData}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item, index}) => {
               return(
-                 <Text style={{borderWidth:.6,fontSize:16 }}
+                 <Text style={{fontSize:16, padding:8,  }}
                  onPress={()=>navigation.navigate(Routes.GiveFeedback, {"item":item})}
                  >{item.businessEmail}</Text> )
             }}

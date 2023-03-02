@@ -6,6 +6,7 @@ import {
   Modal,
   Pressable,
   Alert,
+  ScrollView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './style';
@@ -73,6 +74,7 @@ const Addfeedback = ({
 
   return (
     <CustomHeader>
+    <ScrollView>
       <View style={styles.head}>
         <TouchableOpacity onPress={() => navigation.replace(Routes.Home)}>
           <Ionicons name="arrow-back" size={30} />
@@ -161,6 +163,7 @@ const Addfeedback = ({
           }}
         />
       </View>
+      </ScrollView>
     </CustomHeader>
   );
 };

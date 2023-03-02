@@ -40,7 +40,7 @@ const Login = () => {
       alert('Email is Not Correct')
     } else {
       let parm = {
-        email: email,
+        email: email.toLocaleLowerCase(),
         password: password,
       };
       setRefreshing(true);
@@ -80,7 +80,7 @@ const Login = () => {
                   placeholder="Email"
                   label="Email"
                   value={email}
-                  onChangeText={txt => setEmail(txt.toLowerCase())}
+                  onChangeText={txt => setEmail(txt)}
                 />
                 <Inputcomponents
                   placeholder="password"

@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {responsiveFontSize, responsiveHeight} from 'react-native-responsive-dimensions';
+import { verticalScale } from '../../components/responsive';
 export default StyleSheet.create({
   img: {
     alignSelf: 'center',
-    marginTop:responsiveHeight(20),
+    marginTop:verticalScale(20),
     marginBottom: responsiveHeight(5),
   },
   txtHeader: {

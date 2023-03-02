@@ -5,6 +5,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { verticalScale } from '../../components/responsive';
 
 export default StyleSheet.create({
  
@@ -36,6 +37,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     width: responsiveWidth(90),
     alignSelf: 'center',
+    marginBottom:verticalScale(50)
   },
   choicetxt: {
     color: 'rgb(123,89,233)',

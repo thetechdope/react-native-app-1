@@ -8,6 +8,7 @@ import style from './style';
 import {Routes} from '../../navigation/Routes';
 import {Logopath} from '../../assets/images';
 import styles from '../settings/styles';
+import {verticalScale,horizontalScale} from '../../components/responsive'
 
 const GiveFeedback = ({navigation, route: {params}}) => {
   const [data, setData] = useState({});
@@ -47,7 +48,7 @@ const GiveFeedback = ({navigation, route: {params}}) => {
 
         <LinearGradient
           style={{
-            height: '12%',
+            height: verticalScale(75),
             width: '95%',
             alignSelf: 'flex-end',
             borderBottomLeftRadius: 10,

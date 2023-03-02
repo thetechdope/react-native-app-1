@@ -1,8 +1,7 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Logopath} from '../../assets/images';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import moment from 'moment';
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 

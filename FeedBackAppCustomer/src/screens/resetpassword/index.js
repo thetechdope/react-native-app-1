@@ -51,7 +51,7 @@ const Resetpassword = props => {
         }}
       />
       <Text style={style.title}>Reset Password</Text>
-    0  <Text style={style.contentTxt}>
+      <Text style={style.contentTxt}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry.
       </Text>

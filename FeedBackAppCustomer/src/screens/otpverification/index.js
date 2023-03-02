@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import style from './style';
 import CustomHeader from '../../components/customHeader';
@@ -27,6 +27,9 @@ const Otpverification = ({route: {params}}) => {
   const navigation = useNavigation();
 
   const SubmitOtp = async() => {
+    console.log('email===>', email)
+    console.log('otp===>', otp)
+
     if(!otp){
       alert("Enter Otp")
     }else{
@@ -34,7 +37,6 @@ const Otpverification = ({route: {params}}) => {
         email: email,
         otp: otp,
       };
-     
    const otpVerify= await  axios
         .patch('http://34.212.54.70:3000/api/customers/verify-email', body)
         .then(res => {
@@ -49,11 +51,12 @@ const Otpverification = ({route: {params}}) => {
           }
           else {
             alert('Incorrect OTP');
+            console.log('otpResponse', res)
           }
         })
         .catch(err => {
           console.log('err===>', err);
-          alert("Incorrect OTP")
+          alert("Something went wrong")
         });
        
     }
@@ -77,6 +80,7 @@ const reSendOtp =async()=>{
 
   return (
     <CustomHeader>
+    <ScrollView>
       <TouchableOpacity
         onPress={() => navigation.goBack()}>
         <Ionicons name="arrow-back" size={30} style={style.icons} />
@@ -104,6 +108,7 @@ const reSendOtp =async()=>{
           SubmitOtp();
         }}
       />
+      </ScrollView>
     </CustomHeader>
   );
 };

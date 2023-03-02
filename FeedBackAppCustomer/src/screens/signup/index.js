@@ -9,6 +9,7 @@ import {
   Keyboard,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import styles from './style';
 import {Logopath} from '../../assets/images';
@@ -48,7 +49,9 @@ const [refreshing, setRefreshing]=useState(false)
     // selectphoto.push(result.assets.uri)
   };
   const customervalue = async () => {
-    // let parm = {
+    console.log('firstName', firstName)
+    console.log('lastName', lastName)
+    console.log('email', email )
     //   firstName: firstName,
     //   lastName: lastName,
     //   email: email,
@@ -82,18 +85,38 @@ const [refreshing, setRefreshing]=useState(false)
       });
       formData.append('firstName', firstName);
       formData.append('lastName', lastName);
-      formData.append('email', email);
+      formData.append('email', email.toLowerCase());
       formData.append('phoneNumber', phoneNumber);
       formData.append('password', password);
       setRefreshing(true)
-     const respo=await Commonapi(formData);
-     console.log("useremaili======", respo.status)
-      setRefreshing(false)
-      if(respo.status==false){
-        alert("User Alredy Registered")
+    //  const respo=await Commonapi(formData);
+    
+     let response = await axios.post(
+      'http://34.212.54.70:3000/api/customers/signup',
+      formData,
+    ).then(res=>{
+      if(res.status==200){
+        Alert.alert("Success","Account created successfully")
+        navigation.navigate(Routes.Otpverification, {email: email});
       }else{
- navigation.navigate(Routes.Otpverification, {email: email});
+        alert('')
       }
+    })
+    .catch(err=>{
+      console.log('errSignup', err)
+      if(err?.response?.status==400){
+        Alert.alert("Warning!",`${err.response.data.message}`)
+      }else{
+        alert('Something went wrong')
+      }
+      })
+     console.log("signupresp======", response)
+      setRefreshing(false)
+//       if(respo.status==false){
+//         alert("User Alredy Registered")
+//       }else{
+//  navigation.navigate(Routes.Otpverification, {email: email});
+//       }
      
     }
   };
@@ -155,7 +178,7 @@ const [refreshing, setRefreshing]=useState(false)
                   placeholder="Email"
                   label="Email"
                   value={email}
-                  onChangeText={txt => setEmail(txt.toLowerCase())}
+                  onChangeText={txt => setEmail(txt)}
                 />
                 <Inputcomponents
                   placeholder="Phone No."

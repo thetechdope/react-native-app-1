@@ -2,6 +2,8 @@ import {Dimensions, StyleSheet} from 'react-native';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 const {width, height} = Dimensions.get('window');
+import {verticalScale,horizontalScale} from '../../components/responsive'
+
 
 export default StyleSheet.create({
   head: {
@@ -21,7 +23,8 @@ export default StyleSheet.create({
   txthead: {
     fontFamily: ROBOTO_MEDIUM,
     fontSize: 16,
-    margin: '10%',
+    marginLeft: '10%',
+    marginVertical:verticalScale(10)
   },
   txt: {
     marginLeft: '10%',
@@ -33,9 +36,8 @@ export default StyleSheet.create({
   imgdirection: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    // marginTop: '6%',
+    marginVertical: verticalScale(20),
     alignItems:'center',
-    height:responsiveHeight(12)
   },
   input: {
     height: 200,
@@ -58,7 +60,7 @@ export default StyleSheet.create({
   modalView: {
     backgroundColor: 'white',
     borderRadius: 20,
-    height: '55%',
+    height: verticalScale(100),
     width: '90%',
     borderRadius: 20,
     shadowOffset: {width: -2, height: 4},

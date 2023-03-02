@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
-=======
-import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
->>>>>>> 33fae78969db895a2a2ba3366b422f1d27c0e71d
+import {View, Text, SafeAreaView, Image, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import style from './style';
 import CustomHeader from '../../components/customHeader';

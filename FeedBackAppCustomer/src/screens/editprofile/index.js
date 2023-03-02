@@ -135,10 +135,8 @@ const Editprofile = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      keyboardVerticalOffset={headerHeight}
-      behavior={Platform.OS === 'ios' ? 'padding' : null}
-      style={{flex: 1}}>
+    
+      
       <ScrollView>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.inner}>
@@ -228,7 +226,7 @@ const Editprofile = () => {
           </View>
         </TouchableWithoutFeedback>
       </ScrollView>
-    </KeyboardAvoidingView>
+    
   );
 };
 export default Editprofile;

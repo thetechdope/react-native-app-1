@@ -68,6 +68,7 @@ export default function StackNavigator() {
         component={Screens.Resetpassword}
       />
       <Stack.Screen name={Routes.Addfeedback} component={Screens.Addfeedback} />
+      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback} />
 
       <Stack.Screen
         name={Routes.GiveFeedback}

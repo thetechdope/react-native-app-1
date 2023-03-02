@@ -22,6 +22,7 @@ export default function Flatlistcomponents({item, onPress}) {
         shadowOpacity: 0.4,
         shadowRadius: 3,
         borderWidth: 0.2,
+        // elevation:1
       }}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems:'center'}}>
         <Text style={styles.type}>{item.businessEmail}</Text>

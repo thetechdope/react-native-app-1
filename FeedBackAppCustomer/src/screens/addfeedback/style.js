@@ -55,12 +55,16 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+  
   },
   modalView: {
     backgroundColor: 'white',
     borderRadius: 20,
+<<<<<<< HEAD
     height: verticalScale(100),
+=======
+    height: '50%',
+>>>>>>> 33fae78969db895a2a2ba3366b422f1d27c0e71d
     width: '90%',
     borderRadius: 20,
     shadowOffset: {width: -2, height: 4},
@@ -69,7 +73,7 @@ export default StyleSheet.create({
     shadowRadius: 8,
     alignSelf: 'center',
     justifyContent: 'center',
-    marginTop: '40%',
+    
   },
   modalText: {
     fontFamily: ROBOTO_MEDIUM,
@@ -87,6 +91,7 @@ export default StyleSheet.create({
   btnhome: {
     position: 'absolute',
     top: 0,
+  
   },
   img: {
     height: 200,

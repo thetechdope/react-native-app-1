@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
+=======
+import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
+>>>>>>> 33fae78969db895a2a2ba3366b422f1d27c0e71d
 import React, {useEffect, useState} from 'react';
 import style from './style';
 import CustomHeader from '../../components/customHeader';
@@ -8,7 +12,7 @@ import {Logopath} from '../../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../navigation/Routes';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import axios from 'axios';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 

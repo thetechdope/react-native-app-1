@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
+const   Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
   // console.log("hellooo=>", toggleCheckBox)
   try {
   const user = JSON.parse(await AsyncStorage.getItem('token'));
@@ -27,7 +27,7 @@ const Customeraddfeedbackapi = async (customerinfo, toggleCheckBox) => {
   }
 
   } catch (err) {
-    console.log(err);
+   
     
     return {status: false};
   }

@@ -2,16 +2,17 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Logopath} from '../assets/images';
+import { verticalScale } from '../components/responsive';
 
 // const CustomTab = (props) => {
-const CustomTab = ({state, descriptors, navigation}) => {
+const   CustomTab = ({state, descriptors, navigation}) => {
   // console.log("hello  ==>", props)
 
   return (
     <View
       style={{
         flexDirection: 'row',
-        height: 70,
+        height: verticalScale(70),
         justifyContent: 'center',
         alignItems: 'center',
       }}>
@@ -55,7 +56,6 @@ const CustomTab = ({state, descriptors, navigation}) => {
               testID={options.tabBarTestID}
               onLongPress={onLongPress}
               style={{
-                height: '100%',
                 width: '33%',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -150,3 +150,40 @@ const styles = StyleSheet.create({});
 // export default CustomTab
 
 // const styles = StyleSheet.create({})
+
+
+// import React, { useEffect, useState } from 'react';
+// import { Platform, Keyboard } from 'react-native';
+// import { BottomTabBar } from '@react-navigation/bottom-tabs';
+
+// const CustomBottomTabBar = props => {
+//   const [visible, setVisible] = useState(true);
+
+//   useEffect(() => {
+//     let keyboardEventListeners;
+//     if (Platform.OS === 'android') {
+//       keyboardEventListeners = [
+//         Keyboard.addListener('keyboardDidShow', () => setVisible(false)),
+//         Keyboard.addListener('keyboardDidHide', () => setVisible(true)),
+//       ];
+//     }
+//     return () => {
+//       if (Platform.OS === 'android') {
+//         keyboardEventListeners &&
+//           keyboardEventListeners.forEach(eventListener => eventListener.remove());
+//       }
+//     };
+//   }, []);
+
+//   const render = () => {
+//     if (Platform.OS === 'ios') {
+//       return <BottomTabBar {...props} />;
+//     }
+//     if (!visible) return null;
+//     return <BottomTabBar {...props} />;
+//   };
+
+//   return render();
+// };
+
+// export default CustomBottomTabBar;

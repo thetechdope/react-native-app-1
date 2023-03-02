@@ -31,9 +31,7 @@ export default StyleSheet.create({
     color: 'white',
   },
   container: {
-   
-   position:'relative',
-   top:-25,
+   top:verticalScale(-30),
     backgroundColor: 'white',
     width: '95%',
     alignSelf: 'center', 
@@ -73,7 +71,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     fontWeight: '600',
     fontSize: 16,
-    height:150, 
+    height:verticalScale(150)
    
   
   

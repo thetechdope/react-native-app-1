@@ -25,7 +25,9 @@ function Settingsstack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+      
+      >
       <Stack.Screen name={Routes.Settings} component={Screens.Settings} />
       <Stack.Screen name={Routes.Editprofile} component={Screens.Editprofile} />
       <Stack.Screen
@@ -38,8 +40,11 @@ function Settingsstack() {
 function Tabavigators() {
   return (
     <Tab.Navigator
-      tabBar={props => <CustomTab {...props} />}
-      screenOptions={{headerShown: false}}>
+      tabBar={props => <CustomTab {...props} 
+      />
+    
+    } 
+      screenOptions={{headerShown: false, tabBarHideOnKeyboard: true,}}>
       <Tab.Screen name={Routes.Home} component={HomeStack} />
       <Stack.Screen name={Routes.Feedback} component={Screens.Feedback} />
       <Tab.Screen name={Routes.Settings} component={Settingsstack} />

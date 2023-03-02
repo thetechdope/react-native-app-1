@@ -2,7 +2,7 @@ import {Dimensions, StyleSheet} from 'react-native';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 const {width, height} = Dimensions.get('window');
-import {verticalScale,horizontalScale} from '../../components/responsive'
+import {verticalScale} from '../../components/responsive'
 
 
 export default StyleSheet.create({
@@ -60,7 +60,7 @@ export default StyleSheet.create({
   modalView: {
     backgroundColor: 'white',
     borderRadius: 20,
-    height: verticalScale(100),
+    height: verticalScale(400),
     width: '90%',
     borderRadius: 20,
     shadowOffset: {width: -2, height: 4},

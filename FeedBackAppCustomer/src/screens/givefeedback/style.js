@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {verticalScale,horizontalScale} from '../../components/responsive'
+import {verticalScale} from '../../components/responsive'
 
 export default StyleSheet.create({
   BannerImage: {

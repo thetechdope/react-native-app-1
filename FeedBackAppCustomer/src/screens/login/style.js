@@ -5,7 +5,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
-import { verticalScale } from '../../components/responsive';
+import { horizontalScale, verticalScale } from '../../components/responsive';
 
 export default StyleSheet.create({
  

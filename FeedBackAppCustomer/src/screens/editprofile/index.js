@@ -150,7 +150,7 @@ const Editprofile = () => {
             <Image source={{uri: selectphoto}} style={styles.selectedimage} />
           ) : (
             <Image
-              source={Logopath.Profiledefault}
+              source={Logopath.Person}
               style={styles.selectedimage}
             />
           )}
@@ -195,7 +195,8 @@ const Editprofile = () => {
 
         {firstName === user?.firstName &&
         lastName === user?.lastName &&
-        phoneNumber === user?.phoneNumber ? (
+        phoneNumber === user?.phoneNumber&&
+        selectphoto === user?.profileImage ? (
           <Buttoncomponent
             disabled={true}
             refreshing={refreshing}

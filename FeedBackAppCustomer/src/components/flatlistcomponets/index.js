@@ -22,7 +22,7 @@ export default function Flatlistcomponents({item, onPress}) {
         borderRadius: responsiveWidth(4),
         shadowOffset: {width: responsiveWidth(-2), height: responsiveHeight(3)},
         shadowColor: '#171717',
-        shadowOpacity: 0.4,
+        shadowOpacity: 0.2,
         shadowRadius: 3,
         borderWidth: 0.5,
         elevation: 1,

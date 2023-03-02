@@ -87,14 +87,14 @@ const [refreshing, setRefreshing]=useState(false)
       formData.append('password', password);
       setRefreshing(true)
      const respo=await Commonapi(formData);
-     console.log("useremaili======", respo.status)
+     console.log("useremaili======", respo)
       setRefreshing(false)
       if(respo.status==false){
-        alert("User Alredy Registered")
+        alert("User Already Exist")
       }else{
- navigation.navigate(Routes.Otpverification, {email: email});
+        navigation.navigate(Routes.Otpverification, {email: email});
       }
-     
+    
     }
   };
 
@@ -155,7 +155,7 @@ const [refreshing, setRefreshing]=useState(false)
                   placeholder="Email"
                   label="Email"
                   value={email}
-                  onChangeText={txt => setEmail(txt.toLowerCase())}
+                  onChangeText={txt => setEmail(txt)}
                 />
                 <Inputcomponents
                   placeholder="Phone No."

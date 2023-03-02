@@ -94,49 +94,28 @@ const Addfeedback = ({
           <TouchableOpacity onPress={() => {
             setRating('0')
             setSelected('red')
-<<<<<<< HEAD
-            }}>
-            {selected=='red'?
-            <Image source={Logopath.Redemoji} style={{height:90,width:90}} />:
-            <Image source={Logopath.Redemoji} style={styles.imgemoji} />
-=======
           }}>
             {selected == 'red' ?
               <Image source={Logopath.Redemoji} style={{ height: 85, width: 85 }} /> :
               <Image source={Logopath.Redemoji} style={styles.imgemoji} />
->>>>>>> 56739d7 (android debigging)
             }
           </TouchableOpacity>
           <TouchableOpacity onPress={() => {
             setSelected('yellow')
-<<<<<<< HEAD
-             setRating('1')}}>
-            {selected=='yellow'?
-            <Image source={Logopath.Yellowemoji} style={{height:90,width:90}} />:
-            <Image source={Logopath.Yellowemoji} style={styles.imgemoji} />
-=======
             setRating('1')
           }}>
             {selected == 'yellow' ?
               <Image source={Logopath.Yellowemoji} style={{ height: 85, width: 85 }} /> :
               <Image source={Logopath.Yellowemoji} style={styles.imgemoji} />
->>>>>>> 56739d7 (android debigging)
             }
           </TouchableOpacity>
           <TouchableOpacity onPress={() => {
             setSelected('green')
-<<<<<<< HEAD
-             setRating('2')}}>
-            {selected=='green'?
-            <Image source={Logopath.Greenemoji} style={{height:90,width:90}} />:
-            <Image source={Logopath.Greenemoji} style={styles.imgemoji} />
-=======
             setRating('2')
           }}>
             {selected == 'green' ?
               <Image source={Logopath.Greenemoji} style={{ height: 85, width: 85 }} /> :
               <Image source={Logopath.Greenemoji} style={styles.imgemoji} />
->>>>>>> 56739d7 (android debigging)
             }
           </TouchableOpacity>
         </View>
@@ -173,14 +152,6 @@ const Addfeedback = ({
             <Text style={styles.modalTex}>
               Thank you for sharing your thoughts
             </Text>
-<<<<<<< HEAD
-            <Text style={styles.modalTex}> we appreciate your feedback</Text>
-            <Buttoncomponent
-              value={'OK'}
-              onPress={() => {
-                setModalVisible(!modalVisible)
-                // navigation.replace(Routes.Home)
-=======
             <Text style={styles.modalTex}> we  appreciate your feedback</Text>
            
           </View>
@@ -192,7 +163,6 @@ const Addfeedback = ({
                navigation.navigate(Routes.Home) 
                
 
->>>>>>> 56739d7 (android debigging)
               }}
             />
              </View>

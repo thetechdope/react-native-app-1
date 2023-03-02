@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import style from './style';
 import CustomHeader from '../../components/customHeader';
@@ -9,7 +9,6 @@ import {useNavigation} from '@react-navigation/native';
 import {Routes} from '../../navigation/Routes';
 import OTPTextView from 'react-native-otp-textinput';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Commonapi from '../../components/commonapi';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -53,7 +52,7 @@ const Otpverification = ({route: {params}}) => {
         })
         .catch(err => {
           console.log('err===>', err);
-          alert("Incorrect OTP")
+          // alert("Incorrect OTP")
         });
        
     }

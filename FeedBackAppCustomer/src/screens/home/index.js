@@ -1,19 +1,14 @@
-import {Image, Modal, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Image, Modal, StyleSheet, Text, TextInput, View,TouchableOpacity, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+
 import Flatlistcomponents from '../../components/flatlistcomponets';
 import {Logopath} from '../../assets/images';
 import {Routes} from '../../navigation/Routes';
 import styles from './style';
 import style from './style';
 import axios from 'axios';
-import Buttoncomponent from '../../components/butoncomponents';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import SearchableDropdown from 'react-native-searchable-dropdown';
-import Feedback from '../feedback';
-import LinearGradient from 'react-native-linear-gradient';
-import { responsiveWidth } from 'react-native-responsive-dimensions';
 
 export default function Home({navigation}) {
   const [feedback, setFeedback] = useState([]);

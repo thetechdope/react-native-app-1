@@ -5,16 +5,19 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+import { horizontalScale, moderateScale, verticalScale } from '../responsive';
+
 
 export default StyleSheet.create({
   Inputvalue: {
-    paddingLeft: responsiveWidth(2.5),
+    paddingLeft: horizontalScale(10),
   },
   txt: {
-    fontSize:responsiveFontSize(2),
-    paddingLeft: responsiveWidth(2.5),
-    marginVertical: responsiveWidth(1),
+    fontSize:moderateScale(16),
+    paddingLeft: horizontalScale(10),
+    marginVertical: verticalScale(1),
     fontFamily: ROBOTO_MEDIUM,
+    color:'black'
   },
   container: {
     width: responsiveWidth(90),

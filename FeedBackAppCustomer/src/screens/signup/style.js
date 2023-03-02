@@ -4,6 +4,7 @@ import {
   responsiveWidth,
   responsiveFontSize
 } from "react-native-responsive-dimensions";
+ import { horizontalScale, moderateScale, verticalScale, } from '../../components/responsive';
 
 export default StyleSheet.create({
  
@@ -11,28 +12,30 @@ export default StyleSheet.create({
   loginlogostyle: {
     justifyContent: 'center',
     alignSelf: 'center',
-    width:responsiveWidth(90)
+    width:horizontalScale(390), 
+    resizeMode:'contain'
   },
   heading: {
-    fontSize: responsiveFontSize(3),
+    fontSize: moderateScale(20),
     justifyContent: 'center',
+    color:"black",
     alignSelf: 'center',
     fontWeight: '600',
-    marginBottom: responsiveHeight(2),
-    marginTop: responsiveHeight(5),
+    marginBottom:verticalScale(3),
+    marginTop: verticalScale(15),
   },
  
   choice: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '90%',
+    width: horizontalScale(10),
     alignSelf: 'center',
   },
   choicetxt: {
     color: 'rgb(123,89,233)',
   },
   btnstyle: {
-    marginTop: responsiveHeight(5),
+    marginTop: verticalScale(5),
   },
   pic: {
     height: responsiveHeight(12),
@@ -54,7 +57,7 @@ export default StyleSheet.create({
     position: 'absolute',
     justifyContent: 'center',
     alignSelf: 'center',
-    bottom: 0,
+    bottom: 0,  
     right: 0,
   },
   inner: {

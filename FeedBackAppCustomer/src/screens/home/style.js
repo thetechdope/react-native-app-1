@@ -31,8 +31,9 @@ export default StyleSheet.create({
     color: 'white',
   },
   container: {
-    position:"absolute",
-    marginTop:"42%",
+   
+   position:'relative',
+   top:-25,
     backgroundColor: 'white',
     width: '95%',
     alignSelf: 'center', 
@@ -46,7 +47,7 @@ export default StyleSheet.create({
      flexDirection: 'row',
      justifyContent: 'center',
      borderRadius: 20,
-     padding:10
+     padding:verticalScale(16)
  
   
 },
@@ -73,7 +74,7 @@ export default StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     height:150, 
-    marginTop:'8%'
+   
   
   
 },
@@ -81,7 +82,7 @@ export default StyleSheet.create({
   recently: {
     fontFamily: ROBOTO_LIGHT,
     fontSize:responsiveFontSize(2.5),
-    marginTop: responsiveHeight(8),
+    marginTop: responsiveHeight(2),
     justifyContent: 'center',
     alignSelf: 'center',
   },

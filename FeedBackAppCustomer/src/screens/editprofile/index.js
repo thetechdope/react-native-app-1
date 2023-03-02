@@ -8,7 +8,7 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './style';
@@ -72,11 +72,11 @@ const Editprofile = () => {
     try {
       const userData = JSON.parse(await AsyncStorage.getItem('user'));
       setUser(userData);
-      console.log('userData=>', user)
-      setFirstName(userData?.firstName)
-      setLastName(userData?.lastName)
-      setPhoneNumber(userData?.phoneNumber)
-      setSelectphoto(userData?.profileImage)
+      console.log('userData=>', user);
+      setFirstName(userData?.firstName);
+      setLastName(userData?.lastName);
+      setPhoneNumber(userData?.phoneNumber);
+      setSelectphoto(userData?.profileImage);
     } catch (error) {
       console.log(error);
     }
@@ -92,8 +92,8 @@ const Editprofile = () => {
 
   const customervalue = async () => {
     // if (
-    //   !firstName 
-    
+    //   !firstName
+
     // ) {
     //   alert('Please Enter  FirstName');
     // } else if(!lastName){
@@ -101,20 +101,20 @@ const Editprofile = () => {
     // }
     // else if(!phoneNumber){
     //   alert('Please Enter  Phonenumber');
-   
+
     // }else if(!selectphoto){
     //   alert('Please Add  Profile Photo');
     // }
     // else {
-      const formData = new FormData();
-    {selectphoto ? 
-      formData.append('avatar',selectphoto)
-      :
-      formData.append('avatar', {
-        uri: selectphoto,
-        type: 'image/jpg',
-        name: 'abc.jpg',
-      });
+    const formData = new FormData();
+    {
+      selectphoto
+        ? formData.append('avatar', selectphoto)
+        : formData.append('avatar', {
+            uri: selectphoto,
+            type: 'image/jpg',
+            name: 'abc.jpg',
+          });
     }
     formData.append('firstName', firstName);
     formData.append('lastName', lastName);
@@ -122,7 +122,7 @@ const Editprofile = () => {
     setRefreshing(true);
     const respone = await UpdateCustomerapi(formData);
     console.log(respone?.data?.data, '========>');
-    setRefreshing(false)
+    setRefreshing(false);
     if (respone?.data?.data) {
       await AsyncStorage.setItem('user', JSON.stringify(respone?.data?.data));
       alert('Successfully updated !');
@@ -131,102 +131,93 @@ const Editprofile = () => {
       alert('Update failed !');
     }
     // }
-   
   };
 
   return (
-    
-      
+    <CustomHeader>
       <ScrollView>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.inner}>
-            <CustomHeader>
-              <View style={styles.head}>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate(Routes.Settings);
-                  }}>
-                  <Ionicons name="arrow-back" size={30} />
-                </TouchableOpacity>
-                <Text style={styles.heading}>Edit Profile</Text>
-              </View>
-              <View style={styles.pic}>
-                {selectphoto ? (
-                  <Image
-                    source={{uri: selectphoto}}
-                    style={styles.selectedimage}
-                  />
-                ) : (
-                  <Image
-                    source={Logopath.Profiledefault}
-                    style={styles.selectedimage}
-                  />
-                )}
-               
-                  <TouchableOpacity onPress={() => openGallery()}>
-                    <Image source={Logopath.CameraImage} style={styles.picicons}/>
-                  </TouchableOpacity>
-                
-              </View>
+        <View style={styles.head}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(Routes.Settings);
+            }}>
+            <Ionicons name="arrow-back" size={30} />
+          </TouchableOpacity>
+          <Text style={styles.heading}>Edit Profile</Text>
+        </View>
+        <View style={styles.pic}>
+          {selectphoto ? (
+            <Image source={{uri: selectphoto}} style={styles.selectedimage} />
+          ) : (
+            <Image
+              source={Logopath.Profiledefault}
+              style={styles.selectedimage}
+            />
+          )}
 
-              <View style={styles.input}>
-                <Inputcomponents
-                  placeholder={user.firstName}
-                  label="First Name"
-                  value={firstName}
-                  onChangeText={txt => setFirstName(txt)}
-                />
-                <Inputcomponents
-                  placeholder={user.lastName}
-                  label="Last Name"
-                  value={lastName}
-                  onChangeText={txt => setLastName(txt)}
-                />
-                <Inputcomponents
-                  placeholder={user.email}
-                  label="Email"
-                  editable={false}
-                  selectTextOnFocus={false}
-                />
-                <Inputcomponents
-                  placeholder={user.phoneNumber}
-                  label="Phone No."
-                  value={phoneNumber}
-                  onChangeText={txt => setPhoneNumber(txt)}
-                />
-                <Inputcomponents
-                  placeholder={userlocation.city}
-                  label="Address"
-                  editable={false}
-                  selectTextOnFocus={false}
-                />
-              </View>
+          <TouchableOpacity onPress={() => openGallery()}>
+            <Image source={Logopath.CameraImage} style={styles.picicons} />
+          </TouchableOpacity>
+        </View>
 
-              {firstName===user?.firstName&&lastName===user?.lastName&&phoneNumber===user?.phoneNumber?
-                <Buttoncomponent
-              disabled={true}
-              refreshing={refreshing}
-              txtStyle={{color:'grey'}}
-                value={'UPDATE'}
-                onPress={() => {
-                  customervalue();
-                  // navigation.navigate(Routes.Otpverification);
-                }}
-              />:
-              <Buttoncomponent
-              refreshing={refreshing}
-                value={'UPDATE'}
-                onPress={() => {
-                  customervalue();
-                  // navigation.navigate(Routes.Otpverification);
-                }}
-              />
-              }
-            </CustomHeader>
-          </View>
-        </TouchableWithoutFeedback>
+        <View style={styles.input}>
+          <Inputcomponents
+            placeholder={user.firstName}
+            label="First Name"
+            value={firstName}
+            onChangeText={txt => setFirstName(txt)}
+          />
+          <Inputcomponents
+            placeholder={user.lastName}
+            label="Last Name"
+            value={lastName}
+            onChangeText={txt => setLastName(txt)}
+          />
+          <Inputcomponents
+            placeholder={user.email}
+            label="Email"
+            editable={false}
+            selectTextOnFocus={false}
+          />
+          <Inputcomponents
+            placeholder={user.phoneNumber}
+            label="Phone No."
+            value={phoneNumber}
+            onChangeText={txt => setPhoneNumber(txt)}
+          />
+          <Inputcomponents
+            placeholder={userlocation.city}
+            label="Address"
+            editable={false}
+            selectTextOnFocus={false}
+          />
+        </View>
+
+        {firstName === user?.firstName &&
+        lastName === user?.lastName &&
+        phoneNumber === user?.phoneNumber ? (
+          <Buttoncomponent
+            disabled={true}
+            refreshing={refreshing}
+            txtStyle={{color: 'grey'}}
+            value={'UPDATE'}
+            onPress={() => {
+              customervalue();
+              // navigation.navigate(Routes.Otpverification);
+            }}
+          />
+        ) : (
+          <Buttoncomponent
+            refreshing={refreshing}
+            value={'UPDATE'}
+            onPress={() => {
+              customervalue();
+              // navigation.navigate(Routes.Otpverification);
+            }}
+          />
+        )}
       </ScrollView>
-    
+    </CustomHeader>
   );
 };
 export default Editprofile;

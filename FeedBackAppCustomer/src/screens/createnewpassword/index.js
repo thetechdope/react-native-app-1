@@ -7,6 +7,7 @@ import Buttoncomponent from '../../components/butoncomponents';
 import style from './style';
 import newPasswordvalue from '../../components/ newPasswordvalue';
 import {Routes} from '../../navigation/Routes';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Createnewpassword = ({navigation}) => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -33,7 +34,7 @@ const Createnewpassword = ({navigation}) => {
 
   return (
     <CustomHeader>
-    <ScrollView>
+      <ScrollView>
       <TouchableOpacity
         onPress={() => {
           navigation.replace(Routes.Settings);
@@ -68,7 +69,7 @@ const Createnewpassword = ({navigation}) => {
         }}
         value={'Reset Password'}
       />
-      </ScrollView>
+       </ScrollView>
     </CustomHeader>
   );
 };

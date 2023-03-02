@@ -13,7 +13,8 @@ export default StyleSheet.create({
     marginTop: responsiveHeight(10),
     justifyContent: 'center',
     alignSelf: 'center',
-    width: responsiveWidth(90),
+    width: horizontalScale(300),
+    resizeMode:'contain'
     // fontSize: responsiveFontSize(2)
   },
   heading: {
@@ -24,6 +25,7 @@ export default StyleSheet.create({
     marginTop: responsiveHeight(6),
     marginBottom: responsiveHeight(5),
     fontFamily: ROBOTO_MEDIUM,
+     color:'black'
   },
   inputstyle: {
     marginTop: responsiveHeight(5),

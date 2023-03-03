@@ -49,7 +49,8 @@ const   CustomTab = ({state, descriptors, navigation}) => {
             });
           };
           return (
-            <TouchableOpacity
+          
+              <TouchableOpacity
               accessibilityRole="button"
               accessibilityState={isFocused ? {selected: true} : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -96,6 +97,9 @@ const   CustomTab = ({state, descriptors, navigation}) => {
                             <FontAwesome name="rocket" size={30} />
                         } */}
             </TouchableOpacity>
+          
+            
+            
           );
         })
       }

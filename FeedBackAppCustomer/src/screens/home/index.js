@@ -1,4 +1,4 @@
-import {Image, Modal, StyleSheet, Text, TextInput, View,TouchableOpacity, FlatList} from 'react-native';
+import {Image, Modal, StyleSheet, Text, TextInput, View,TouchableOpacity, FlatList, Pressable} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -116,19 +116,41 @@ console.log('feedback.length', feedback.length)
 
           <View style={styles.listitem}>
             <FlatList
-              data={feedback}
+            
+              data={feedback.reverse()}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item, index}) => {
                 return (
                   <Flatlistcomponents
                     item={item}
                     onPress={() =>
+                      // setModalVisible(true)
                       navigation.navigate(Routes.GiveFeedback, {item: item})
                     }
                   />
                 );
               }}
-            />
+             
+           />
+             <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
           </View>
         </>
       ) : (

@@ -70,19 +70,25 @@ const [refreshing, setRefreshing]=useState(false)
     }else if(!email){
       alert('Please Enter  Email');
     }else if(!phoneNumber){
-      alert('Please Enter  Phonenumber');
+      alert('Please Enter  Phone number');
+    }else if (phoneNumber.length!==10){
+      alert('Please Enter Correct Phone number')
     }else if(!password){
       alert('Please Enter  password');
-    }else if(!selectphoto){
-      alert('Please Add  Profile Photo');
+    }else if (password.length<6){
+      alert('Password must have minimum 6 characters')
     }
+    // else if(!selectphoto){
+    //   alert('Please Add  Profile Photo');
+    // }
     else {
       const formData = new FormData();
-      formData.append('avatar', {
+      {selectphoto && formData.append('avatar', {
         uri: selectphoto,
         type: 'image/jpg',
         name: 'abc.jpg',
-      });
+      })
+    }
       formData.append('firstName', firstName);
       formData.append('lastName', lastName);
       formData.append('email', email.toLowerCase());
@@ -96,7 +102,6 @@ const [refreshing, setRefreshing]=useState(false)
       formData,
     ).then(res=>{
       if(res.status==200){
-        Alert.alert("Success","Account created successfully")
         navigation.navigate(Routes.Otpverification, {email: email});
       }else{
         alert('')
@@ -148,7 +153,7 @@ const [refreshing, setRefreshing]=useState(false)
                   />
                 ) : (
                   <Image
-                    source={Logopath.Profiledefault}
+                    source={Logopath.Person}
                     style={styles.selectedimage}
                   />
                 )}

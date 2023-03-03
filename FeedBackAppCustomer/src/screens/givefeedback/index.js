@@ -31,7 +31,7 @@ const GiveFeedback = ({navigation, route: {params}}) => {
               marginLeft: '5%',
               fontFamily: ROBOTO_MEDIUM,
             }}>
-            {data?.businessEmail}
+            {data?.businessName}
           </Text>
           <Text
             style={{

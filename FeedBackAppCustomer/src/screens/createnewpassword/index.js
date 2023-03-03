@@ -7,7 +7,6 @@ import Buttoncomponent from '../../components/butoncomponents';
 import style from './style';
 import newPasswordvalue from '../../components/ newPasswordvalue';
 import {Routes} from '../../navigation/Routes';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const Createnewpassword = ({navigation}) => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -49,18 +48,21 @@ const Createnewpassword = ({navigation}) => {
         placeholder="Crrent Password"
         label="Current Password"
         value={currentPassword}
+         secureTextEntry={true}
         onChangeText={txt => setCurrentPassword(txt)}
       />
       <Inputcomponents
         placeholder="NewPassword"
         label="New Password"
         value={newPassword}
+        secureTextEntry={true}
         onChangeText={txt => setNewPassword(txt)}
       />
       <Inputcomponents
         placeholder="Confirm Password"
         label="Confirm Password"
         value={confirmPassword}
+        secureTextEntry={true}
         onChangeText={txt => setConfirmPassword(txt)}
       />
       <Buttoncomponent

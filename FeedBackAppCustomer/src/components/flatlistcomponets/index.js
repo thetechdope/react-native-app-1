@@ -1,12 +1,13 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Logopath} from '../../assets/images';
-import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
+import {ROBOTO_BLACK, ROBOTO_LIGHT, ROBOTO_MEDIUM, ROBOTO_REGULAR} from '../../assets/fonts';
 import moment from 'moment';
 import {
   responsiveHeight,
   responsiveWidth,
 } from 'react-native-responsive-dimensions';
+import { verticalScale } from '../responsive';
 
 export default function Flatlistcomponents({item, onPress}) {
   console.log('itemHom==>', item);
@@ -17,10 +18,11 @@ export default function Flatlistcomponents({item, onPress}) {
         backgroundColor: 'white',
         padding: responsiveWidth(2.5),
         width: responsiveWidth(90),
+        height:verticalScale(100),
         alignSelf: 'center',
         margin: responsiveWidth(1.3),
         borderRadius: responsiveWidth(4),
-        shadowOffset: {width: responsiveWidth(-2), height: responsiveHeight(3)},
+        shadowOffset: {width: responsiveWidth(-1.5), height: verticalScale(5)},
         shadowColor: '#171717',
         shadowOpacity: 0.2,
         shadowRadius: 3,
@@ -34,7 +36,7 @@ export default function Flatlistcomponents({item, onPress}) {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text style={styles.type}>{item.businessEmail}</Text>
+        <Text style={styles.type}>{item.businessName}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -103,14 +105,19 @@ export default function Flatlistcomponents({item, onPress}) {
         )}
 
         <Text
+        ellipsizeMode='tail' numberOfLines={2} 
           style={{
             marginLeft: responsiveWidth(4),
             flex: 1,
-            fontFamily: ROBOTO_LIGHT,
+            flexWrap: 'wrap',
+            fontFamily: ROBOTO_REGULAR,
+             color:'black'
+          
           }}>
           {item.feedback}
         </Text>
       </View>
+
     </TouchableOpacity>
   );
 }
@@ -118,5 +125,6 @@ export default function Flatlistcomponents({item, onPress}) {
 const styles = StyleSheet.create({
   type: {
     margin: 2,
+    fontFamily:ROBOTO_MEDIUM
   },
 });

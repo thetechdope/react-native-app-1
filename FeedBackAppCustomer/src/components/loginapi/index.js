@@ -25,8 +25,12 @@ const Loginapi = async customerinfo => {
       return {status: false};
     }
   } catch (err) {
-    console.log(err);
+    console.log('eror',err);
+    if(err?.response?.status==400){
+      return {Status: 400, data : err?.response?.data?.message}
+    }else{
     return {status: false};
+    }
   }
 };
 

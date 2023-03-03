@@ -86,13 +86,14 @@ export default StyleSheet.create({
   },
   listitem:{
     flex: 1, 
-    marginTop: responsiveHeight(2)
+    marginTop: responsiveHeight(2),
   },
 
   modalView: {
+    marginTop:verticalScale(150),
     backgroundColor: 'white',
     borderRadius: 20,
-    height:responsiveHeight(40),
+    height:verticalScale(400),
     width: responsiveWidth(90),
     borderRadius: responsiveWidth(2),
     shadowOffset: {width: responsiveWidth(-2), height: responsiveHeight(5)},
@@ -101,7 +102,7 @@ export default StyleSheet.create({
     shadowRadius: 8,
     alignSelf: 'center',
     justifyContent: 'center',
-    marginTop: responsiveHeight(70),
+   
   },
   modalText: {
     fontFamily: ROBOTO_MEDIUM,

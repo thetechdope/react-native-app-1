@@ -24,6 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loginapi from '../../components/loginapi';
 import {useHeaderHeight} from '@react-navigation/elements';
+import axios from 'axios';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -45,20 +46,37 @@ const Login = () => {
       };
       setRefreshing(true);
       let response = await Loginapi(parm);
-      console.log('response====', response);
+      // console.log('response====', response);
       setRefreshing(false);
-      console.log(response.status)
-      if (response.status) {
-        if (response.data.isActive) {
-          navigation.navigate(Routes.Home);
-        } else {
+      console.log('loginresponse==>',response)
+      if(response.status && response.data.isEmailVerfified && response.data.isActive){
+        navigation.navigate(Routes.Home);
+      }else if(response.status && response.data.isActive && response.data.isEmailVerfified==false){
+        console.log('email==>', email)
+            const responsdata = await axios.get(`http://34.212.54.70:3000/api/customers/resend-otp/${email.toLocaleLowerCase()}`)
+            .then(res=>{
+                navigation.navigate(Routes.Otpverification,{email:email})
+            }).catch(err=>alert('something went wrong'))
+        alert('Please verify your Email')
+        }else if(response.status && !response.data.isActive){
           alert('Account Has Been Blocked by Admin Panel');
+        }else if(response.Status==400){
+          alert('Email/Password is inccorect')
+        }else{
+          alert('Something went Wrong')
         }
-       
-      } else {
-        alert('Email / Password is Incorrect');
       }
-    }
+      // if (response.status) {
+      //   if (response.data.isActive) {
+      //     navigation.navigate(Routes.Home);
+      //   } else {
+      //     alert('Account Has Been Blocked by Admin Panel');
+      //   }
+       
+      // } else {
+      //   alert('Email / Password is Incorrect');
+      // }
+    // }
   };
 
   return (

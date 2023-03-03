@@ -1,9 +1,8 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
+import {responsiveHeight} from 'react-native-responsive-dimensions';
 import {ROBOTO_LIGHT, ROBOTO_MEDIUM} from '../../assets/fonts';
 const {width, height} = Dimensions.get('window');
-import {verticalScale} from '../../components/responsive'
-
+import {verticalScale} from '../../components/responsive';
 
 export default StyleSheet.create({
   head: {
@@ -24,7 +23,7 @@ export default StyleSheet.create({
     fontFamily: ROBOTO_MEDIUM,
     fontSize: 16,
     marginLeft: '10%',
-    marginVertical:verticalScale(10)
+    marginVertical: verticalScale(10),
   },
   txt: {
     marginLeft: '10%',
@@ -36,26 +35,27 @@ export default StyleSheet.create({
   imgdirection: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginVertical: verticalScale(20),
-    alignItems:'center',
+    alignItems: 'center',
+    height: verticalScale(150),
+    width: '100%',
   },
   input: {
-    height: 200,
+    height: verticalScale(200),
     width: '90%',
     borderWidth: 1,
     // marginTop: '6%',
     borderRadius: 8,
     alignSelf: 'center',
-    padding: 10,
+    textAlignVertical: 'top',
+    // padding: 10,
   },
   btn: {
-    marginTop: '15%',
+    marginTop: verticalScale(25),
   },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  
   },
   modalView: {
     backgroundColor: 'white',
@@ -69,7 +69,6 @@ export default StyleSheet.create({
     shadowRadius: 8,
     alignSelf: 'center',
     justifyContent: 'center',
-    
   },
   modalText: {
     fontFamily: ROBOTO_MEDIUM,
@@ -87,7 +86,6 @@ export default StyleSheet.create({
   btnhome: {
     position: 'absolute',
     top: 0,
-  
   },
   img: {
     height: 200,

@@ -37,6 +37,18 @@ function Settingsstack() {
     </Stack.Navigator>
   );
 }
+function FeedbackStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}   
+      >
+      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback} />
+      
+    </Stack.Navigator>
+  );
+}
 function Tabavigators() {
   return (
     <Tab.Navigator
@@ -46,7 +58,7 @@ function Tabavigators() {
     } 
       screenOptions={{headerShown: false, tabBarHideOnKeyboard: true,}}>
       <Tab.Screen name={Routes.Home} component={HomeStack} />
-      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback} />
+      <Tab.Screen name={Routes.Feedback} component={FeedbackStack} />
       <Tab.Screen name={Routes.Settings} component={Settingsstack} />
     </Tab.Navigator>
   );
@@ -73,7 +85,7 @@ export default function StackNavigator() {
         component={Screens.Resetpassword}
       />
       <Stack.Screen name={Routes.Addfeedback} component={Screens.Addfeedback} />
-      <Stack.Screen name={Routes.Feedback} component={Screens.Feedback} />
+     
 
       <Stack.Screen
         name={Routes.GiveFeedback}

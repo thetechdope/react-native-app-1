@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
+import {View, Text, SafeAreaView, Image, TouchableOpacity, ScrollView} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import style from './style';
 import CustomHeader from '../../components/customHeader';
@@ -33,7 +33,7 @@ const Otpverification = ({route: {params}}) => {
       alert("Enter Otp")
     }else{
       let body = {
-        email: email,
+        email: email.toLowerCase(),
         otp: otp,
       };
    const otpVerify= await  axios
@@ -73,6 +73,7 @@ const reSendOtp =async()=>{
     console.log("========12222223333", responsdata)
   }catch(err){
     console.log("wwwwwwwwwwwwwww==>",err)
+    alert('Something went wrong')
   }
 
 }

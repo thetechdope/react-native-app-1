@@ -109,12 +109,12 @@ const Editprofile = () => {
     const formData = new FormData();
     {
       selectphoto
-        ? formData.append('avatar', selectphoto)
-        : formData.append('avatar', {
-            uri: selectphoto,
-            type: 'image/jpg',
-            name: 'abc.jpg',
-          });
+        && formData.append('avatar', selectphoto)
+        // : formData.append('avatar', {
+        //     uri: "",
+        //     type: 'image/jpg',
+        //     name: 'abc.jpg',
+        //   });
     }
     formData.append('firstName', firstName);
     formData.append('lastName', lastName);

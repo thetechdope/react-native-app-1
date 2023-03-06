@@ -1,4 +1,4 @@
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CustomHeader from '../../components/customHeader';
 import LinearGradient from 'react-native-linear-gradient';
@@ -9,6 +9,7 @@ import {Routes} from '../../navigation/Routes';
 import {Logopath} from '../../assets/images';
 import styles from '../settings/styles';
 import {verticalScale,horizontalScale} from '../../components/responsive'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const GiveFeedback = ({navigation, route: {params}}) => {
   const [data, setData] = useState({});
@@ -18,6 +19,10 @@ const GiveFeedback = ({navigation, route: {params}}) => {
   return (
     <CustomHeader>
       <ScrollView>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}>
+        <Ionicons name="arrow-back" size={30} style={style.icons} />
+      </TouchableOpacity>
         {data && data?.businessImage ? 
         <Image style={style.BannerImage} source={{uri:data?.businessImage}} />:
         <Image style={style.BannerImage} source={Logopath.Person} />

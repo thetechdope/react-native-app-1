@@ -69,18 +69,19 @@ const Settings = ({navigation}) => {
 
   const clearAsyncStorage = async () => {
     // AsyncStorage.clear();
+    props.navigation.replace('Login');
     try {
       const asyncStorageKeys = await AsyncStorage.getAllKeys();
       if (asyncStorageKeys.length > 0) {
         if (Platform.OS === 'android') {
           await AsyncStorage.clear();
           console.log('async items cleared android');
-          props.navigation.replace('Login');
+          navigation.replace('Login');
         }
         if (Platform.OS === 'ios') {
           await AsyncStorage.multiRemove(asyncStorageKeys);
           console.log('async items cleared from ios');
-          props.navigation.replace('Login');
+          navigation.replace('Login');
         }
       }
     } catch (error) {

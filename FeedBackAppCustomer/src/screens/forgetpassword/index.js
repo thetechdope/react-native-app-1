@@ -17,15 +17,20 @@ const Forgetpassword = () => {
   const [email, setEmail] = useState('');
 
   const resetPassword = async () => {
+    console.log("abcdefghijklmnopqrst", email)
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.+com)+$/;
      if (!email) {
       alert('please enter details');
     }else if (reg.test(email) === false) {
       alert('Email is Not Correct')
     }else{
-    const response = await axios.get(
-      `http://34.212.54.70:3000/api/customers/forgot-password/${email}`,
-    );
+   const response=  await axios.get(
+      `http://34.212.54.70:3000/api/customers/forgot-password/${email.toLocaleLowerCase()}`,
+    ).then((res)=>{
+      console.log("ressssssssss=>",res)
+    }).catch((err)=>{
+      console.log("errrrrrrr1", err)
+    })
     console.log('=========>', response);
     navigation.navigate(Routes.Otpverification, {
       email: email.toLowerCase(),

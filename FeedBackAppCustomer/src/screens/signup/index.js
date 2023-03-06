@@ -49,9 +49,10 @@ const [refreshing, setRefreshing]=useState(false)
     // selectphoto.push(result.assets.uri)
   };
   const customervalue = async () => {
-    console.log('firstName', firstName)
-    console.log('lastName', lastName)
-    console.log('email', email )
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.+com)+$/;
+    // console.log('firstName', firstName)
+    // console.log('lastName', lastName)
+    // console.log('email', email )
     //   firstName: firstName,
     //   lastName: lastName,
     //   email: email,
@@ -69,6 +70,8 @@ const [refreshing, setRefreshing]=useState(false)
       alert('Please Enter  LastName');
     }else if(!email){
       alert('Please Enter  Email');
+    }else  if (reg.test(email) === false) {
+      alert('Email is Not Correct')
     }else if(!phoneNumber){
       alert('Please Enter  Phone number');
     }else if (phoneNumber.length!==10){

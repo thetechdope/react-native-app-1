@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {verticalScale} from '../../components/responsive'
+import {horizontalScale, verticalScale} from '../../components/responsive'
 
 export default StyleSheet.create({
   BannerImage: {
     height: verticalScale(200),
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     margin: '2%',
     resizeMode: 'cover',
     width: '96%', 
@@ -22,4 +22,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#797979',
   },
+   icons:{
+    marginLeft:horizontalScale(15), 
+    marginTop:verticalScale(10)
+   }
 });

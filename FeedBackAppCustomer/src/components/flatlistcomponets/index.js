@@ -10,7 +10,7 @@ import {
 import { verticalScale } from '../responsive';
 
 export default function Flatlistcomponents({item, onPress}) {
-  console.log('itemHom==>', item);
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -22,7 +22,7 @@ export default function Flatlistcomponents({item, onPress}) {
         alignSelf: 'center',
         margin: responsiveWidth(1.3),
         borderRadius: responsiveWidth(4),
-        shadowOffset: {width: responsiveWidth(-1.5), height: verticalScale(5)},
+        shadowOffset: {width: responsiveWidth(-1.5), height: verticalScale(8)},
         shadowColor: '#171717',
         shadowOpacity: 0.2,
         shadowRadius: 3,
@@ -48,7 +48,7 @@ export default function Flatlistcomponents({item, onPress}) {
               source={Logopath.Redemoji}
               style={{
                 width: responsiveWidth(8),
-                height: responsiveHeight(5),
+                height: responsiveHeight(3.5),
                 resizeMode: 'contain',
               }}
             />
@@ -57,7 +57,7 @@ export default function Flatlistcomponents({item, onPress}) {
               source={Logopath.Yellowemoji}
               style={{
                 width: responsiveWidth(8),
-                height: responsiveHeight(5),
+                height: responsiveHeight(3.5),
                 resizeMode: 'contain',
               }}
             />
@@ -66,12 +66,14 @@ export default function Flatlistcomponents({item, onPress}) {
               source={Logopath.Greenemoji}
               style={{
                 width: responsiveWidth(8),
-                height: responsiveHeight(5),
+                height: responsiveHeight(3.5),
                 resizeMode: 'contain',
               }}
             />
           )}
           <Text>{moment(new Date(parseInt(item.createdAt))).fromNow()}</Text>
+         
+
           {/* <Text>{moment().diff(moment(new Date(item.createdAt)), "days")}</Text> */}
         </View>
       </View>
@@ -81,6 +83,7 @@ export default function Flatlistcomponents({item, onPress}) {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
+           marginBottom:verticalScale(10)
         }}>
         {item?.businessImage !== '' ? (
           <Image

@@ -14,21 +14,50 @@ const Createnewpassword = ({navigation}) => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const changePassword = async () => {
-    let parm = {
-      currentPassword: currentPassword,
-      newPassword: newPassword,
-      confirmPassword: confirmPassword,
-    };
 
-    let response = await newPasswordvalue(parm);
-    console.log('response====', response);
-
-    if (response?.status) {
-      alert('Password Change Sucessfully');
-      navigation.navigate(Routes.Settings);
-    } else {
-      alert('Failed to change Password');
+    if(!currentPassword && !newPassword &&!confirmPassword){
+      alert("Please Enter Details")
+    }else if(!currentPassword){
+      alert("Please Enter Current Password")
     }
+    else if(!newPassword){
+      alert("Please Enter New Password")
+    }
+    else if(!confirmPassword){
+      alert("Please Confirm your Password")
+    }else if(currentPassword.length<6 ){
+      alert("Password must have minimum 6 characters")
+    }
+    else if(newPassword.length<6){
+      alert("Password must have minimum 6 characters")
+    }
+    else if(confirmPassword.length<6){
+      alert("Password must have minimum 6 characters")
+
+    } 
+    else if(newPassword!==confirmPassword){
+      alert("Password Is Not Matched")
+    }else if(newPassword===currentPassword){
+      alert("New Password can't be same as Current Password!")
+    }
+    else{
+      let parm = {
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+        confirmPassword: confirmPassword,
+      };
+  
+      let response = await newPasswordvalue(parm);
+      console.log('response====', response);
+  
+      if (response?.status) {
+        alert('Password Change Sucessfully');
+        navigation.navigate(Routes.Settings);
+      } else {
+        alert('Failed to change Password');
+      }
+    }
+   
   };
 
   return (

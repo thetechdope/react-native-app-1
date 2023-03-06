@@ -15,13 +15,14 @@ const Feedback = ({navigation}) => {
 
   useEffect(() => {
     getUser();
-    getUserFeedback();
-  },[email]);
+   
+  },);
 
   const getUser = async () => {
     try {
       const user = JSON.parse(await AsyncStorage.getItem('user'));
       setEmail(user.email);
+      getUserFeedback();
     } catch (error) {
       alert(error);
     }
@@ -30,7 +31,7 @@ const Feedback = ({navigation}) => {
     const response = await axios.get(
       `http://34.212.54.70:3000/api/feedbacks/customer/${email}`,
     );
-    console.log("response.data=====>",)
+    // console.log("response.data=====>",response)
     setFeedback(response.data);
   };
 
@@ -43,7 +44,8 @@ const Feedback = ({navigation}) => {
         <Text style={styles.heading}>Feedback</Text>
       </View>
       <View style={{marginTop: '10%', flex: 1}}>
-        {feedback.length!==0?<FlatList
+        {feedback.length!==0?
+        <FlatList
           data={feedback.reverse()}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {

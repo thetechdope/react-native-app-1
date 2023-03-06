@@ -10,6 +10,7 @@ import {
   ScrollView,
   Keyboard,
   TouchableWithoutFeedback,
+  Alert,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import styles from './style';
@@ -60,9 +61,14 @@ const Login = () => {
         alert('Please verify your Email')
         }else if(response.status && !response.data.isActive){
           alert('Account Has Been Blocked by Admin Panel');
-        }else if(response.Status==400){
+        }
+        else if(response.Status==400){
           alert('Email/Password is inccorect')
-        }else{
+        }
+        else if(response.data){
+          Alert.alert("Warning!",`${response.data}`)
+        }
+        else{
           alert('Something went Wrong')
         }
       }

@@ -1,4 +1,14 @@
-import {Image, Modal, StyleSheet, Text, TextInput, View,TouchableOpacity, FlatList, Pressable} from 'react-native';
+import {
+  Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  FlatList,
+  Pressable,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -17,18 +27,17 @@ export default function Home({navigation}) {
 
   const [search, setSearch] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-// console.log('feedback.length', feedback.length)
+  // console.log('feedback.length', feedback.length)
   const getAllFeedbackData = async () => {
     const response = await axios.get('http://34.212.54.70:3000/api/feedbacks');
     setFeedback(response.data);
-  //  console.log('responsefeedback==>', response)
+    //  console.log('responsefeedback==>', response)
   };
   const businesCheck = async () => {
     const respo = await axios.get('http://34.212.54.70:3000/api/businesses');
-    // console.log("gfgg===>",respo.data)  
-    setBusiness(respo.data)
-    
-  }
+    // console.log("gfgg===>",respo.data)
+    setBusiness(respo.data);
+  };
 
   const handleSearch = searchText => {
     if (searchText) {
@@ -74,39 +83,46 @@ export default function Home({navigation}) {
           </TouchableOpacity>
           <Text style={styles.heading}>Home</Text>
         </View>
-
-       
       </View>
-      <View style={styles.container}
-         >
-          <TextInput
-            autoCapitalize="none"
-            autoCorrect={false}
-            clearButtonMode="always"
-            value={search}
-            onChangeText={searchText => handleSearch(searchText)}
-            placeholder="Search here to provie feedbak"
-            style={styles.subhead}
-         
-          />
+      <View style={styles.container}>
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="always"
+          value={search}
+          onChangeText={searchText => handleSearch(searchText)}
+          placeholder="Search here to provie feedbak"
+          style={styles.subhead}
+        />
 
-          <TouchableOpacity>
-            <Icon name="search-outline" size={20} />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity>
+          <Icon name="search-outline" size={20} />
+        </TouchableOpacity>
+      </View>
       {search.length !== 0 ? (
-        <View  style={styles.flat}>
-          <FlatList
-          showsHorizontalScrollIndicator={false}
-            data={filterData}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item, index}) => {
-              return(
-                 <Text style={{fontSize:16, padding:8,  }}
-                 onPress={()=>navigation.navigate(Routes.GiveFeedback, {"item":item})}
-                 >{item.businessEmail}</Text> )
-            }}
-          />
+        <View style={styles.flat}>
+          { filterData.length==0 ?<Text style={{
+            // backgroundColor:'red'
+          }}>
+            Not matched !
+          </Text>:
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={filterData}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({item, index}) => {
+                return (
+                  <Text
+                    style={{fontSize: 16, padding: 8}}
+                    onPress={() =>
+                      navigation.navigate(Routes.GiveFeedback, {item: item})
+                    }>
+                    {item.businessEmail}
+                  </Text>
+                );
+              }}
+            />
+          }
         </View>
       ) : null}
 
@@ -116,7 +132,6 @@ export default function Home({navigation}) {
 
           <View style={styles.listitem}>
             <FlatList
-            
               data={feedback.reverse()}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item, index}) => {
@@ -130,27 +145,26 @@ export default function Home({navigation}) {
                   />
                 );
               }}
-             
-           />
-             <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+            />
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModalVisible(!modalVisible);
+              }}>
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <Text style={styles.modalText}>Hello World!</Text>
+                  <Pressable
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={styles.textStyle}>Hide Modal</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </Modal>
           </View>
         </>
       ) : (

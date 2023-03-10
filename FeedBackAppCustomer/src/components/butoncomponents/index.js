@@ -1,8 +1,7 @@
-import { View, Text } from 'react-native'
+import { View, Text , TouchableOpacity} from 'react-native'
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './style'
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from "react-native-linear-gradient"
 
 const Buttoncomponent = ({value,onPress}) => {
     return (

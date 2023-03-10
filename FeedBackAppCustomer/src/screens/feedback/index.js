@@ -15,13 +15,14 @@ const Feedback = ({navigation}) => {
 
   useEffect(() => {
     getUser();
-    getUserFeedback();
-  });
+   
+  },);
 
   const getUser = async () => {
     try {
       const user = JSON.parse(await AsyncStorage.getItem('user'));
       setEmail(user.email);
+      getUserFeedback();
     } catch (error) {
       alert(error);
     }
@@ -30,7 +31,8 @@ const Feedback = ({navigation}) => {
     const response = await axios.get(
       `http://34.212.54.70:3000/api/feedbacks/customer/${email}`,
     );
-    setFeedback( response.data);
+    // console.log("response.data=====>",response)
+    setFeedback(response.data);
   };
 
   return (
@@ -42,18 +44,25 @@ const Feedback = ({navigation}) => {
         <Text style={styles.heading}>Feedback</Text>
       </View>
       <View style={{marginTop: '10%', flex: 1}}>
+        {feedback.length!==0?
         <FlatList
-          data={feedback}
+          data={feedback.reverse()}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {
             return (
               <Flatlistcomponents
                 item={item}
-                onPress={() => navigation.navigate(Routes.GiveFeedback, {"item":item})}
+                onPress={() =>
+                  navigation.navigate(Routes.GiveFeedback, {item: item})
+                }
               />
             );
           }}
-        />
+        />:
+        <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+        <Text style={{fontWeight:'500', fontSize:18}}>NO Data Found</Text>
+        </View>
+        }
       </View>
     </CustomHeader>
   );

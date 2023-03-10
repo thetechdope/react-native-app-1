@@ -16,7 +16,7 @@ export default function Homeindex() {
 
 const styles = StyleSheet.create({
   img: {
-    marginTop:'25%',
+    marginTop: '25%',
     justifyContent: 'center',
     alignItems: 'center',
     resizeMode: 'contain',
